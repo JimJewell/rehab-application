@@ -4,15 +4,6 @@ import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
-import org.wecancodeit.collectionmasteryapi.models.Actress;
-import org.wecancodeit.collectionmasteryapi.models.Clip;
-import org.wecancodeit.collectionmasteryapi.models.Movie;
-import org.wecancodeit.collectionmasteryapi.models.Rating;
-import org.wecancodeit.collectionmasteryapi.models.Tag;
-import org.wecancodeit.collectionmasteryapi.repositories.ActressRepository;
-import org.wecancodeit.collectionmasteryapi.repositories.ClipRepository;
-import org.wecancodeit.collectionmasteryapi.repositories.MovieRepository;
-import org.wecancodeit.collectionmasteryapi.repositories.TagRepository;
 
 import com.rehab.rehabapp.models.Question;
 import com.rehab.rehabapp.repositories.QuestionRepository;

@@ -13,13 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.wecancodeit.collectionmasteryapi.models.Actress;
-import org.wecancodeit.collectionmasteryapi.models.Rating;
-import org.wecancodeit.collectionmasteryapi.models.Tag;
-import org.wecancodeit.collectionmasteryapi.repositories.ActressRepository;
-import org.wecancodeit.collectionmasteryapi.repositories.ClipRepository;
-import org.wecancodeit.collectionmasteryapi.repositories.MovieRepository;
-import org.wecancodeit.collectionmasteryapi.repositories.TagRepository;
 
 import com.rehab.rehabapp.models.Question;
 import com.rehab.rehabapp.repositories.QuestionRepository;

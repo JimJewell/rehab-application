@@ -1,22 +1,16 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import Question from './Question'
 
 export default class Survey extends Component {
+    
   render() {
     return (
       <div>
-        <form>
-            return this.props.questions.map((question) => (
+            {this.props.questions.map((question) => (
                 <Question question={question} />
-            ))
-        </form>
+            ))}
       </div>
     )
   }
 }
 
-
-//PropTypes
-Survey.propTypes = {
-    questions: PropTypes.object.isRequired
-}

@@ -4,15 +4,17 @@ import Survey from './components/Survey'
 
 
 class App extends Component {
-
   state = {
-    questions: []
+    categories: []
   }
 
   componentDidMount() {
     fetch("/questions")
         .then(response => response.json())
-        .then(data => this.setState({ questions: data }))
+        .then(response => console.log(response))
+        .then(data => {
+          this.setState({categories: data})
+        })
         .catch(err => console.log(err))
   }
 
