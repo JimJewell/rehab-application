@@ -28,18 +28,13 @@ class App extends Component {
 
   }
   render() {
-    return (//(this.state.survey === {}) ? 
-          
-            <div className="App">  
-                {this.state.survey && <Survey survey={this.state.survey} />}
-           
-           
-          { !this.state.survey &&  
-            <SurveyList surveys = {this.state.surveys} setSurveyById = {this.setSurveyById} />}
+    return (
+      <div className="App">  
+                
+        {this.state.survey && <Survey survey={this.state.survey} />}   
+        {!this.state.survey &&  <SurveyList surveys = {this.state.surveys} setSurveyById = {this.setSurveyById} />}
              
-         
-          
-            </div>)
+      </div>)
   }
 }
 

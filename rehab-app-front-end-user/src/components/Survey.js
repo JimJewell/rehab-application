@@ -4,11 +4,6 @@ import Question from './Question'
 
 export default class Survey extends Component { 
 
-  
- onClick = () => {
-
- }
-
   render() {
     return (
       <div>
@@ -17,16 +12,14 @@ export default class Survey extends Component {
         {this.props.survey.questions.map((question) => (
             <Question key={question.id} question={question} />
         ))}
-        <input  
-          type="submit" 
-          value="Submit" 
-          className="btn"
-          onClick={this.onClick()}
-          style={{flex: '1'}}
-        />
+        <button style={buttonStyle}>Submit</button>
         
       </div>
     )
   }
+}
+
+const buttonStyle = {
+  flex: '1'
 }
 
