@@ -15,9 +15,8 @@ export default class Survey extends Component {
   render() {
     return (
       <div>
-        {console.log(this.props.questions)}
         <form onSubmit={this.onSubmit}>
-        <input type="text" placeholder="Survey Name"></input>
+        <h1>{this.props.survey.name}</h1>
         {this.props.survey.questions.map((question) => (
             <Question key={question.id} question={question} />
         ))}

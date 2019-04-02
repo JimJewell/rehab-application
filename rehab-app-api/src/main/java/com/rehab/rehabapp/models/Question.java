@@ -5,6 +5,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Question{
 
@@ -17,6 +19,7 @@ public class Question{
 	private String value;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Survey survey;
 
 	public Question() {

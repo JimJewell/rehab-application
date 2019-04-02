@@ -9,7 +9,7 @@ import axios from 'axios';
 class App extends Component {
   state = {
     surveys: [],
-    survey: ''
+    survey: {}
   }
 
   componentDidMount() {
@@ -17,20 +17,23 @@ class App extends Component {
       .then(res => this.setState({ surveys: res.data }))
   }
 
-  SurveySelect = (survey) => {
-    this.setState({ survey})
-}
+  setSurveyById = (id) => {
+    axios.get(`/surveys/${id}`)
+     .then(res => this.setState({ survey: res.data }))
+  }
 
   render() {
-    return this.state.surveyId ? 
+    return (this.state.survey == {}) ? 
           (
-            <div className="App">       
+            <div className="App">  
+            {/* {console.log( this.state.survey) }    */}
                 <Survey survey={this.state.survey} />
             </div>
           ) :
           ( <div className="App">
           <h1>Pick a survey</h1>  
-            <SurveyList survey = {this.state.surveys} surveySelect = {this.SurveySelect} />
+            <SurveyList surveys = {this.state.surveys} setSurveyById = {this.setSurveyById} />
+            {console.log( this.state.survey) }
           </div>) ;
   }
 }
