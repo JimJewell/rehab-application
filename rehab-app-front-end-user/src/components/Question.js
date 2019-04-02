@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import SelectDifficulty from './SelectDifficulty'
 
 export default class Question extends Component {
   render() {
     return (
-      <div>
-        <input>question test</input>
+      <div style={{display: "flex"}}>
+        <h5>{this.props.question.name}</h5>
+        <SelectDifficulty />
       </div>
     )
   }

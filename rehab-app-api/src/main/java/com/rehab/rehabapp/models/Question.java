@@ -31,6 +31,11 @@ public class Question{
 		this.value = value;
 	}
 	
+	public Question(String name, Survey survey) {
+		this.name = name;
+		this.survey = survey;
+	}
+	
 	public Question(String name, String value, Survey survey) {
 		this.name = name;
 		this.value = value;

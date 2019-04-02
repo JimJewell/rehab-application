@@ -1,30 +1,37 @@
 import React, { Component } from 'react'
 import './App.css'
 import Survey from './components/Survey'
+import SurveyList from './components/SurveyList'
+
+import axios from 'axios';
 
 
 class App extends Component {
   state = {
-    categories: []
+    surveys: [],
+    survey: ''
   }
 
   componentDidMount() {
-    fetch("/questions")
-        .then(response => response.json())
-        .then(response => console.log(response))
-        .then(data => {
-          this.setState({categories: data})
-        })
-        .catch(err => console.log(err))
+    axios.get('/surveys')
+      .then(res => this.setState({ surveys: res.data }))
   }
 
+  SurveySelect = (survey) => {
+    this.setState({ survey})
+}
+
   render() {
-    return (
-      <div className="App">
-          <h1>test</h1>
-          <Survey questions={this.state.questions} />
-      </div>
-    );
+    return this.state.surveyId ? 
+          (
+            <div className="App">       
+                <Survey survey={this.state.survey} />
+            </div>
+          ) :
+          ( <div className="App">
+          <h1>Pick a survey</h1>  
+            <SurveyList survey = {this.state.surveys} surveySelect = {this.SurveySelect} />
+          </div>) ;
   }
 }
 

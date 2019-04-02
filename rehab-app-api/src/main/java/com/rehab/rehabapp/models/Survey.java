@@ -39,6 +39,11 @@ public class Survey{
 	public Survey() {
 	}
 
+	public Survey(String name) {
+		this.name = name;
+		this.questions = new ArrayList<Question>();
+	}
+	
 	public Survey(String name, String date) {
 		this.name = name;
 		this.questions = new ArrayList<Question>();
