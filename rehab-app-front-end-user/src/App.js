@@ -25,21 +25,21 @@ class App extends Component {
   addSurvey = (survey) => {
     axios.post('/surveys/addSurveys', {survey})
     .then(res => this.setState({ surveys: res.data}))
-
   }
+
+  submitSurvey = (name, questions) => {
+    console.log(questions)
+    axios.post('/surveys/submit', {name, questions})
+  }
+
   render() {
-    return (//(this.state.survey === {}) ? 
-          
-            <div className="App">  
-                {this.state.survey && <Survey survey={this.state.survey} />}
-           
-           
-          { !this.state.survey &&  
-            <SurveyList surveys = {this.state.surveys} setSurveyById = {this.setSurveyById} />}
+    return (
+      <div className="App">  
+                
+        {this.state.survey && <Survey survey={this.state.survey} submitSurvey={this.submitSurvey} />}   
+        {!this.state.survey &&  <SurveyList surveys = {this.state.surveys} setSurveyById = {this.setSurveyById} />}
              
-         
-          
-            </div>)
+      </div>)
   }
 }
 
