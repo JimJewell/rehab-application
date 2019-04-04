@@ -1,7 +1,6 @@
 package com.rehab.rehabapp.controllers;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.Collection;
 
 import javax.annotation.Resource;
@@ -17,9 +16,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rehab.rehabapp.models.Question;
+import com.rehab.rehabapp.models.SubmittedQuestion;
+import com.rehab.rehabapp.models.SubmittedSurvey;
 import com.rehab.rehabapp.models.Survey;
 import com.rehab.rehabapp.repositories.QuestionRepository;
+import com.rehab.rehabapp.repositories.SubmittedQuestionRepository;
+import com.rehab.rehabapp.repositories.SubmittedSurveyRepository;
 import com.rehab.rehabapp.repositories.SurveyRepository;
 
 @CrossOrigin
@@ -32,6 +34,12 @@ public class SurveyController {
 	
 	@Resource
 	SurveyRepository surveyRepo;
+	
+	@Resource
+    SubmittedQuestionRepository submitQuestionRepo;
+    
+    @Resource
+    SubmittedSurveyRepository submitSurveyRepo;
 	
 	@GetMapping("")
 	public Collection<Survey> getSurveys() {
@@ -58,23 +66,24 @@ public class SurveyController {
 	}
 	
 	@PostMapping("/submit")
-	public void submitSurvey(@RequestBody String body) throws JSONException {
-		JSONObject json = new JSONObject(body);
-		String name = json.getString("name");
-		Survey survey = surveyRepo.findByName(name);
-		JSONArray questionCollections = json.getJSONArray("questions");
-		
-		JSONObject jsonOne;
-		
-		LocalDate date =  LocalDate.now();
-		
-		for (int i = 0 ; i < questionCollections.length() ; i++ ) {
-			 jsonOne = (JSONObject) questionCollections.get(i);
-			 String nameToMake = jsonOne.getString("name");
-			 String value = jsonOne.getString("value");
-			 questionRepo.save(new Question(nameToMake, value, survey, date));
-		}
-	}
+    public void submitSurvey(@RequestBody String body) throws JSONException {
+        JSONObject json = new JSONObject(body);
+        String name = json.getString("name");
+        Survey survey = surveyRepo.findByName(name);
+        SubmittedSurvey submittedSurvey = submitSurveyRepo.save(new SubmittedSurvey(survey.getName()));
+        JSONArray questionCollections = json.getJSONArray("questions");
+        
+        JSONObject jsonOne;
+        
+        LocalDate date =  LocalDate.now();
+        
+        for (int i = 0 ; i < questionCollections.length() ; i++ ) {
+             jsonOne = (JSONObject) questionCollections.get(i);
+             String nameToMake = jsonOne.getString("name");
+             String value = jsonOne.getString("value");
+             submitQuestionRepo.save(new SubmittedQuestion(nameToMake, value, submittedSurvey));
+        }       
+    }
 }
 
 
