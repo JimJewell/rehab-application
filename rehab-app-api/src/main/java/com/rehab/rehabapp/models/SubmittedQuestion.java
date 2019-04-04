@@ -1,5 +1,7 @@
 package com.rehab.rehabapp.models;
 
+import java.time.LocalDate;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,31 +20,41 @@ public class SubmittedQuestion {
 
 	private String value;
 
+	private LocalDate date;
 	@ManyToOne
 	@JsonIgnore
 	private SubmittedSurvey submittedSurvey;
+
 
 	public SubmittedQuestion() {
 	}
 
 	public SubmittedQuestion(String name) {
 		this.name = name;
+		this.date = LocalDate.now();
+
 	}
 
 	public SubmittedQuestion(String name, String value) {
 		this.name = name;
 		this.value = value;
-	}
-
-	public SubmittedQuestion(String name, SubmittedSurvey submittedSurvey) {
-		this.name = name;
-		this.submittedSurvey = submittedSurvey;
+		this.date = LocalDate.now();
 	}
 
 	public SubmittedQuestion(String name, String value, SubmittedSurvey submittedSurvey) {
 		this.name = name;
 		this.value = value;
 		this.submittedSurvey = submittedSurvey;
+		this.date = LocalDate.now();
+
+	}
+	
+	public SubmittedQuestion(String name, String value, SubmittedSurvey submittedSurvey, LocalDate date) {
+		this.name = name;
+		this.value = value;
+		this.submittedSurvey = submittedSurvey;
+		this.date = date;
+
 	}
 
 	public Long getId() {
@@ -59,6 +71,10 @@ public class SubmittedQuestion {
 
 	public SubmittedSurvey getSubmittedSurvey() {
 		return submittedSurvey;
+	}
+	
+	public LocalDate getDate() {
+		return date;
 	}
 
 	public void addSubmittedSurveyToSubmittedQuestion(SubmittedSurvey submittedSurvey) {

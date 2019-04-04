@@ -1,4 +1,4 @@
-package com.rehab.rehabapp.models;
+	package com.rehab.rehabapp.models;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -66,8 +66,6 @@ public class Question{
 	public Survey getSurvey() {
 		return survey;
 			}
-	
-	
 	
 	public LocalDate getDate() {
 		return date;

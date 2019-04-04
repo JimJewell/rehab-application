@@ -1,5 +1,6 @@
 package com.rehab.rehabapp.models;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -17,11 +18,20 @@ public class SubmittedSurvey{
 
 	private String name;
 	
-	private String date;
+	private LocalDate date;
 	
 	@OneToMany(mappedBy="submittedSurvey")
 	private Collection<SubmittedQuestion> submittedQuestions;
+	
+	public SubmittedSurvey() {
+	}
 
+	public SubmittedSurvey(String name) {
+		this.name = name;
+		this.submittedQuestions = new ArrayList<SubmittedQuestion>();
+		this.date = LocalDate.now();
+	}
+	
 	public Long getId() {
 		return id;
 	}
@@ -34,14 +44,6 @@ public class SubmittedSurvey{
 		return submittedQuestions;
 	}
 
-	public SubmittedSurvey() {
-	}
-
-	public SubmittedSurvey(String name) {
-		this.name = name;
-		this.submittedQuestions = new ArrayList<SubmittedQuestion>();
-	}
-	
 	public void addSubmittedQuestionToSubmission(SubmittedQuestion submittedQuestion) {
 		submittedQuestions.add(submittedQuestion);
 	}
