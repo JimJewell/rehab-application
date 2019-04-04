@@ -30,16 +30,17 @@ import com.rehab.rehabapp.repositories.SurveyRepository;
 public class SurveyController {
 	
 	@Resource
+	SubmittedQuestionRepository submitQuestionRepo;
+	
+	@Resource
+	SubmittedSurveyRepository submitSurveyRepo;
+	
+	
+	@Resource
 	QuestionRepository questionRepo;
 	
 	@Resource
 	SurveyRepository surveyRepo;
-	
-	@Resource
-    SubmittedQuestionRepository submitQuestionRepo;
-    
-    @Resource
-    SubmittedSurveyRepository submitSurveyRepo;
 	
 	@GetMapping("")
 	public Collection<Survey> getSurveys() {
@@ -66,24 +67,24 @@ public class SurveyController {
 	}
 	
 	@PostMapping("/submit")
-    public void submitSurvey(@RequestBody String body) throws JSONException {
-        JSONObject json = new JSONObject(body);
-        String name = json.getString("name");
-        Survey survey = surveyRepo.findByName(name);
-        SubmittedSurvey submittedSurvey = submitSurveyRepo.save(new SubmittedSurvey(survey.getName()));
-        JSONArray questionCollections = json.getJSONArray("questions");
-        
-        JSONObject jsonOne;
-        
-        LocalDate date =  LocalDate.now();
-        
-        for (int i = 0 ; i < questionCollections.length() ; i++ ) {
-             jsonOne = (JSONObject) questionCollections.get(i);
-             String nameToMake = jsonOne.getString("name");
-             String value = jsonOne.getString("value");
-             submitQuestionRepo.save(new SubmittedQuestion(nameToMake, value, submittedSurvey));
-        }       
-    }
+	public void submitSurvey(@RequestBody String body) throws JSONException {
+		JSONObject json = new JSONObject(body);
+		String name = json.getString("name");
+		Survey survey = surveyRepo.findByName(name);
+		SubmittedSurvey submittedSurvey = submitSurveyRepo.save(new SubmittedSurvey(survey.getName()));
+		JSONArray questionCollections = json.getJSONArray("questions");
+		
+		JSONObject jsonOne;
+		
+		LocalDate date =  LocalDate.now();
+		
+		for (int i = 0 ; i < questionCollections.length() ; i++ ) {
+			 jsonOne = (JSONObject) questionCollections.get(i);
+			 String nameToMake = jsonOne.getString("name");
+			 String value = jsonOne.getString("value");
+			 submitQuestionRepo.save(new SubmittedQuestion(nameToMake, value, submittedSurvey));
+		}		
+	}
 }
 
 
