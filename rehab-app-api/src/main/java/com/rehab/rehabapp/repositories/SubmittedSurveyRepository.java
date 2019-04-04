@@ -4,11 +4,10 @@ import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 import com.rehab.rehabapp.models.SubmittedSurvey;
-import com.rehab.rehabapp.models.Survey;
 
 @Repository
-public interface SurveyRepository extends CrudRepository<Survey, Long> {
+public interface SubmittedSurveyRepository extends CrudRepository<SubmittedSurvey, Long> {
 
-	Survey findByName(String name);
+	SubmittedSurvey findByName(String name);
 
 }

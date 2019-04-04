@@ -15,15 +15,25 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rehab.rehabapp.models.Question;
+import com.rehab.rehabapp.models.SubmittedQuestion;
+import com.rehab.rehabapp.models.SubmittedSurvey;
 import com.rehab.rehabapp.models.Survey;
 import com.rehab.rehabapp.repositories.QuestionRepository;
+import com.rehab.rehabapp.repositories.SubmittedQuestionRepository;
+import com.rehab.rehabapp.repositories.SubmittedSurveyRepository;
 import com.rehab.rehabapp.repositories.SurveyRepository;
 
 @CrossOrigin
 @RestController
 @RequestMapping("/surveys")
 public class SurveyController {
+	
+	@Resource
+	SubmittedQuestionRepository submitQuestionRepo;
+	
+	@Resource
+	SubmittedSurveyRepository submitSurveyRepo;
+	
 	
 	@Resource
 	QuestionRepository questionRepo;
@@ -60,6 +70,7 @@ public class SurveyController {
 		JSONObject json = new JSONObject(body);
 		String name = json.getString("name");
 		Survey survey = surveyRepo.findByName(name);
+		SubmittedSurvey submittedSurvey = submitSurveyRepo.save(new SubmittedSurvey(survey.getName()));
 		JSONArray questionCollections = json.getJSONArray("questions");
 		
 		JSONObject jsonOne;
@@ -68,8 +79,12 @@ public class SurveyController {
 			 jsonOne = (JSONObject) questionCollections.get(i);
 			 String nameToMake = jsonOne.getString("name");
 			 String value = jsonOne.getString("value");
-			 questionRepo.save(new Question(nameToMake, value, survey));
+			 submitQuestionRepo.save(new SubmittedQuestion(nameToMake, value, submittedSurvey));
 		}
+		
+		
+		
+		
 	}
 }
 
