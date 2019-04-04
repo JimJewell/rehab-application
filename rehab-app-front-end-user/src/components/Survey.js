@@ -8,20 +8,17 @@ export default class Survey extends Component {
     const name = this.props.survey.name
     let questions = []
     
-    console.log(document.querySelectorAll('.questionDiv'))
+    const questionDivs = document.querySelectorAll('.questionDiv')
 
-
-    const sum = document.querySelectorAll('.questionDiv')
-
-    for (const question of sum) {
+    for (const questionDiv of questionDivs) {
       questions.push(
-        {name: question.querySelector('.questionName').textContent,
-        value: question.querySelector('.questionValue').value}
+        {name: questionDiv.querySelector('.questionName').textContent,
+        value: questionDiv.querySelector('.questionValue').value}
       )
     }
     this.props.submitSurvey(name, questions)
   }
-    
+
   render() {
     return (
       <div>
