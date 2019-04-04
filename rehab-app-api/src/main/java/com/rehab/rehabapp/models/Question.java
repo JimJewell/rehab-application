@@ -1,5 +1,8 @@
 package com.rehab.rehabapp.models;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,6 +20,8 @@ public class Question{
 	private String name;
 
 	private String value;
+	
+	private LocalDate date;
 	
 	@ManyToOne
 	@JsonIgnore
@@ -39,10 +44,11 @@ public class Question{
 		this.survey = survey;
 	}
 	
-	public Question(String name, String value, Survey survey) {
+	public Question(String name, String value, Survey survey, LocalDate date) {
 		this.name = name;
 		this.value = value;
 		this.survey = survey;
+		this.date = date;
 	}
 	
 	public Long getId() {
@@ -59,8 +65,14 @@ public class Question{
 
 	public Survey getSurvey() {
 		return survey;
-	}
+			}
 	
+	
+	
+	public LocalDate getDate() {
+		return date;
+	}
+
 	public void addSurveyToQuestion(Survey survey) {
 		this.survey = survey;
 	}

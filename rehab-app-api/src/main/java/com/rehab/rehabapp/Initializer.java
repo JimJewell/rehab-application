@@ -6,7 +6,6 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
 import com.rehab.rehabapp.models.Question;
-import com.rehab.rehabapp.models.SubmittedSurvey;
 import com.rehab.rehabapp.models.Survey;
 import com.rehab.rehabapp.repositories.QuestionRepository;
 import com.rehab.rehabapp.repositories.SurveyRepository;

@@ -1,5 +1,6 @@
 package com.rehab.rehabapp.controllers;
 
+import java.time.LocalDate;
 import java.util.Collection;
 
 import javax.annotation.Resource;
@@ -74,6 +75,8 @@ public class SurveyController {
 		JSONArray questionCollections = json.getJSONArray("questions");
 		
 		JSONObject jsonOne;
+		
+		LocalDate date =  LocalDate.now();
 		
 		for (int i = 0 ; i < questionCollections.length() ; i++ ) {
 			 jsonOne = (JSONObject) questionCollections.get(i);
