@@ -1,5 +1,7 @@
 package com.rehab.rehabapp.controllers;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Collection;
 
 import javax.annotation.Resource;
@@ -64,11 +66,13 @@ public class SurveyController {
 		
 		JSONObject jsonOne;
 		
+		LocalDate date =  LocalDate.now();
+		
 		for (int i = 0 ; i < questionCollections.length() ; i++ ) {
 			 jsonOne = (JSONObject) questionCollections.get(i);
 			 String nameToMake = jsonOne.getString("name");
 			 String value = jsonOne.getString("value");
-			 questionRepo.save(new Question(nameToMake, value, survey));
+			 questionRepo.save(new Question(nameToMake, value, survey, date));
 		}
 	}
 }
