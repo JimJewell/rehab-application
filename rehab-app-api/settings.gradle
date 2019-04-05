@@ -3,4 +3,4 @@ pluginManagement {
 		gradlePluginPortal()
 	}
 }
-rootProject.name = 'rehab-app'
+rootProject.name = 'rehab-app-api'
