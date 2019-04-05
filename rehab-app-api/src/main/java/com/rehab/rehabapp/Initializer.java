@@ -113,5 +113,6 @@ public class Initializer implements CommandLineRunner {
 		
 		System.out.println("Delete this");
 		System.out.println("Delete this too");
+		System.out.println("Also this");
 	}
 }
