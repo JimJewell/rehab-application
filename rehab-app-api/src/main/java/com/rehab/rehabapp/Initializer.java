@@ -110,5 +110,7 @@ public class Initializer implements CommandLineRunner {
 		questionRepo.save(physcialQuestion6); 
 		questionRepo.save(physcialQuestion7);
 		questionRepo.save(physcialQuestion8);
+		
+		System.out.println("Delete this");
 	}
 }
