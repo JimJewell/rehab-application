@@ -93,6 +93,13 @@ public class Initializer implements CommandLineRunner {
         Question question30 = questionRepo.save(new Question("Washing and Dressing", survey4));
         Question question31 = questionRepo.save(new Question("Lifting", survey4));
         Question question32 = questionRepo.save(new Question("Walking", survey4));
+        Question question33 = questionRepo.save(new Question("Sitting", survey4));
+        Question question34 = questionRepo.save(new Question("Standing", survey4));
+        Question question35 = questionRepo.save(new Question("Sleeping", survey4));
+        Question question36 = questionRepo.save(new Question("Social Life", survey4));
+        Question question37 = questionRepo.save(new Question("Traveling", survey4));
+        Question question38 = questionRepo.save(new Question("Employment/Homemaking", survey4));
+
 		
 		surveyRepo.save(surveyLower);
 		surveyRepo.save(surveyNeck);
@@ -159,9 +166,5 @@ public class Initializer implements CommandLineRunner {
         questionRepo.save(question26);
         questionRepo.save(question27);
         questionRepo.save(question28);
-		
-		System.out.println("Delete this");
-		System.out.println("Delete this too");
-		System.out.println("Also this");
 	}
 }
