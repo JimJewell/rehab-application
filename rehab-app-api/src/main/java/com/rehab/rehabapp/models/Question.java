@@ -1,6 +1,7 @@
 	package com.rehab.rehabapp.models;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -35,29 +36,29 @@ public class Question{
 	public Question() {
 	}
 	
-	public Question(String name, List<AnswerChoice> answerChoices) {
+	public Question(String name) {
 		this.name = name;
-		this.answerChoices = answerChoices;
+		this.answerChoices = new ArrayList<AnswerChoice>();
 	}
 
-	public Question(String name, String value, List<AnswerChoice> answerChoices) {
+	public Question(String name, String value) {
 		this.name = name;
 		this.value = value;
-		this.answerChoices = answerChoices;
+		this.answerChoices = new ArrayList<AnswerChoice>();
 	}
 	
-	public Question(String name, Survey survey, List<AnswerChoice> answerChoices) {
+	public Question(String name, Survey survey) {
 		this.name = name;
 		this.survey = survey;
-		this.answerChoices = answerChoices;
+		this.answerChoices = new ArrayList<AnswerChoice>();
 	}
 	
-	public Question(String name, String value, Survey survey, LocalDate date, List<AnswerChoice> answerChoices) {
+	public Question(String name, String value, Survey survey, LocalDate date) {
 		this.name = name;
 		this.value = value;
 		this.survey = survey;
 		this.date = date;
-		this.answerChoices = answerChoices;
+		this.answerChoices = new ArrayList<AnswerChoice>();
 	}
 	
 	public Long getId() {
