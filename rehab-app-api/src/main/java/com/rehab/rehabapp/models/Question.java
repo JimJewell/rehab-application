@@ -1,7 +1,7 @@
 	package com.rehab.rehabapp.models;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,6 +23,9 @@ public class Question{
 	
 	private LocalDate date;
 	
+	List<AnswerChoice> answerChoices;
+	
+	
 	@ManyToOne
 	@JsonIgnore
 	private Survey survey;
@@ -30,25 +33,29 @@ public class Question{
 	public Question() {
 	}
 	
-	public Question(String name) {
+	public Question(String name, List<AnswerChoice> answerChoices) {
 		this.name = name;
+		this.answerChoices = answerChoices;
 	}
 
-	public Question(String name, String value) {
+	public Question(String name, String value, List<AnswerChoice> answerChoices) {
 		this.name = name;
 		this.value = value;
+		this.answerChoices = answerChoices;
 	}
 	
-	public Question(String name, Survey survey) {
+	public Question(String name, Survey survey, List<AnswerChoice> answerChoices) {
 		this.name = name;
 		this.survey = survey;
+		this.answerChoices = answerChoices;
 	}
 	
-	public Question(String name, String value, Survey survey, LocalDate date) {
+	public Question(String name, String value, Survey survey, LocalDate date, List<String> answerChoices) {
 		this.name = name;
 		this.value = value;
 		this.survey = survey;
 		this.date = date;
+		this.answerChoices = answerChoices;
 	}
 	
 	public Long getId() {
