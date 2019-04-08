@@ -1,16 +1,14 @@
 package com.rehab.rehabapp;
 
-
-
 import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Resource;
 
-
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
+import com.rehab.rehabapp.models.AnswerChoice;
 import com.rehab.rehabapp.models.Question;
 import com.rehab.rehabapp.models.Survey;
 import com.rehab.rehabapp.repositories.QuestionRepository;
@@ -21,19 +19,48 @@ public class Initializer implements CommandLineRunner {
 
 	@Resource
 	QuestionRepository questionRepo;
-	
+
 	@Resource
 	SurveyRepository surveyRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
+		// Lower Extremity Assessment Answers // 
+		AnswerChoice answerChoicesLowerExtremity1 = new AnswerChoice ("Extreme difficulty or unable to perform activity (0 points)", 0 );
+		AnswerChoice answerChoicesLowerExtremity2 = new AnswerChoice ("Quite a bit of difficulty (1 point)", 1);	 
+		AnswerChoice answerChoicesLowerExtremity3 = new AnswerChoice ("Moderate difficulty (2 point)", 2);
+		AnswerChoice answerChoicesLowerExtremity4 = new AnswerChoice ("A little bit of difficulty (3 point)", 3);
+		AnswerChoice answerChoicesLowerExtremity5 = new AnswerChoice ("No difficulty (4 point)", 4); 
 		
-		 List<String> answerChoices1 = Arrays.asList(new String [] {"Extreme difficulty or unable to perform activity (0 points)", "Quite a bit of difficulty (1 point)","Moderate difficulty (2 point)","A little bit of difficulty (3 point)","No difficulty (4 point)"} ); 
-		 List<String> answerChoices2 = answerChoices1;
-		 List<String> answerChoices3 = answerChoices1;
-		 List<String> answerChoices4 = answerChoices1;
-		 List<String> answerChoices5 = answerChoices1;
-		 
+		// Physical Function Assessment Answers // 
+		AnswerChoice answerChoicesPhysicalFunction1 = new AnswerChoice ("No difficulty", 4);
+		AnswerChoice answerChoicesPhysicalFunction2 = new AnswerChoice ("Mild difficulty", 3);
+		AnswerChoice answerChoicesPhysicalFunction3 = new AnswerChoice ("Moderate difficulty", 2);
+		AnswerChoice answerChoicesPhysicalFunction4 = new AnswerChoice ("Severe difficulty", 1);
+		AnswerChoice answerChoicesPhysicalFunction5 = new AnswerChoice ("Unable", 0);
+		
+		// Neck Assessment Answers // 
+		AnswerChoice answerChoiceNeckAssessmentPain1 = new AnswerChoice ("I have no pain at the moment", 5);
+		AnswerChoice answerChoiceNeckAssessmentPain2 = new AnswerChoice ("The pain is very mild at the moment", 4);
+		AnswerChoice answerChoiceNeckAssessmentPain3 = new AnswerChoice ("The pain is moderate at the moment", 3);
+		AnswerChoice answerChoiceNeckAssessmentPain4 = new AnswerChoice ("The pain is fairly severe at the moment", 2);
+		AnswerChoice answerChoiceNeckAssessmentPain5 = new AnswerChoice ("The pain is very severe at the moment", 1);
+		AnswerChoice answerChoiceNeckAssessmentPain6 = new AnswerChoice ("The pain is the worst imaginable at the moment", 0);
+		
+		AnswerChoice answerChoiceNeckAssessmentPersonal1 = new AnswerChoice ("I can look after myself normally without causing extra pain", 0);
+		AnswerChoice answerChoiceNeckAssessmentPersonal2 = new AnswerChoice ("I can look after myself normally but it causes extra pain", 1);
+		AnswerChoice answerChoiceNeckAssessmentPersonal3 = new AnswerChoice ("It is painful to look after myself and I am slow and careful", 2);
+		AnswerChoice answerChoiceNeckAssessmentPersonal4 = new AnswerChoice ("I need some help but manage most of my personal care", 3);
+		AnswerChoice answerChoiceNeckAssessmentPersonal5 = new AnswerChoice ("I need help everyday in most aspects of self care", 4);
+		AnswerChoice answerChoiceNeckAssessmentPersonal6 = new AnswerChoice ("I do not get dressesd; I wash with difficulty and stay in bed", 5);
+		
+		AnswerChoice answerChoiceNeckAssessmentLifting1 = new AnswerChoice ("I can lift heaving weights without extra pain", 5);
+		AnswerChoice answerChoiceNeckAssessmentLifting2 = new AnswerChoice ("I can lift heavy weights but it gives extra pain", 4);
+		AnswerChoice answerChoiceNeckAssessmentLifting3 = new AnswerChoice ("It is painful to look after myself and I am slow and careful", 3);
+		AnswerChoice answerChoiceNeckAssessmentLifting4 = new AnswerChoice ("I need some help but manage most of my personal care", 2);
+		AnswerChoice answerChoiceNeckAssessmentLifting5 = new AnswerChoice ("")
+		
+		
      
 
 		

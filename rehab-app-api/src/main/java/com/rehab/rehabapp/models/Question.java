@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -23,6 +24,7 @@ public class Question{
 	
 	private LocalDate date;
 	
+	@OneToMany (mappedBy="question")
 	List<AnswerChoice> answerChoices;
 	
 	
@@ -50,7 +52,7 @@ public class Question{
 		this.answerChoices = answerChoices;
 	}
 	
-	public Question(String name, String value, Survey survey, LocalDate date, List<String> answerChoices) {
+	public Question(String name, String value, Survey survey, LocalDate date, List<AnswerChoice> answerChoices) {
 		this.name = name;
 		this.value = value;
 		this.survey = survey;
