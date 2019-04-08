@@ -56,9 +56,59 @@ public class Initializer implements CommandLineRunner {
 		
 		AnswerChoice answerChoiceNeckAssessmentLifting1 = new AnswerChoice ("I can lift heaving weights without extra pain", 5);
 		AnswerChoice answerChoiceNeckAssessmentLifting2 = new AnswerChoice ("I can lift heavy weights but it gives extra pain", 4);
-		AnswerChoice answerChoiceNeckAssessmentLifting3 = new AnswerChoice ("It is painful to look after myself and I am slow and careful", 3);
-		AnswerChoice answerChoiceNeckAssessmentLifting4 = new AnswerChoice ("I need some help but manage most of my personal care", 2);
-		AnswerChoice answerChoiceNeckAssessmentLifting5 = new AnswerChoice ("")
+		AnswerChoice answerChoiceNeckAssessmentLifting3 = new AnswerChoice ("Pain prevents me from lifting heavy weights off the floor, but I can manage if they are conveniently positioned, e.g. on a table", 3);
+		AnswerChoice answerChoiceNeckAssessmentLifting4 = new AnswerChoice ("Pain prevents me from lifting heavy weights but I can manage light to medium weights if they are conveniently positioned", 2);
+		AnswerChoice answerChoiceNeckAssessmentLifting5 = new AnswerChoice ("I can lift only very light weights", 1);
+		AnswerChoice answerChoiceNeckAssessmentLifting6 = new AnswerChoice ("I cannot lift or carry anything at all", 0); 
+		
+		AnswerChoice answerChoiceNeckAssessmentReading1 = new AnswerChoice ("I can read as much as I want to with no pain in  my neck", 5);
+		AnswerChoice answerChoiceNeckAssessmentReading2 = new AnswerChoice ("I can read as much as I want to with slight pain in my neck", 4);
+		AnswerChoice answerChoiceNeckAssessmentReading3 = new AnswerChoice ("I can read as much as I want with moderate pain in my neck", 3);
+		AnswerChoice answerChoiceNeckAssessmentReading4 = new AnswerChoice ("Pain prevents me from lifting heavy weights but I can manage light to medium weights if they are conveniently positioned", 2);
+		AnswerChoice answerChoiceNeckAssessmentReading5 = new AnswerChoice ("I can lift only very light weights", 1);
+		AnswerChoice answerChoiceNeckAssessmentReading6 = new AnswerChoice ("I cannot lift or carry anything at all", 0);
+		
+		AnswerChoice answerChoiceNeckAssessmentHeadaches1 = new AnswerChoice ("I have no headaches at all", 5);
+		AnswerChoice answerChoiceNeckAssessmentHeadaches2 = new AnswerChoice ("I have slight headaches which come infrequently", 4);
+		AnswerChoice answerChoiceNeckAssessmentHeadaches3 = new AnswerChoice ("I have moderate headaches which come infrequently", 3);
+		AnswerChoice answerChoiceNeckAssessmentHeadaches4 = new AnswerChoice ("I have moderate headaches which come frequently", 2);
+		AnswerChoice answerChoiceNeckAssessmentHeadaches5 = new AnswerChoice ("I have severe headaches which come frequently", 1);
+		AnswerChoice answerChoiceNeckAssessmentHeadaches6 = new AnswerChoice ("I have headaches all the time", 0);
+		
+		AnswerChoice answerChoiceNeckAssessmentConcentration1 = new AnswerChoice ("I can concentrate fully when I want to with no difficulty", 5);
+		AnswerChoice answerChoiceNeckAssessmentConcentration2 = new AnswerChoice ("I can concentrate fully when I want to with slight difficulty", 4);
+		AnswerChoice answerChoiceNeckAssessmentConcentration3 = new AnswerChoice ("I have a fair degree of difficulty in concentrating when I want to", 3);
+		AnswerChoice answerChoiceNeckAssessmentConcentration4 = new AnswerChoice ("I have a lot of difficulty in concentrating when I want to", 2);
+		AnswerChoice answerChoiceNeckAssessmentConcentration5 = new AnswerChoice ("I have a great deal of difficulty in concentrating wheN I want to", 1);
+		AnswerChoice answerChoiceNeckAssessmentConcentration6 = new AnswerChoice ("I cannot concentrate at all", 0);
+		
+		AnswerChoice answerChoiceNeckAssessmentWork1 = new AnswerChoice ("I can do as much as I want to", 5);
+		AnswerChoice answerChoiceNeckAssessmentWork2 = new AnswerChoice ("I can only do my usual work, but no more", 4);
+		AnswerChoice answerChoiceNeckAssessmentWork3 = new AnswerChoice ("I can do most of my usual work, but no more", 3);
+		AnswerChoice answerChoiceNeckAssessmentWork4 = new AnswerChoice ("I cannot do my usual work", 2);
+		AnswerChoice answerChoiceNeckAssessmentWork5 = new AnswerChoice ("I can hardly do any work at all", 1);
+		AnswerChoice answerChoiceNeckAssessmentWork6 = new AnswerChoice ("I cannot do any work at all", 0);
+		
+		AnswerChoice answerChoiceNeckAssessmentDriving1 = new AnswerChoice ("I can drive my car without any neck pain", 5);
+		AnswerChoice answerChoiceNeckAssessmentDriving2 = new AnswerChoice ("I can drive my car as long as I want with slight neck pain", 4);
+		AnswerChoice answerChoiceNeckAssessmentDriving3 = new AnswerChoice ("I can drive my car as long as I want with moderate neck pain", 3);
+		AnswerChoice answerChoiceNeckAssessmentDriving4 = new AnswerChoice ("I cannot drive my car as long as I want because of neck pain", 2);
+		AnswerChoice answerChoiceNeckAssessmentDriving5 = new AnswerChoice ("I can hardly drive at all because of severe neck pain ", 1);
+		AnswerChoice answerChoiceNeckAssessmentDriving6 = new AnswerChoice ("I cannot drive my car at all", 0);
+		
+		AnswerChoice answerChoiceNeckAssessmentSleeping1 = new AnswerChoice ("I have no trouble sleeping", 5);
+		AnswerChoice answerChoiceNeckAssessmentSleeping2 = new AnswerChoice ("My sleep is slightly disturbed (less than 1 hr. of sleep loss)", 4);
+		AnswerChoice answerChoiceNeckAssessmentSleeping3 = new AnswerChoice ("My sleep is mildly disturbed (1-2 hrs of sleep loss)", 3);
+		AnswerChoice answerChoiceNeckAssessmentSleeping4 = new AnswerChoice ("My sleep is moderately disturbed (2-3 hrs of sleep loss)", 2);
+		AnswerChoice answerChoiceNeckAssessmentSleeping5 = new AnswerChoice ("My sleep is greatly disturbed (3-5 hrs of sleep loss) ", 1);
+		AnswerChoice answerChoiceNeckAssessmentSleeping6 = new AnswerChoice ("My sleep is completely disturbed (5-7 hrs of sleep loss)", 0);
+		
+		
+		
+		
+		
+		
+		
 		
 		
      
