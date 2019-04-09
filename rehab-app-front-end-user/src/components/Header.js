@@ -2,8 +2,8 @@ import React from "react";
 
 export default ({ updateCurrentLocation }) => {
   return (
-    <div className="header">
-      <header>
+    <div>
+      <header className="header">
         <h1 className="logo">iMyRehabr</h1>
         <nav className="nav">
           <ul className="nav-list">

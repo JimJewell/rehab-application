@@ -26,13 +26,16 @@ export default class Survey extends Component {
             {this.props.survey.questions.map(question => (
               <Question key={question.id} question={question} />
             ))}
+            <div className="btnContainer">
+              <button
+                className="genericButton"
+                onClick={() => this.submitSurveyButton()}
+              >
+                {" "}
+                Submit
+              </button>
+            </div>
           </div>
-          <button
-            className="genericButton"
-            onClick={() => this.submitSurveyButton()}
-          >
-            Submit
-          </button>
         </div>
       </div>
     );

@@ -10,11 +10,19 @@ export class SurveyList extends Component {
   render() {
     return (
       <div className="renderContainer">
+        <p>
+          Your Care Provider has assigned you surveys to complete. Please
+          complete them by their due date.
+        </p>
         <select className="surveySelect">
           <SurveyListList surveys={this.props.surveys} />
         </select>
 
-        <button onClick={() => this.onSubmit()} style={buttonStyle}>
+        <button
+          className="genericButton"
+          onClick={() => this.onSubmit()}
+          style={buttonStyle}
+        >
           submit
         </button>
       </div>
