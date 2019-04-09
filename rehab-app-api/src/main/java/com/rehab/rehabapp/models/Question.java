@@ -26,8 +26,7 @@ public class Question{
 	private LocalDate date;
 	
 	@ManyToMany (mappedBy="questions")
-	List<AnswerChoice> answerChoices;
-	
+	private List<AnswerChoice> answerChoices;
 	
 	@ManyToOne
 	@JsonIgnore
@@ -89,4 +88,7 @@ public class Question{
 		return this.survey.equals(survey);
 	}
 	
+	public List<AnswerChoice> getAnswerChoices() {
+		return answerChoices;
+	}
 }

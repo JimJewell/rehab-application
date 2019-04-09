@@ -26,7 +26,8 @@ public class AnswerChoice {
 	@JsonIgnore
 	private Collection <Question> questions;
 		
-
+	public AnswerChoice() {}
+	
 	public AnswerChoice(String answerChoice, int value) {
 		this.answerChoice = answerChoice;
 		this.value = value;
@@ -49,4 +50,10 @@ public class AnswerChoice {
 	public void addQuestionToAnswerChoice(Question question) {
 		questions.add(question);
 	}
+
+	public Collection<Question> getQuestions() {
+		return questions;
+	}
+	
+	
 }

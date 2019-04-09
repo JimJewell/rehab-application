@@ -1,22 +1,15 @@
 import React, { Component } from 'react'
+import SelectDifficulty from './SelectDifficulty';
 
 export default class Question extends Component {
-  state = {
-    i: -1
-  }
   render() {
     return (
       <div className='questionDiv' style={divStyle}>
 
-
         <h5 className='questionName' >{this.props.question.name}</h5>
+        {console.log(this.props.question.answerChoices)}
         <select className='questionValue' >
-          {this.props.question.answerChoices.map((answer) => {
-            {this.setState({i:i+1})}
-            return (
-              <option value={this.state.i}>{answer}</option>
-            )
-          })}
+        <SelectDifficulty answerChoices = {this.props.question.answerChoices} />
         </select>
 
 
