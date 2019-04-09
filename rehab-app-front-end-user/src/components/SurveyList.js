@@ -1,31 +1,36 @@
-import React, { Component } from 'react'
-import SurveyListList from './SurveyListChoices'
+import React, { Component } from "react";
+import SurveyListList from "./SurveyListChoices";
 
 export class SurveyList extends Component {
-
-  
   onSubmit = () => {
-      const id = document.querySelector(".surveySelect").value
-      this.props.setSurveyById(id);
-      }
-
+    const id = document.querySelector(".surveySelect").value;
+    this.props.setSurveyById(id);
+  };
 
   render() {
     return (
-      <div>   
-            <select className = "surveySelect">          
-                <SurveyListList surveys= {this.props.surveys} />
-                <option value='all'>No Survey</option>
-            </select>
+      <div className="renderContainer">
+        <p>
+          Your Care Provider has assigned you surveys to complete. Please
+          complete them by their due date.
+        </p> 
+        <select className = "surveySelect">          
+            <SurveyListList surveys= {this.props.surveys} />
+            <option value='all'>No Survey</option>
+        </select>
 
-            <button onClick={ () => this.onSubmit() }  style={buttonStyle}>submit</button>
+        <button
+          className="genericButton"
+          onClick={() => this.onSubmit()}
+          style={buttonStyle}>
+        submit</button>
       </div>
-    )
+    );
   }
 }
 
 const buttonStyle = {
-  flex: '1'
-}
+  flex: "1"
+};
 
-export default SurveyList
+export default SurveyList;

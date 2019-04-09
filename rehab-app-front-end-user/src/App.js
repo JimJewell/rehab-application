@@ -1,25 +1,22 @@
-import React, { Component } from 'react'
-import './App.css'
-import Header from './components/Header'
-import Survey from './components/Survey'
-import SurveyList from './components/SurveyList'
-
+import React, { Component } from "react";
+import "./App.css";
+import Header from "./components/Header";
+import Survey from "./components/Survey";
+import SurveyList from "./components/SurveyList";
+import Home from "./components/home";
 import Videos from  './components/Videos'
 
-import axios from 'axios';
-
-
+import axios from "axios";
 
 class App extends Component {
   state = {
     surveys: [],
     survey: undefined,
-    currentLocation: 'survey'
-  }
+    currentLocation: "survey"
+  };
 
   componentDidMount() {
-    axios.get('/surveys')
-      .then(res => this.setState({ surveys: res.data }))
+    axios.get("/surveys").then(res => this.setState({ surveys: res.data }));
   }
 
   setSurveyById = (id) => {
@@ -33,17 +30,16 @@ class App extends Component {
  
   addSurvey = (survey) => {
     axios.post('/surveys/addSurveys', {survey})
-    .then(res => this.setState({ surveys: res.data}))
+    .then(res => this.setState({ surveys: res.data})
   }
-
+          
   submitSurvey = (name, questions) => {
     axios.post('/surveys/submit', {name, questions})
     this.setState({currentLocation: 'video'})
   }
 
-  updateCurrentLocation = (location) => (
-    this.setState({ currentLocation: location})
-  )
+  updateCurrentLocation = location =>
+    this.setState({ currentLocation: location });
 
   render() {
     return (
