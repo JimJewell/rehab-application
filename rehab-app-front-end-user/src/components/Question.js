@@ -7,7 +7,6 @@ export default class Question extends Component {
       <div className='questionDiv' style={divStyle}>
 
         <h5 className='questionName' >{this.props.question.name}</h5>
-        {console.log(this.props.question.answerChoices)}
         <select className='questionValue' >
         <SelectDifficulty answerChoices = {this.props.question.answerChoices} />
         </select>

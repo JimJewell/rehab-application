@@ -15,6 +15,7 @@ export class SurveyList extends Component {
       <div>   
             <select className = "surveySelect">          
                 <SurveyListList surveys= {this.props.surveys} />
+                <option value='all'>No Survey</option>
             </select>
 
             <button onClick={ () => this.onSubmit() }  style={buttonStyle}>submit</button>
