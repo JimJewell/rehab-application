@@ -44,8 +44,12 @@ body {
 
 .renderContainer {
   margin-top: 60px;
-  column-count: 2;
 }
+
+.questionBox {
+  column-count: 1px;
+}
+
 .questionName {
   float: left;
   width: 100%;
@@ -53,10 +57,8 @@ body {
 }
 
 .surveyTitle {
-  width: 100%;
-}
-.questionDiv {
-  display: inline-block;
+  /* width: 100%; */
+  max-width: 1000px;
 }
 
 .questionValue {
@@ -103,4 +105,22 @@ body {
 
 .videos {
   float: left;
+}
+
+.genericButton {
+  background-color: red;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  float: left;
+  font-size: 16px;
+  margin: 3px 1px;
+  cursor: pointer;
+}
+
+.videoHeader {
+  display: inline-block;
+  width: 100%;
 }

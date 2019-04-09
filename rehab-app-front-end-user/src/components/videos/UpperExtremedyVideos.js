@@ -3,7 +3,7 @@ import React from "react";
 export default () => {
   return (
     <div>
-      <h2>Initial Survey Videos</h2>
+      <h2 className="videoHeader">Initial Survey Videos</h2>
       <iframe
         className="videos"
         src="https://www.youtube.com/embed/WxUJM2dPnrA?list=PLMnHlHoq4yFQAFSO9CNx_3b25993iytZL"

@@ -22,10 +22,15 @@ export default class Survey extends Component {
       <div className="renderContainer">
         <div className="survey">
           <h1 className="surveyTitle">{this.props.survey.name}</h1>
-          {this.props.survey.questions.map(question => (
-            <Question key={question.id} question={question} />
-          ))}
-          <button style={buttonStyle} onClick={() => this.submitSurveyButton()}>
+          <div className="questionBox">
+            {this.props.survey.questions.map(question => (
+              <Question key={question.id} question={question} />
+            ))}
+          </div>
+          <button
+            className="genericButton"
+            onClick={() => this.submitSurveyButton()}
+          >
             Submit
           </button>
         </div>
@@ -33,7 +38,3 @@ export default class Survey extends Component {
     );
   }
 }
-
-const buttonStyle = {
-  flex: "1"
-};
