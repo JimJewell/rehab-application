@@ -1,8 +1,5 @@
 package com.rehab.rehabapp;
 
-import java.util.Arrays;
-import java.util.List;
-
 import javax.annotation.Resource;
 
 import org.springframework.boot.CommandLineRunner;
@@ -11,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.rehab.rehabapp.models.AnswerChoice;
 import com.rehab.rehabapp.models.Question;
 import com.rehab.rehabapp.models.Survey;
+import com.rehab.rehabapp.repositories.AnswerChoicesRepository;
 import com.rehab.rehabapp.repositories.QuestionRepository;
 import com.rehab.rehabapp.repositories.SurveyRepository;
 
@@ -22,6 +20,9 @@ public class Initializer implements CommandLineRunner {
 
 	@Resource
 	SurveyRepository surveyRepo;
+	
+	@Resource
+	AnswerChoicesRepository answerChoicesRepo;
 
 	@Override
 	public void run(String... args) throws Exception {
@@ -103,12 +104,12 @@ public class Initializer implements CommandLineRunner {
 		AnswerChoice answerChoiceNeckAssessmentSleeping5 = new AnswerChoice ("My sleep is greatly disturbed (3-5 hrs of sleep loss) ", 1);
 		AnswerChoice answerChoiceNeckAssessmentSleeping6 = new AnswerChoice ("My sleep is completely disturbed (5-7 hrs of sleep loss)", 0);
 		
-		AnswerChoice answerChoiceNeckAssementRecreation1 = new AnswerChoice ("I am able to engage in all my recreation activities with no neck pain", 5);
-		AnswerChoice answerChoiceNeckAssementRecreation2 = new AnswerChoice ("I am able to engage in all my recreation activities, with some neck pain", 4);
-		AnswerChoice answerChoiceNeckAssementRecreation3 = new AnswerChoice ("I am able to engage in most, but not all, of my usual recreation activities because of neck pain", 3);
-		AnswerChoice answerChoiceNeckAssementRecreation4 = new AnswerChoice ("I am able to engage in a few of my usual recreation activities because of neck pain", 2);
-		AnswerChoice answerChoiceNeckAssementRecreation5 = new AnswerChoice ("I can hardly do any recreation activities because of neck pain", 1);
-		AnswerChoice answerChoiceNeckAssementRecreation6 = new AnswerChoice ("I cannot do any recreation activities at all", 0);
+		AnswerChoice answerChoiceNeckAssessmentRecreation1 = new AnswerChoice ("I am able to engage in all my recreation activities with no neck pain", 5);
+		AnswerChoice answerChoiceNeckAssessmentRecreation2 = new AnswerChoice ("I am able to engage in all my recreation activities, with some neck pain", 4);
+		AnswerChoice answerChoiceNeckAssessmentRecreation3 = new AnswerChoice ("I am able to engage in most, but not all, of my usual recreation activities because of neck pain", 3);
+		AnswerChoice answerChoiceNeckAssessmentRecreation4 = new AnswerChoice ("I am able to engage in a few of my usual recreation activities because of neck pain", 2);
+		AnswerChoice answerChoiceNeckAssessmentRecreation5 = new AnswerChoice ("I can hardly do any recreation activities because of neck pain", 1);
+		AnswerChoice answerChoiceNeckAssessmentRecreation6 = new AnswerChoice ("I cannot do any recreation activities at all", 0);
 		
 		AnswerChoice answerChoiceUpperExtremityDifficulty1 = new AnswerChoice ("Unable", 0);
 		AnswerChoice answerChoiceUpperExtremityDifficulty2 = new AnswerChoice ("Severe Difficult", 1);
@@ -261,16 +262,16 @@ public class Initializer implements CommandLineRunner {
         Question question28 = new Question("Spending your usual amount of time practicing or playing", survey3);
         
         // Low Back Pain Assessment //
-        Question question29 = questionRepo.save(new Question("Pain Intensity", survey4));
-        Question question30 = questionRepo.save(new Question("Washing and Dressing", survey4));
-        Question question31 = questionRepo.save(new Question("Lifting", survey4));
-        Question question32 = questionRepo.save(new Question("Walking", survey4));
-        Question question33 = questionRepo.save(new Question("Sitting", survey4));
-        Question question34 = questionRepo.save(new Question("Standing", survey4));
-        Question question35 = questionRepo.save(new Question("Sleeping", survey4));
-        Question question36 = questionRepo.save(new Question("Social Life", survey4));
-        Question question37 = questionRepo.save(new Question("Traveling", survey4));
-        Question question38 = questionRepo.save(new Question("Employment/Homemaking", survey4));
+        Question lowBackQuestion29 = new Question("Pain Intensity", survey4);
+        Question lowBackQuestion30 = new Question("Washing and Dressing", survey4);
+        Question lowBackQuestion31 = new Question("Lifting", survey4);
+        Question lowBackQuestion32 = new Question("Walking", survey4);
+        Question lowBackQuestion33 = new Question("Sitting", survey4);
+        Question lowBackQuestion34 = new Question("Standing", survey4);
+        Question lowBackQuestion35 = new Question("Sleeping", survey4);
+        Question lowBackQuestion36 = new Question("Social Life", survey4);
+        Question lowBackQuestion37 = new Question("Traveling", survey4);
+        Question lowBackQuestion38 = new Question("Employment/Homemaking", survey4);
 
         answerChoicesLowerExtremity1.addQuestionToAnswerChoice(lowerQuestion1);
         answerChoicesLowerExtremity2.addQuestionToAnswerChoice(lowerQuestion1);
@@ -1073,75 +1074,75 @@ public class Initializer implements CommandLineRunner {
         answerChoiceNeckAssessmentSleeping5.addQuestionToAnswerChoice(neckQuestion10);
         answerChoiceNeckAssessmentSleeping6.addQuestionToAnswerChoice(neckQuestion10);
 
-        answerChoiceNeckAssementRecreation1.addQuestionToAnswerChoice(neckQuestion1);
-        answerChoiceNeckAssementRecreation2.addQuestionToAnswerChoice(neckQuestion1);
-        answerChoiceNeckAssementRecreation3.addQuestionToAnswerChoice(neckQuestion1);
-        answerChoiceNeckAssementRecreation4.addQuestionToAnswerChoice(neckQuestion1);
-        answerChoiceNeckAssementRecreation5.addQuestionToAnswerChoice(neckQuestion1);
-        answerChoiceNeckAssementRecreation6.addQuestionToAnswerChoice(neckQuestion1);
+        answerChoiceNeckAssessmentRecreation1.addQuestionToAnswerChoice(neckQuestion1);
+        answerChoiceNeckAssessmentRecreation2.addQuestionToAnswerChoice(neckQuestion1);
+        answerChoiceNeckAssessmentRecreation3.addQuestionToAnswerChoice(neckQuestion1);
+        answerChoiceNeckAssessmentRecreation4.addQuestionToAnswerChoice(neckQuestion1);
+        answerChoiceNeckAssessmentRecreation5.addQuestionToAnswerChoice(neckQuestion1);
+        answerChoiceNeckAssessmentRecreation6.addQuestionToAnswerChoice(neckQuestion1);
         
-        answerChoiceNeckAssementRecreation1.addQuestionToAnswerChoice(neckQuestion2);
-        answerChoiceNeckAssementRecreation2.addQuestionToAnswerChoice(neckQuestion2);
-        answerChoiceNeckAssementRecreation3.addQuestionToAnswerChoice(neckQuestion2);
-        answerChoiceNeckAssementRecreation4.addQuestionToAnswerChoice(neckQuestion2);
-        answerChoiceNeckAssementRecreation5.addQuestionToAnswerChoice(neckQuestion2);
-        answerChoiceNeckAssementRecreation6.addQuestionToAnswerChoice(neckQuestion2);
+        answerChoiceNeckAssessmentRecreation1.addQuestionToAnswerChoice(neckQuestion2);
+        answerChoiceNeckAssessmentRecreation2.addQuestionToAnswerChoice(neckQuestion2);
+        answerChoiceNeckAssessmentRecreation3.addQuestionToAnswerChoice(neckQuestion2);
+        answerChoiceNeckAssessmentRecreation4.addQuestionToAnswerChoice(neckQuestion2);
+        answerChoiceNeckAssessmentRecreation5.addQuestionToAnswerChoice(neckQuestion2);
+        answerChoiceNeckAssessmentRecreation6.addQuestionToAnswerChoice(neckQuestion2);
         
-        answerChoiceNeckAssementRecreation1.addQuestionToAnswerChoice(neckQuestion3);
-        answerChoiceNeckAssementRecreation2.addQuestionToAnswerChoice(neckQuestion3);
-        answerChoiceNeckAssementRecreation3.addQuestionToAnswerChoice(neckQuestion3);
-        answerChoiceNeckAssementRecreation4.addQuestionToAnswerChoice(neckQuestion3);
-        answerChoiceNeckAssementRecreation5.addQuestionToAnswerChoice(neckQuestion3);
-        answerChoiceNeckAssementRecreation6.addQuestionToAnswerChoice(neckQuestion3);
+        answerChoiceNeckAssessmentRecreation1.addQuestionToAnswerChoice(neckQuestion3);
+        answerChoiceNeckAssessmentRecreation2.addQuestionToAnswerChoice(neckQuestion3);
+        answerChoiceNeckAssessmentRecreation3.addQuestionToAnswerChoice(neckQuestion3);
+        answerChoiceNeckAssessmentRecreation4.addQuestionToAnswerChoice(neckQuestion3);
+        answerChoiceNeckAssessmentRecreation5.addQuestionToAnswerChoice(neckQuestion3);
+        answerChoiceNeckAssessmentRecreation6.addQuestionToAnswerChoice(neckQuestion3);
         
-        answerChoiceNeckAssementRecreation1.addQuestionToAnswerChoice(neckQuestion4);
-        answerChoiceNeckAssementRecreation2.addQuestionToAnswerChoice(neckQuestion4);
-        answerChoiceNeckAssementRecreation3.addQuestionToAnswerChoice(neckQuestion4);
-        answerChoiceNeckAssementRecreation4.addQuestionToAnswerChoice(neckQuestion4);
-        answerChoiceNeckAssementRecreation5.addQuestionToAnswerChoice(neckQuestion4);
-        answerChoiceNeckAssementRecreation6.addQuestionToAnswerChoice(neckQuestion4);
+        answerChoiceNeckAssessmentRecreation1.addQuestionToAnswerChoice(neckQuestion4);
+        answerChoiceNeckAssessmentRecreation2.addQuestionToAnswerChoice(neckQuestion4);
+        answerChoiceNeckAssessmentRecreation3.addQuestionToAnswerChoice(neckQuestion4);
+        answerChoiceNeckAssessmentRecreation4.addQuestionToAnswerChoice(neckQuestion4);
+        answerChoiceNeckAssessmentRecreation5.addQuestionToAnswerChoice(neckQuestion4);
+        answerChoiceNeckAssessmentRecreation6.addQuestionToAnswerChoice(neckQuestion4);
         
-        answerChoiceNeckAssementRecreation1.addQuestionToAnswerChoice(neckQuestion5);
-        answerChoiceNeckAssementRecreation2.addQuestionToAnswerChoice(neckQuestion5);
-        answerChoiceNeckAssementRecreation3.addQuestionToAnswerChoice(neckQuestion5);
-        answerChoiceNeckAssementRecreation4.addQuestionToAnswerChoice(neckQuestion5);
-        answerChoiceNeckAssementRecreation5.addQuestionToAnswerChoice(neckQuestion5);
-        answerChoiceNeckAssementRecreation6.addQuestionToAnswerChoice(neckQuestion5);
+        answerChoiceNeckAssessmentRecreation1.addQuestionToAnswerChoice(neckQuestion5);
+        answerChoiceNeckAssessmentRecreation2.addQuestionToAnswerChoice(neckQuestion5);
+        answerChoiceNeckAssessmentRecreation3.addQuestionToAnswerChoice(neckQuestion5);
+        answerChoiceNeckAssessmentRecreation4.addQuestionToAnswerChoice(neckQuestion5);
+        answerChoiceNeckAssessmentRecreation5.addQuestionToAnswerChoice(neckQuestion5);
+        answerChoiceNeckAssessmentRecreation6.addQuestionToAnswerChoice(neckQuestion5);
         
-        answerChoiceNeckAssementRecreation1.addQuestionToAnswerChoice(neckQuestion6);
-        answerChoiceNeckAssementRecreation2.addQuestionToAnswerChoice(neckQuestion6);
-        answerChoiceNeckAssementRecreation3.addQuestionToAnswerChoice(neckQuestion6);
-        answerChoiceNeckAssementRecreation4.addQuestionToAnswerChoice(neckQuestion6);
-        answerChoiceNeckAssementRecreation5.addQuestionToAnswerChoice(neckQuestion6);
-        answerChoiceNeckAssementRecreation6.addQuestionToAnswerChoice(neckQuestion6);
+        answerChoiceNeckAssessmentRecreation1.addQuestionToAnswerChoice(neckQuestion6);
+        answerChoiceNeckAssessmentRecreation2.addQuestionToAnswerChoice(neckQuestion6);
+        answerChoiceNeckAssessmentRecreation3.addQuestionToAnswerChoice(neckQuestion6);
+        answerChoiceNeckAssessmentRecreation4.addQuestionToAnswerChoice(neckQuestion6);
+        answerChoiceNeckAssessmentRecreation5.addQuestionToAnswerChoice(neckQuestion6);
+        answerChoiceNeckAssessmentRecreation6.addQuestionToAnswerChoice(neckQuestion6);
         
-        answerChoiceNeckAssementRecreation1.addQuestionToAnswerChoice(neckQuestion7);
-        answerChoiceNeckAssementRecreation2.addQuestionToAnswerChoice(neckQuestion7);
-        answerChoiceNeckAssementRecreation3.addQuestionToAnswerChoice(neckQuestion7);
-        answerChoiceNeckAssementRecreation4.addQuestionToAnswerChoice(neckQuestion7);
-        answerChoiceNeckAssementRecreation5.addQuestionToAnswerChoice(neckQuestion7);
-        answerChoiceNeckAssementRecreation6.addQuestionToAnswerChoice(neckQuestion7);
+        answerChoiceNeckAssessmentRecreation1.addQuestionToAnswerChoice(neckQuestion7);
+        answerChoiceNeckAssessmentRecreation2.addQuestionToAnswerChoice(neckQuestion7);
+        answerChoiceNeckAssessmentRecreation3.addQuestionToAnswerChoice(neckQuestion7);
+        answerChoiceNeckAssessmentRecreation4.addQuestionToAnswerChoice(neckQuestion7);
+        answerChoiceNeckAssessmentRecreation5.addQuestionToAnswerChoice(neckQuestion7);
+        answerChoiceNeckAssessmentRecreation6.addQuestionToAnswerChoice(neckQuestion7);
         
-        answerChoiceNeckAssementRecreation1.addQuestionToAnswerChoice(neckQuestion8);
-        answerChoiceNeckAssementRecreation2.addQuestionToAnswerChoice(neckQuestion8);
-        answerChoiceNeckAssementRecreation3.addQuestionToAnswerChoice(neckQuestion8);
-        answerChoiceNeckAssementRecreation4.addQuestionToAnswerChoice(neckQuestion8);
-        answerChoiceNeckAssementRecreation5.addQuestionToAnswerChoice(neckQuestion8);
-        answerChoiceNeckAssementRecreation6.addQuestionToAnswerChoice(neckQuestion8);
+        answerChoiceNeckAssessmentRecreation1.addQuestionToAnswerChoice(neckQuestion8);
+        answerChoiceNeckAssessmentRecreation2.addQuestionToAnswerChoice(neckQuestion8);
+        answerChoiceNeckAssessmentRecreation3.addQuestionToAnswerChoice(neckQuestion8);
+        answerChoiceNeckAssessmentRecreation4.addQuestionToAnswerChoice(neckQuestion8);
+        answerChoiceNeckAssessmentRecreation5.addQuestionToAnswerChoice(neckQuestion8);
+        answerChoiceNeckAssessmentRecreation6.addQuestionToAnswerChoice(neckQuestion8);
        
-        answerChoiceNeckAssementRecreation1.addQuestionToAnswerChoice(neckQuestion9);
-        answerChoiceNeckAssementRecreation2.addQuestionToAnswerChoice(neckQuestion9);
-        answerChoiceNeckAssementRecreation3.addQuestionToAnswerChoice(neckQuestion9);
-        answerChoiceNeckAssementRecreation4.addQuestionToAnswerChoice(neckQuestion9);
-        answerChoiceNeckAssementRecreation5.addQuestionToAnswerChoice(neckQuestion9);
-        answerChoiceNeckAssementRecreation6.addQuestionToAnswerChoice(neckQuestion9);
+        answerChoiceNeckAssessmentRecreation1.addQuestionToAnswerChoice(neckQuestion9);
+        answerChoiceNeckAssessmentRecreation2.addQuestionToAnswerChoice(neckQuestion9);
+        answerChoiceNeckAssessmentRecreation3.addQuestionToAnswerChoice(neckQuestion9);
+        answerChoiceNeckAssessmentRecreation4.addQuestionToAnswerChoice(neckQuestion9);
+        answerChoiceNeckAssessmentRecreation5.addQuestionToAnswerChoice(neckQuestion9);
+        answerChoiceNeckAssessmentRecreation6.addQuestionToAnswerChoice(neckQuestion9);
         
-        answerChoiceNeckAssementRecreation1.addQuestionToAnswerChoice(neckQuestion10);
-        answerChoiceNeckAssementRecreation2.addQuestionToAnswerChoice(neckQuestion10);
-        answerChoiceNeckAssementRecreation3.addQuestionToAnswerChoice(neckQuestion10);
-        answerChoiceNeckAssementRecreation4.addQuestionToAnswerChoice(neckQuestion10);
-        answerChoiceNeckAssementRecreation5.addQuestionToAnswerChoice(neckQuestion10);
-        answerChoiceNeckAssementRecreation6.addQuestionToAnswerChoice(neckQuestion10);
+        answerChoiceNeckAssessmentRecreation1.addQuestionToAnswerChoice(neckQuestion10);
+        answerChoiceNeckAssessmentRecreation2.addQuestionToAnswerChoice(neckQuestion10);
+        answerChoiceNeckAssessmentRecreation3.addQuestionToAnswerChoice(neckQuestion10);
+        answerChoiceNeckAssessmentRecreation4.addQuestionToAnswerChoice(neckQuestion10);
+        answerChoiceNeckAssessmentRecreation5.addQuestionToAnswerChoice(neckQuestion10);
+        answerChoiceNeckAssessmentRecreation6.addQuestionToAnswerChoice(neckQuestion10);
         
         answerChoiceUpperExtremityDifficulty1.addQuestionToAnswerChoice(question11);
         answerChoiceUpperExtremityDifficulty2.addQuestionToAnswerChoice(question11);
@@ -1173,26 +1174,31 @@ public class Initializer implements CommandLineRunner {
         answerChoiceUpperExtremityDifficulty3.addQuestionToAnswerChoice(question16);
         answerChoiceUpperExtremityDifficulty4.addQuestionToAnswerChoice(question16);
         answerChoiceUpperExtremityDifficulty5.addQuestionToAnswerChoice(question16);
+        
         answerChoiceUpperExtremitySeverity1.addQuestionToAnswerChoice(question17);
         answerChoiceUpperExtremitySeverity2.addQuestionToAnswerChoice(question17);
         answerChoiceUpperExtremitySeverity3.addQuestionToAnswerChoice(question17);
         answerChoiceUpperExtremitySeverity4.addQuestionToAnswerChoice(question17);
         answerChoiceUpperExtremitySeverity5.addQuestionToAnswerChoice(question17);
+        
         answerChoiceUpperExtremitySeverity1.addQuestionToAnswerChoice(question18);
         answerChoiceUpperExtremitySeverity2.addQuestionToAnswerChoice(question18);
         answerChoiceUpperExtremitySeverity3.addQuestionToAnswerChoice(question18);
         answerChoiceUpperExtremitySeverity4.addQuestionToAnswerChoice(question18);
         answerChoiceUpperExtremitySeverity5.addQuestionToAnswerChoice(question18);
+        
         answerChoiceUpperExtremitySeverity1.addQuestionToAnswerChoice(question19);
         answerChoiceUpperExtremitySeverity2.addQuestionToAnswerChoice(question19);
         answerChoiceUpperExtremitySeverity3.addQuestionToAnswerChoice(question19);
         answerChoiceUpperExtremitySeverity4.addQuestionToAnswerChoice(question19);
         answerChoiceUpperExtremitySeverity5.addQuestionToAnswerChoice(question19);
+        
         answerChoiceUpperExtremitySeverity1.addQuestionToAnswerChoice(question20);
         answerChoiceUpperExtremitySeverity2.addQuestionToAnswerChoice(question20);
         answerChoiceUpperExtremitySeverity3.addQuestionToAnswerChoice(question20);
         answerChoiceUpperExtremitySeverity4.addQuestionToAnswerChoice(question20);
         answerChoiceUpperExtremitySeverity5.addQuestionToAnswerChoice(question20);
+        
         answerChoiceUpperExtremitySeverity1.addQuestionToAnswerChoice(question21);
         answerChoiceUpperExtremitySeverity2.addQuestionToAnswerChoice(question21);
         answerChoiceUpperExtremitySeverity3.addQuestionToAnswerChoice(question21);
@@ -1204,41 +1210,124 @@ public class Initializer implements CommandLineRunner {
         answerChoiceUpperExtremityDifficulty3.addQuestionToAnswerChoice(question22);
         answerChoiceUpperExtremityDifficulty4.addQuestionToAnswerChoice(question22);
         answerChoiceUpperExtremityDifficulty5.addQuestionToAnswerChoice(question22);
+        
         answerChoiceUpperExtremityDifficulty1.addQuestionToAnswerChoice(question23);
         answerChoiceUpperExtremityDifficulty2.addQuestionToAnswerChoice(question23);
         answerChoiceUpperExtremityDifficulty3.addQuestionToAnswerChoice(question23);
         answerChoiceUpperExtremityDifficulty4.addQuestionToAnswerChoice(question23);
         answerChoiceUpperExtremityDifficulty5.addQuestionToAnswerChoice(question23);
+        
         answerChoiceUpperExtremityDifficulty1.addQuestionToAnswerChoice(question235);
         answerChoiceUpperExtremityDifficulty2.addQuestionToAnswerChoice(question235);
         answerChoiceUpperExtremityDifficulty3.addQuestionToAnswerChoice(question235);
         answerChoiceUpperExtremityDifficulty4.addQuestionToAnswerChoice(question235);
         answerChoiceUpperExtremityDifficulty5.addQuestionToAnswerChoice(question235);
+        
         answerChoiceUpperExtremityDifficulty1.addQuestionToAnswerChoice(question24);
         answerChoiceUpperExtremityDifficulty2.addQuestionToAnswerChoice(question24);
         answerChoiceUpperExtremityDifficulty3.addQuestionToAnswerChoice(question24);
         answerChoiceUpperExtremityDifficulty4.addQuestionToAnswerChoice(question24);
         answerChoiceUpperExtremityDifficulty5.addQuestionToAnswerChoice(question24);
+        
         answerChoiceUpperExtremityDifficulty1.addQuestionToAnswerChoice(question25);
         answerChoiceUpperExtremityDifficulty2.addQuestionToAnswerChoice(question25);
         answerChoiceUpperExtremityDifficulty3.addQuestionToAnswerChoice(question25);
         answerChoiceUpperExtremityDifficulty4.addQuestionToAnswerChoice(question25);
         answerChoiceUpperExtremityDifficulty5.addQuestionToAnswerChoice(question25);
+        
         answerChoiceUpperExtremityDifficulty1.addQuestionToAnswerChoice(question26);
         answerChoiceUpperExtremityDifficulty2.addQuestionToAnswerChoice(question26);
         answerChoiceUpperExtremityDifficulty3.addQuestionToAnswerChoice(question26);
         answerChoiceUpperExtremityDifficulty4.addQuestionToAnswerChoice(question26);
         answerChoiceUpperExtremityDifficulty5.addQuestionToAnswerChoice(question26);
+        
         answerChoiceUpperExtremityDifficulty1.addQuestionToAnswerChoice(question27);
         answerChoiceUpperExtremityDifficulty2.addQuestionToAnswerChoice(question27);
         answerChoiceUpperExtremityDifficulty3.addQuestionToAnswerChoice(question27);
         answerChoiceUpperExtremityDifficulty4.addQuestionToAnswerChoice(question27);
         answerChoiceUpperExtremityDifficulty5.addQuestionToAnswerChoice(question27);
+        
         answerChoiceUpperExtremityDifficulty1.addQuestionToAnswerChoice(question28);
         answerChoiceUpperExtremityDifficulty2.addQuestionToAnswerChoice(question28);
         answerChoiceUpperExtremityDifficulty3.addQuestionToAnswerChoice(question28);
         answerChoiceUpperExtremityDifficulty4.addQuestionToAnswerChoice(question28);
         answerChoiceUpperExtremityDifficulty5.addQuestionToAnswerChoice(question28);
+        
+        answerChoiceLowBackPainAssessmentPainIntensity1.addQuestionToAnswerChoice(lowBackQuestion29);
+        answerChoiceLowBackPainAssessmentPainIntensity2.addQuestionToAnswerChoice(lowBackQuestion29);
+        answerChoiceLowBackPainAssessmentPainIntensity3.addQuestionToAnswerChoice(lowBackQuestion29);
+        answerChoiceLowBackPainAssessmentPainIntensity4.addQuestionToAnswerChoice(lowBackQuestion29);
+        answerChoiceLowBackPainAssessmentPainIntensity5.addQuestionToAnswerChoice(lowBackQuestion29);
+        answerChoiceLowBackPainAssessmentPainIntensity6.addQuestionToAnswerChoice(lowBackQuestion29);
+        
+        answerChoiceLowBackPainAssessmentWashing1.addQuestionToAnswerChoice(lowBackQuestion30);
+        answerChoiceLowBackPainAssessmentWashing2.addQuestionToAnswerChoice(lowBackQuestion30);
+        answerChoiceLowBackPainAssessmentWashing3.addQuestionToAnswerChoice(lowBackQuestion30);
+        answerChoiceLowBackPainAssessmentWashing4.addQuestionToAnswerChoice(lowBackQuestion30);
+        answerChoiceLowBackPainAssessmentWashing5.addQuestionToAnswerChoice(lowBackQuestion30);
+        answerChoiceLowBackPainAssessmentWashing6.addQuestionToAnswerChoice(lowBackQuestion30);
+        answerChoiceLowBackPainAssessmentLifting1.addQuestionToAnswerChoice(lowBackQuestion30);
+        answerChoiceLowBackPainAssessmentLifting2.addQuestionToAnswerChoice(lowBackQuestion30);
+        answerChoiceLowBackPainAssessmentLifting3.addQuestionToAnswerChoice(lowBackQuestion30);
+        answerChoiceLowBackPainAssessmentLifting4.addQuestionToAnswerChoice(lowBackQuestion30);
+        answerChoiceLowBackPainAssessmentLifting5.addQuestionToAnswerChoice(lowBackQuestion30);
+        answerChoiceLowBackPainAssessmentLifting6.addQuestionToAnswerChoice(lowBackQuestion30);
+        
+        answerChoiceLowBackPainAssessmentLifting1.addQuestionToAnswerChoice(lowBackQuestion31);
+        answerChoiceLowBackPainAssessmentLifting2.addQuestionToAnswerChoice(lowBackQuestion31);
+        answerChoiceLowBackPainAssessmentLifting3.addQuestionToAnswerChoice(lowBackQuestion31);
+        answerChoiceLowBackPainAssessmentLifting4.addQuestionToAnswerChoice(lowBackQuestion31);
+        answerChoiceLowBackPainAssessmentLifting5.addQuestionToAnswerChoice(lowBackQuestion31);
+        answerChoiceLowBackPainAssessmentLifting6.addQuestionToAnswerChoice(lowBackQuestion31);
+        
+        answerChoiceLowBackPainAssessmentWalking1.addQuestionToAnswerChoice(lowBackQuestion32);
+        answerChoiceLowBackPainAssessmentWalking2.addQuestionToAnswerChoice(lowBackQuestion32);
+        answerChoiceLowBackPainAssessmentWalking3.addQuestionToAnswerChoice(lowBackQuestion32);
+        answerChoiceLowBackPainAssessmentWalking4.addQuestionToAnswerChoice(lowBackQuestion32);
+        answerChoiceLowBackPainAssessmentWalking5.addQuestionToAnswerChoice(lowBackQuestion32);
+        answerChoiceLowBackPainAssessmentWalking6.addQuestionToAnswerChoice(lowBackQuestion32);
+        
+        answerChoiceLowBackPainAssessmentSitting1.addQuestionToAnswerChoice(lowBackQuestion33);
+        answerChoiceLowBackPainAssessmentSitting2.addQuestionToAnswerChoice(lowBackQuestion33);
+        answerChoiceLowBackPainAssessmentSitting3.addQuestionToAnswerChoice(lowBackQuestion33);
+        answerChoiceLowBackPainAssessmentSitting4.addQuestionToAnswerChoice(lowBackQuestion33);
+        answerChoiceLowBackPainAssessmentSitting5.addQuestionToAnswerChoice(lowBackQuestion33);
+        answerChoiceLowBackPainAssessmentSitting6.addQuestionToAnswerChoice(lowBackQuestion33);
+        
+        answerChoiceLowBackPainAssessmentStanding1.addQuestionToAnswerChoice(lowBackQuestion34);
+        answerChoiceLowBackPainAssessmentStanding2.addQuestionToAnswerChoice(lowBackQuestion34);
+        answerChoiceLowBackPainAssessmentStanding3.addQuestionToAnswerChoice(lowBackQuestion34);
+        answerChoiceLowBackPainAssessmentStanding4.addQuestionToAnswerChoice(lowBackQuestion34);
+        answerChoiceLowBackPainAssessmentStanding5.addQuestionToAnswerChoice(lowBackQuestion34);
+        answerChoiceLowBackPainAssessmentStanding6.addQuestionToAnswerChoice(lowBackQuestion34);
+        
+        answerChoiceLowBackPainAssessmentSleeping1.addQuestionToAnswerChoice(lowBackQuestion35);
+        answerChoiceLowBackPainAssessmentSleeping2.addQuestionToAnswerChoice(lowBackQuestion35);
+        answerChoiceLowBackPainAssessmentSleeping3.addQuestionToAnswerChoice(lowBackQuestion35);
+        answerChoiceLowBackPainAssessmentSleeping4.addQuestionToAnswerChoice(lowBackQuestion35);
+        answerChoiceLowBackPainAssessmentSleeping5.addQuestionToAnswerChoice(lowBackQuestion35);
+        answerChoiceLowBackPainAssessmentSleeping6.addQuestionToAnswerChoice(lowBackQuestion35);
+        
+        answerChoiceLowBackPainAssessmentSocialLife1.addQuestionToAnswerChoice(lowBackQuestion36);
+        answerChoiceLowBackPainAssessmentSocialLife2.addQuestionToAnswerChoice(lowBackQuestion36);
+        answerChoiceLowBackPainAssessmentSocialLife3.addQuestionToAnswerChoice(lowBackQuestion36);
+        answerChoiceLowBackPainAssessmentSocialLife4.addQuestionToAnswerChoice(lowBackQuestion36);
+        answerChoiceLowBackPainAssessmentSocialLife5.addQuestionToAnswerChoice(lowBackQuestion36);
+        answerChoiceLowBackPainAssessmentSocialLife6.addQuestionToAnswerChoice(lowBackQuestion36);
+        
+        answerChoiceLowBackPainAssessmentTraveling1.addQuestionToAnswerChoice(lowBackQuestion37);
+        answerChoiceLowBackPainAssessmentTraveling2.addQuestionToAnswerChoice(lowBackQuestion37);
+        answerChoiceLowBackPainAssessmentTraveling3.addQuestionToAnswerChoice(lowBackQuestion37);
+        answerChoiceLowBackPainAssessmentTraveling4.addQuestionToAnswerChoice(lowBackQuestion37);
+        answerChoiceLowBackPainAssessmentTraveling5.addQuestionToAnswerChoice(lowBackQuestion37);
+        answerChoiceLowBackPainAssessmentTraveling6.addQuestionToAnswerChoice(lowBackQuestion37);
+        
+        answerChoiceLowBackPainAssessmentEmployment1.addQuestionToAnswerChoice(lowBackQuestion38);
+        answerChoiceLowBackPainAssessmentEmployment2.addQuestionToAnswerChoice(lowBackQuestion38);
+        answerChoiceLowBackPainAssessmentEmployment3.addQuestionToAnswerChoice(lowBackQuestion38);
+        answerChoiceLowBackPainAssessmentEmployment4.addQuestionToAnswerChoice(lowBackQuestion38);
+        answerChoiceLowBackPainAssessmentEmployment5.addQuestionToAnswerChoice(lowBackQuestion38);
+        answerChoiceLowBackPainAssessmentEmployment6.addQuestionToAnswerChoice(lowBackQuestion38);
 		
 		surveyRepo.save(surveyLower);
 		surveyRepo.save(surveyNeck);
@@ -1304,5 +1393,170 @@ public class Initializer implements CommandLineRunner {
         questionRepo.save(question26);
         questionRepo.save(question27);
         questionRepo.save(question28);
+        
+        questionRepo.save(lowBackQuestion29);
+        questionRepo.save(lowBackQuestion30);
+        questionRepo.save(lowBackQuestion31);
+        questionRepo.save(lowBackQuestion32);
+        questionRepo.save(lowBackQuestion33);
+        questionRepo.save(lowBackQuestion34);
+        questionRepo.save(lowBackQuestion35);
+        questionRepo.save(lowBackQuestion36);
+        questionRepo.save(lowBackQuestion37);
+        questionRepo.save(lowBackQuestion38);
+
+        answerChoicesRepo.save(answerChoicesLowerExtremity1);
+        answerChoicesRepo.save(answerChoicesLowerExtremity2);
+        answerChoicesRepo.save(answerChoicesLowerExtremity3);
+        answerChoicesRepo.save(answerChoicesLowerExtremity4);
+        answerChoicesRepo.save(answerChoicesLowerExtremity5);
+        
+        answerChoicesRepo.save(answerChoicesPhysicalFunction1);
+        answerChoicesRepo.save(answerChoicesPhysicalFunction2);
+        answerChoicesRepo.save(answerChoicesPhysicalFunction3);
+        answerChoicesRepo.save(answerChoicesPhysicalFunction4);
+        answerChoicesRepo.save(answerChoicesPhysicalFunction5);
+        
+        answerChoicesRepo.save(answerChoiceNeckAssessmentPain1);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentPain2);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentPain3);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentPain4);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentPain5);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentPain6);
+        
+        answerChoicesRepo.save(answerChoiceNeckAssessmentPersonal1);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentPersonal2);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentPersonal3);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentPersonal4);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentPersonal5);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentPersonal6);
+        
+        answerChoicesRepo.save(answerChoiceNeckAssessmentLifting1);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentLifting2);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentLifting3);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentLifting4);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentLifting5);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentLifting6);
+        
+        answerChoicesRepo.save(answerChoiceNeckAssessmentReading1);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentReading2);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentReading3);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentReading4);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentReading5);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentReading6);
+        
+        answerChoicesRepo.save(answerChoiceNeckAssessmentHeadaches1);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentHeadaches2);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentHeadaches3);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentHeadaches4);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentHeadaches5);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentHeadaches6);
+        
+        answerChoicesRepo.save(answerChoiceNeckAssessmentConcentration1);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentConcentration2);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentConcentration3);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentConcentration4);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentConcentration5);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentConcentration6);
+        
+        answerChoicesRepo.save(answerChoiceNeckAssessmentWork1);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentWork2);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentWork3);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentWork4);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentWork5);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentWork6);
+        
+        answerChoicesRepo.save(answerChoiceNeckAssessmentDriving1);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentDriving2);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentDriving3);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentDriving4);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentDriving5);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentDriving6);
+        
+        answerChoicesRepo.save(answerChoiceNeckAssessmentSleeping1);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentSleeping2);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentSleeping3);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentSleeping4);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentSleeping5);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentSleeping6);  
+        
+        answerChoicesRepo.save(answerChoiceNeckAssessmentRecreation1);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentRecreation2);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentRecreation3);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentRecreation4);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentRecreation5);
+        answerChoicesRepo.save(answerChoiceNeckAssessmentRecreation6);  
+        
+        answerChoicesRepo.save(answerChoiceUpperExtremityDifficulty1);
+        answerChoicesRepo.save(answerChoiceUpperExtremityDifficulty2);
+        answerChoicesRepo.save(answerChoiceUpperExtremityDifficulty3);
+        answerChoicesRepo.save(answerChoiceUpperExtremityDifficulty4);
+        answerChoicesRepo.save(answerChoiceUpperExtremityDifficulty5);
+        answerChoicesRepo.save(answerChoiceUpperExtremitySeverity1);
+        answerChoicesRepo.save(answerChoiceUpperExtremitySeverity2);
+        answerChoicesRepo.save(answerChoiceUpperExtremitySeverity3);
+        answerChoicesRepo.save(answerChoiceUpperExtremitySeverity4);
+        answerChoicesRepo.save(answerChoiceUpperExtremitySeverity5);
+        
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentPainIntensity1);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentPainIntensity2);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentPainIntensity3);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentPainIntensity4);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentPainIntensity5);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentPainIntensity6);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentWashing1);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentWashing2);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentWashing3);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentWashing4);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentWashing5);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentWashing6);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentLifting1);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentLifting2);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentLifting3);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentLifting4);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentLifting5);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentLifting6);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentWalking1);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentWalking2);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentWalking3);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentWalking4);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentWalking5);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentWalking6);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSitting1);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSitting2);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSitting3);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSitting4);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSitting5);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSitting6);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentStanding1);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentStanding2);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentStanding3);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentStanding4);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentStanding5);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentStanding6);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSleeping1);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSleeping2);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSleeping3);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSleeping4);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSleeping5);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSleeping6);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSocialLife1);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSocialLife2);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSocialLife3);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSocialLife4);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSocialLife5);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentSocialLife6);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentTraveling1);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentTraveling2);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentTraveling3);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentTraveling4);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentTraveling5);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentTraveling6);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentEmployment1);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentEmployment2);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentEmployment3);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentEmployment4);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentEmployment5);
+        answerChoicesRepo.save(answerChoiceLowBackPainAssessmentEmployment6);
 	}
 }
