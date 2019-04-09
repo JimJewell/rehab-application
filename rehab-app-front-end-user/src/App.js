@@ -4,13 +4,9 @@ import Header from "./components/Header";
 import Survey from "./components/Survey";
 import SurveyList from "./components/SurveyList";
 import Home from "./components/home";
-
-import NeckAssessmentVideos from "./components/videos/NeckAssessmentVideos";
-import LowBackPainVideos from "./components/videos/LowBackPainVideos";
+import Videos from  './components/Videos'
 
 import axios from "axios";
-import LowerExtremedyVideos from "./components/videos/LowerExtremedyVideos";
-import PhysicalFunctionVideos from "./components/videos/PhysicalFunctionVideos";
 
 class App extends Component {
   state = {
@@ -23,66 +19,38 @@ class App extends Component {
     axios.get("/surveys").then(res => this.setState({ surveys: res.data }));
   }
 
-  patientSurveys() {
-    axios.get("/surveys").then(res => this.setState({ surveys: res.data }));
+  setSurveyById = (id) => {
+    if (id === 'all'){
+      this.setState({ survey: undefined})
+    } else {
+    axios.get(`/surveys/${id}`)
+     .then(res => this.setState({ survey: res.data }))
+    }
   }
-
-  setSurveyById = id => {
-    axios
-      .get(`/surveys/${id}`)
-      .then(res => this.setState({ survey: res.data }));
-  };
-
-  addSurvey = survey => {
-    axios
-      .post("/surveys/addSurveys", { survey })
-      .then(res => this.setState({ surveys: res.data }));
-  };
-
+ 
+  addSurvey = (survey) => {
+    axios.post('/surveys/addSurveys', {survey})
+    .then(res => this.setState({ surveys: res.data})
+  }
+          
   submitSurvey = (name, questions) => {
-    console.log(questions);
-    axios.post("/surveys/submit", { name, questions });
-  };
+    axios.post('/surveys/submit', {name, questions})
+    this.setState({currentLocation: 'video'})
+  }
 
   updateCurrentLocation = location =>
     this.setState({ currentLocation: location });
 
   render() {
     return (
-      <div className="App">
-        <Header updateCurrentLocation={this.updateCurrentLocation} />
-        <Home />
-        {this.state.currentLocation === "survey" && this.state.survey && (
-          <Survey survey={this.state.survey} submitSurvey={this.submitSurvey} />
-        )}
-        {this.state.currentLocation === "survey" && this.state.survey && (
-          <SurveyList
-            surveys={this.state.surveys}
-            setSurveyById={this.setSurveyById}
-          />
-        )}
+      <div className="App">  
+        <Header updateCurrentLocation = {this.updateCurrentLocation} />
+        <SurveyList surveys = {this.state.surveys} setSurveyById={this.setSurveyById} />  
+        {this.state.currentLocation === 'survey' && this.state.survey && <Survey survey={this.state.survey} submitSurvey={this.submitSurvey} />} 
 
-        {this.state.survey && this.state.survey.name === "Neck Assessment" && (
-          <NeckAssessmentVideos />
-        )}
-        {this.state.survey &&
-          this.state.survey.name === "Low Back Pain Assessment" && (
-            <LowBackPainVideos />
-          )}
-        {this.state.survey &&
-          this.state.survey.name === "Lower Extremity Assessment" && (
-            <LowerExtremedyVideos />
-          )}
-        {this.state.survey &&
-          this.state.survey.name === "Physical Function Assessment" && (
-            <PhysicalFunctionVideos />
-          )}
-        {this.state.survey &&
-          this.state.survey.name === "Upper Extremity Assessment" && (
-            <NeckAssessmentVideos />
-          )}
-      </div>
-    );
+        {!this.state.survey && this.state.currentLocation === 'video' && <Videos name='All' />}
+        {this.state.survey && this.state.currentLocation === 'video' && <Videos name={this.state.survey.name} />}
+        </div>)
   }
 }
 

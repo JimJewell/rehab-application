@@ -13,18 +13,17 @@ export class SurveyList extends Component {
         <p>
           Your Care Provider has assigned you surveys to complete. Please
           complete them by their due date.
-        </p>
-        <select className="surveySelect">
-          <SurveyListList surveys={this.props.surveys} />
+        </p> 
+        <select className = "surveySelect">          
+            <SurveyListList surveys= {this.props.surveys} />
+            <option value='all'>No Survey</option>
         </select>
 
         <button
           className="genericButton"
           onClick={() => this.onSubmit()}
-          style={buttonStyle}
-        >
-          submit
-        </button>
+          style={buttonStyle}>
+        submit</button>
       </div>
     );
   }
