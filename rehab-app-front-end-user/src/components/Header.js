@@ -1,15 +1,15 @@
 import React from "react";
+import image from './icons/rehabiticontransparent.png'
+
 
 export default ({ updateCurrentLocation, setUserType, userType }) => {
   return (
     <div>
       <header className="header">
+          <div className="logo">
+          <img src={require("./icons/rehabiticontransparent.png")} />
+          </div>
         <nav className="nav">
-          <img
-            className="logo"
-            alt={"logo"}
-            src={"./icons/rehabiticontransparent"}
-          />
           <ul className="nav-list">
             {userType === "none" && (
               <div className="dropdown">
