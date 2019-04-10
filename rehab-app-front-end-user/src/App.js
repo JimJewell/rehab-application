@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import "./App.css";
 import Header from "./components/Header";
-import Survey from "./components/Survey";
-import SurveyList from "./components/SurveyList";
-// import Home from "./components/home";
+import Survey from "./components/Survey/Survey";
+import SurveyList from "./components/Survey/SurveyList";
 import Videos from "./components/Videos";
+import AddSurvey from "./components/Survey/AddSurvey/AddSurvey"
 
 import axios from "axios";
 import Home from "./components/home";
@@ -31,9 +31,9 @@ class App extends Component {
     }
   };
 
-  addSurvey = survey => {
+  addSurvey = (name, questionChoices) => {
     axios
-      .post("/surveys/addSurveys", { survey })
+      .post("/surveys/addSurveys", { name, questionChoices })
       .then(res => this.setState({ surveys: res.data }));
   };
 
@@ -58,7 +58,7 @@ class App extends Component {
           setUserType={this.setUserType}
         />
         {this.state.userType === "none" && <Home />}
-        {this.state.userType != "none" && (
+        {this.state.userType !== "none" && (
           <SurveyList
             surveys={this.state.surveys}
             setSurveyById={this.setSurveyById}
@@ -69,12 +69,18 @@ class App extends Component {
           <Survey survey={this.state.survey} submitSurvey={this.submitSurvey} />
         )}
 
+         {this.state.currentLocation === "addSurvey" && (
+          <AddSurvey addSurvey={this.addSurvey} />
+        )}
+
         {!this.state.survey && this.state.currentLocation === "video" && (
           <Videos name="All" />
         )}
         {this.state.survey && this.state.currentLocation === "video" && (
           <Videos name={this.state.survey.name} />
         )}
+
+
       </div>
     );
   }
