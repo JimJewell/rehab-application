@@ -2,6 +2,7 @@ body {
   /* margin: 0;
   padding: 0; */
   background: #eaeaea;
+  height: 100%;
 }
 
 * {
@@ -207,14 +208,39 @@ body {
 }
 
 .splashBacker {
-  background-image: url("./components/images/background500.jpg");
+  background-image: url("./components/images/sportsPT.jpeg");
+
   background-repeat: no-repeat;
   background-color: white;
-  height: 600px;
-  top: 0;
+  height: 800px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  top: 20px;
+  opacity: 0.8;
 }
 
 .login {
   display: inline-block;
   margin-top: 250px;
+}
+
+.homeTitle {
+  display: inline-block;
+  margin-top: 150px;
+  color: white;
+  opacity: 0.7;
+  background-image: url("./components/icons/rehabiticontransparent.png");
+}
+
+.tagLine {
+  color: white;
+}
+
+.homelogo {
+  display: inline-block;
+  margin-top: 250px;
+  color: white;
+
+  width: 400px;
 }
