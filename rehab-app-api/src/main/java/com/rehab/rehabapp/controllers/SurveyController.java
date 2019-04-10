@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.rehab.rehabapp.models.Question;
 import com.rehab.rehabapp.models.SubmittedQuestion;
 import com.rehab.rehabapp.models.SubmittedSurvey;
 import com.rehab.rehabapp.models.Survey;
@@ -55,8 +56,20 @@ public class SurveyController {
 	@PostMapping("/addSurvey")
 	public Collection<Survey> addSurvey(@RequestBody String newSurvey) throws JSONException{
 		JSONObject json = new JSONObject(newSurvey);
-		Survey survey = surveyRepo.save(new Survey(json.getString("name"), json.getString("date")));
+		Survey survey = surveyRepo.save(new Survey(json.getString("name")));
+		JSONArray questionChoices = json.getJSONArray("questionChoices");
+		
+		JSONObject jsonOne;
+		
+		for (int i = 0 ; i < questionChoices.length() ; i++ ) {
+			 jsonOne = (JSONObject) questionChoices.get(i);
+			 long questionId = jsonOne.getLong("id");
+			 Question question = questionRepo.findById(questionId).get();
+			 question.addSurveyToQuestion(survey);
+		}	
+		
 		return (Collection<Survey>) surveyRepo.findAll();
+		
 	}
 	
 	@PostMapping("/nameToId")
@@ -83,6 +96,8 @@ public class SurveyController {
 			 String nameToMake = jsonOne.getString("name");
 			 String value = jsonOne.getString("value");
 			 submitQuestionRepo.save(new SubmittedQuestion(nameToMake, value, submittedSurvey));
+			 
+	
 		}		
 	}
 }
