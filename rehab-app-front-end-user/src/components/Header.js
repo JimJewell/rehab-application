@@ -13,7 +13,7 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
                   <a onClick={() => setUserType("patient")}>Patients</a>
                 </li>
                 <li className="nav-list-item">
-                  <a onClick={() => setUserType("professionals")}>
+                  <a onClick={() => setUserType("professional")}>
                     Medical Professionals
                   </a>
                 </li>
@@ -39,6 +39,11 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
                     Send Surveys
                   </a>
                 </li>
+
+              <li className="nav-list-item">
+              <a onClick={() => updateCurrentLocation("addSurvey")}>Add Survey
+              </a>
+              </li>
               </div>
             )}
           </ul>

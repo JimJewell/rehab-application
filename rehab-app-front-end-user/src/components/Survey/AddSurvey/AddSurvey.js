@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import QuestionList from './QuestionList';
-
+import QuestionChoiceList from './QuestionChoiceList'
+import axios from "axios"
 
 export default class AddSurvey extends Component {
 
   state = {
     questions: [],
-    questionChoice: []
+    questionChoices: []
   
   
   
@@ -17,20 +18,15 @@ export default class AddSurvey extends Component {
     axios.get("/questions").then(res => this.setState({ questions: res.data }));
   }
 
-  
+  addQuestionChoice = (id, name) => {
+    {this.state.questionChoices.push({id, name})}
+
+  }
   addSurveyButton = () => {
-    const name = this.props.survey.name;
-    let questions = [];
+    let name = document.querySelector(".surveyName-input").value
 
-    const questionDivs = document.querySelectorAll(".questionDiv");
 
-    for (const questionDiv of questionDivs) {
-      questions.push({
-        name: questionDiv.querySelector(".questionName").textContent,
-        value: questionDiv.querySelector(".questionValue").value
-      });
-    }
-    this.props.submitSurvey(name, questions);
+    this.props.addSurvey(name, this.state.questionChoices);
   };
 
   render() {
@@ -40,21 +36,19 @@ export default class AddSurvey extends Component {
           <h1 className="addSurveyTitle">Add Survey</h1>
           <div className="surveyName">
           <p>Survey Name:</p>
-          <input type="text" placeholder="Survey Name"></input>
+          <input className="surveyName-input" type="text" placeholder="Survey Name"></input>
           </div>
 
-          <div className="questionBox">
-          <p>Questions</p>
-          
-          <QuestionList questions = {this.state.questions}
+          <div className="questionBox">          
+          <QuestionList questions = {this.state.questions} addQuestionChoice = {this.addQuestionChoice}
           />
+          <QuestionChoiceList questionChoices= {this.state.questionChoices} />
+            
             <div className="btnContainer">
               <button
                 className="genericButton"
-                onClick={() => this.submitSurveyButton()}
-              >
-                {" "}
-                Submit
+                onClick={() => this.addSurveyButton()}
+              >Submit
               </button>
             </div>
           </div>

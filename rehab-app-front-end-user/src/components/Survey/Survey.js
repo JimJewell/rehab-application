@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Question from "../Question";
+import Question from "../Survey/Question"
 
 export default class Survey extends Component {
   submitSurveyButton = () => {
