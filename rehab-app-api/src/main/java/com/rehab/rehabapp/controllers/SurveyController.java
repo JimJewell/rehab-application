@@ -71,19 +71,30 @@ public class SurveyController {
 		JSONObject json = new JSONObject(body);
 		String name = json.getString("name");
 		Survey survey = surveyRepo.findByName(name);
-		SubmittedSurvey submittedSurvey = submitSurveyRepo.save(new SubmittedSurvey(survey.getName()));
+		SubmittedSurvey submittedSurvey = submitSurveyRepo.save(new SubmittedSurvey(survey.getName(), survey));
 		JSONArray questionCollections = json.getJSONArray("questions");
 		
 		JSONObject jsonOne;
 		
 		LocalDate date =  LocalDate.now();
 		
-		for (int i = 0 ; i < questionCollections.length() ; i++ ) {
+		int sum = 0;
+		
+		for (int i = 0 ; i < questionCollections.length() ; i++ ) {			
 			 jsonOne = (JSONObject) questionCollections.get(i);
 			 String nameToMake = jsonOne.getString("name");
 			 String value = jsonOne.getString("value");
+			 sum += Integer.parseInt(jsonOne.getString("value"));
 			 submitQuestionRepo.save(new SubmittedQuestion(nameToMake, value, submittedSurvey));
-		}		
+		}
+		
+		submittedSurvey.addSumToSum(sum);
+		submitSurveyRepo.save(submittedSurvey);
+		
+		survey.AddSumToSums(sum);
+		surveyRepo.save(survey);
+		
+		System.out.println(survey.getSums());
 	}
 }
 

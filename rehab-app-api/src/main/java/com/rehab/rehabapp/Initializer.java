@@ -934,5 +934,10 @@ public class Initializer implements CommandLineRunner {
         answerChoicesRepo.save(answerChoiceLowBackPainAssessmentEmployment4);
         answerChoicesRepo.save(answerChoiceLowBackPainAssessmentEmployment5);
         answerChoicesRepo.save(answerChoiceLowBackPainAssessmentEmployment6);
+        
+        
+        // sum initialization
+        surveyLower.AddSumToSums(0);
+        surveyRepo.save(surveyLower);
 	}
 }

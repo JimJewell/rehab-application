@@ -3,6 +3,7 @@ import './App.css'
 import Header from './components/Header'
 import Survey from './components/Survey'
 import SurveyList from './components/SurveyList'
+import ProgressChart from './components/ProgressChart'
 
 import NeckAssessmentVideos from './components/videos/NeckAssessmentVideos'
 import LowBackPainVideos from './components/videos/LowBackPainVideos';
@@ -35,7 +36,6 @@ class App extends Component {
   }
 
   submitSurvey = (name, questions) => {
-    console.log(questions)
     axios.post('/surveys/submit', {name, questions})
   }
 
@@ -47,6 +47,10 @@ class App extends Component {
     return (
       <div className="App">  
         <Header updateCurrentLocation = {this.updateCurrentLocation} />
+
+        {this.state.survey && <ProgressChart survey={this.state.survey}/>}
+
+
         {this.state.currentLocation === 'survey' && this.state.survey && <Survey survey={this.state.survey} submitSurvey={this.submitSurvey} />} 
         {this.state.currentLocation === 'survey' && !this.state.survey &&  <SurveyList surveys = {this.state.surveys} setSurveyById={this.setSurveyById} />}  
 
