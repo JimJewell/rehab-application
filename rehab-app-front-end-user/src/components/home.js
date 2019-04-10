@@ -5,7 +5,12 @@ export default class Home extends Component {
   render() {
     return (
       <div>
-        <p>Rehabit.com</p>
+        <div className="splashBacker">
+          <img
+            className="homelogo"
+            src={require("./images/rehabititfulllogo.png")}
+          />
+        </div>
       </div>
     );
   }
