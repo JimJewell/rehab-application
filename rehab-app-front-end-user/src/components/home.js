@@ -6,17 +6,10 @@ export default class Home extends Component {
     return (
       <div>
         <div className="splashBacker">
-          <div className="login">
-            <p>Medical Professionals</p>
-            <button className="genericButton">Sign-In</button>
-            <p>Patients</p>
-            <button
-              className="genericButton"
-              onClick={() => this.patientLogin()}
-            >
-              Sign-In
-            </button>
-          </div>
+          <img
+            className="homelogo"
+            src={require("./images/rehabititfulllogo.png")}
+          />
         </div>
       </div>
     );
