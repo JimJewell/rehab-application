@@ -2,12 +2,6 @@ import React, { Component } from "react";
 import Image from "./images/background500.jpg";
 
 export default class Home extends Component {
-  patientLogin = () => {
-    <SurveyList
-      surveys={this.state.surveys}
-      setSurveyById={this.setSurveyById}
-    />;
-  };
   render() {
     return (
       <div>
