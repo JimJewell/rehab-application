@@ -1,26 +1,35 @@
 import React from "react";
+import image from './icons/rehabiticontransparent.png'
+
 
 export default ({ updateCurrentLocation, setUserType, userType }) => {
   return (
     <div>
       <header className="header">
-        <h1 className="logo">RehabIT</h1>
+          <div className="logo">
+          <img src={require("./icons/rehabiticontransparent.png")} />
+          </div>
         <nav className="nav">
           <ul className="nav-list">
             {userType === "none" && (
-              <div>
-                <li className="nav-list-item">
-                  <a onClick={() => setUserType("patient")}>Patients</a>
-                </li>
-                <li className="nav-list-item">
-                  <a onClick={() => setUserType("professional")}>
-                    Medical Professionals
-                  </a>
-                </li>
+
+              <div className="dropdown">
+                <button className="dropbtn">Login</button>
+                <div className="dropdown-content">
+                  <li className="nav-list-item">
+                    <a onClick={() => setUserType("patient")}>Patients</a>
+                  </li>
+                  <li className="nav-list-item">
+                    <a onClick={() => setUserType("professional")}>
+                      Medical Professionals
+                    </a>
+                  </li>
+                </div>
+
               </div>
             )}
             {userType === "patient" && (
-              <div>
+              <div className="dropDown">
                 <li className="nav-list-item">
                   <a onClick={() => updateCurrentLocation("survey")}>Survey</a>
                 </li>
@@ -30,7 +39,7 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
               </div>
             )}
             {userType === "professional" && (
-              <div>
+              <div className="dropDown">
                 <li className="nav-list-item">
                   <a onClick={() => updateCurrentLocation("survey")}>Reports</a>
                 </li>

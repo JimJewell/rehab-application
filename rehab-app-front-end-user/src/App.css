@@ -1,7 +1,8 @@
 body {
-  margin: 0;
-  padding: 0;
+  /* margin: 0;
+  padding: 0; */
   background: #eaeaea;
+  height: 100%;
 }
 
 * {
@@ -14,10 +15,10 @@ body {
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
+  /* display: flex;
+  justify-content: space-between; */
   padding: 5px;
-  height: 40px;
+  height: 45px;
   position: fixed;
   background-color: #33363b;
   color: white;
@@ -25,26 +26,85 @@ body {
   top: 0;
   z-index: 10;
   box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+  text-align: left;
+
 }
+.logo {
+  margin-left: 20px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  height: 20px;
+  width: 20px;
+  
+  
+}
+
 .nav {
-  float: right;
+  
+  margin-right: 50px;
+  position: fixed;
+  margin-bottom: 0px;
+  display: inline-block;
+  width: 20%;
 }
 
 .nav-list {
   list-style-type: none;
-  display: flex;
-  padding-left: 5px;
+
+  padding-left: 0px;
 }
 
 .nav-list-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.dropDown-btn {
   padding: 10px 24px;
   cursor: pointer;
+}
+
+.dropDown {
+  float: right;
+  overflow: hidden;
+  margin-right: 50px;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 18px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+
+  /* position: absolute; */
+  background-color: #33363b;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 0;
+}
+
+.dropbtn:hover {
+  background-color: #368cbf;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 .logo {
   float: left;
   padding-bottom: 20px;
-  padding-right: 50px;
+  
 }
 
 .renderContainer {
@@ -148,14 +208,39 @@ body {
 }
 
 .splashBacker {
-  background-image: url("./components/images/background500.jpg");
+  background-image: url("./components/images/sportsPT.jpeg");
+
   background-repeat: no-repeat;
   background-color: white;
-  height: 600px;
-  top: 0;
+  height: 800px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  top: 20px;
+  opacity: 0.8;
 }
 
 .login {
   display: inline-block;
   margin-top: 250px;
+}
+
+.homeTitle {
+  display: inline-block;
+  margin-top: 150px;
+  color: white;
+  opacity: 0.7;
+  background-image: url("./components/icons/rehabiticontransparent.png");
+}
+
+.tagLine {
+  color: white;
+}
+
+.homelogo {
+  display: inline-block;
+  margin-top: 250px;
+  color: white;
+
+  width: 400px;
 }
