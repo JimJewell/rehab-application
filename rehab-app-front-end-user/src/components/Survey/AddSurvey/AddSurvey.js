@@ -7,7 +7,8 @@ export default class AddSurvey extends Component {
 
   state = {
     questions: [],
-    questionChoices: []
+    questionChoices: [],
+    addQuestionChecker: false
   };
 
   componentDidMount() {
@@ -22,18 +23,41 @@ export default class AddSurvey extends Component {
   }
 
   addQuestionChoice = (id, name) => {
-    this.setState({
+    { id === "add" && this.setState({ addQuestionChecker: true }) }
+    {
+    id !== "add" && (this.setState({
       questionChoices: [...this.state.questionChoices, {
         id: id,
         name: name,
       }]
-    })
+    }))
+    }
+
   }
 
   removeQuestionChoice = (specificQuestionName) => {
     this.setState({
       questionChoices: [...this.state.questionChoices.filter(questionChoice => questionChoice.name !== specificQuestionName)]
     })
+  }
+
+  addQuestion = name => {
+    let newId
+    axios
+      .post("/questions/addQuestion", { name})
+      .then(res => this.setState({ questions: res.data }))
+      .then(() => {axios
+      .post("/questions/nameToId", { name})
+        .then(res => {newId = res.data })})
+      .then(() => {
+        console.log(newId)
+        this.setState({
+        questionChoices: [...this.state.questionChoices, {
+          id: newId,
+          name: name
+        }],
+        addQuestionChecker: false
+       })})
   }
 
   addSurveyButton = () => {
@@ -57,13 +81,15 @@ export default class AddSurvey extends Component {
             <QuestionList questions={this.state.questions} addQuestionChoice={this.addQuestionChoice}
               questionChoices={this.state.questionChoices}
             />
-            <button
-              className="genericButton"
-              onClick={() => this.addQuestionChoiceButton()}
-            >Add Question Choice
-            </button>
+            <div className="btnContainer">
+              <button
+                className="genericButton"
+                onClick={() => this.addQuestionChoiceButton()}
+              >Add Question Choice
+              </button>
+            </div>
           </div>
-          <QuestionChoiceList questionChoices={this.state.questionChoices} removeQuestionChoice = {this.removeQuestionChoice} />
+          <QuestionChoiceList questionChoices={this.state.questionChoices} removeQuestionChoice={this.removeQuestionChoice} addQuestionChecker={this.state.addQuestionChecker} addQuestion = {this.addQuestion} />
 
           <div className="btnContainer">
             <button

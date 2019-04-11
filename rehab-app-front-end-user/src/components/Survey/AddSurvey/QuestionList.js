@@ -10,7 +10,7 @@ export default class QuestionList extends Component {
       <p>Questions</p>
         <select className='questionListChoice'>
         <QuestionListChoice questions = {this.props.questions} />
-      
+        <option value="add">Add Question</option>
         </select>
       </div>
     );
