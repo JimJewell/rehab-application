@@ -27,7 +27,6 @@ body {
   z-index: 10;
   box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
   text-align: left;
-
 }
 .logo {
   margin-left: 20px;
@@ -35,12 +34,9 @@ body {
   padding-bottom: 10px;
   height: 20px;
   width: 20px;
-  
-  
 }
 
 .nav {
-  
   margin-right: 50px;
   position: fixed;
   margin-bottom: 0px;
@@ -104,7 +100,6 @@ body {
 .logo {
   float: left;
   padding-bottom: 20px;
-  
 }
 
 .renderContainer {
@@ -126,7 +121,7 @@ body {
   max-width: 1000px;
 }
 
-.questionValue {
+.questionValue .questionListChoice {
   float: left;
   font-size: 12px;
   font-family: sans-serif;
@@ -151,12 +146,15 @@ body {
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
 }
+.questionListChoice,
 .questionValue::-ms-expand {
   display: none;
 }
+.questionListChoice,
 .questionValue:hover {
   border-color: #888;
 }
+.questionListChoice,
 .questionValue:focus {
   border-color: #aaa;
   box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
@@ -164,6 +162,7 @@ body {
   color: #222;
   outline: none;
 }
+.questionListChoice,
 .questionValue option {
   font-weight: normal;
 }
@@ -243,4 +242,15 @@ body {
   color: white;
 
   width: 400px;
+}
+
+.homeLogoBack {
+  background: rgba(135, 139, 135, 0.3);
+  width: 450px;
+  height: 100%;
+}
+
+.pitch {
+  color: white;
+  padding-left: 10px;
 }
