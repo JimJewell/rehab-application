@@ -6,10 +6,9 @@ export default class QuestionList extends Component {
 
 
   addQuestionChoice = () => {
-    let questionBox = document.querySelector('.questionListChoice')
-    let questionId = questionBox.option[questionBox.selectedIndex].value;
-    let questionName = questionBox.option[questionBox.selectedIndex].textContent;
-
+    let selectBox = document.querySelector(".questionListChoice")
+    let questionId = selectBox.options[selectBox.selectedIndex].value;
+    let questionName = selectBox.options[selectBox.selectedIndex].textContent;
     this.props.addQuestionChoice(questionId, questionName)
 
   }
@@ -17,8 +16,9 @@ export default class QuestionList extends Component {
     return (
       <div className="questionDiv">
       <p>Questions</p>
-        <select className='questionListChoice' onChange={() => this.addQuestionChoice}>
+        <select className='questionListChoice' onChange={() => this.addQuestionChoice()}>
         <QuestionListChoice questions = {this.props.questions} />
+      
         </select>
       </div>
     );

@@ -33,8 +33,9 @@ class App extends Component {
 
   addSurvey = (name, questionChoices) => {
     axios
-      .post("/surveys/addSurveys", { name, questionChoices })
+      .post("/surveys/addSurvey", { name, questionChoices })
       .then(res => this.setState({ surveys: res.data }));
+      this.setState({ currentLocation: 'survey'})
   };
 
   submitSurvey = (name, questions) => {
@@ -51,7 +52,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        {console.log(this.state.userType)}
         <Header
           updateCurrentLocation={this.updateCurrentLocation}
           userType={this.state.userType}

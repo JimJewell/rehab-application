@@ -8,6 +8,7 @@ import java.util.Collection;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -21,7 +22,7 @@ public class Survey{
 	
 	private LocalDate date;
 	
-	@OneToMany(mappedBy="survey")
+	@ManyToMany(mappedBy="surveys")
 	private Collection<Question> questions;
 
 	public Survey() {

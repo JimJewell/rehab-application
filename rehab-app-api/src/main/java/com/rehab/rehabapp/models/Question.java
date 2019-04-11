@@ -2,6 +2,7 @@
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -28,9 +29,9 @@ public class Question{
 	@ManyToMany (mappedBy="questions")
 	private List<AnswerChoice> answerChoices;
 	
-	@ManyToOne
+	@ManyToMany
 	@JsonIgnore
-	private Survey survey;
+	private Collection <Survey> surveys;
 
 	public Question() {
 	}
@@ -38,24 +39,28 @@ public class Question{
 	public Question(String name) {
 		this.name = name;
 		this.answerChoices = new ArrayList<AnswerChoice>();
+		this.surveys = new ArrayList<Survey>();
 	}
 
 	public Question(String name, String value) {
 		this.name = name;
 		this.value = value;
 		this.answerChoices = new ArrayList<AnswerChoice>();
+		this.surveys = new ArrayList<Survey>();
 	}
 	
 	public Question(String name, Survey survey) {
 		this.name = name;
-		this.survey = survey;
+		this.surveys = new ArrayList<Survey>();
+		surveys.add(survey);
 		this.answerChoices = new ArrayList<AnswerChoice>();
 	}
 	
 	public Question(String name, String value, Survey survey, LocalDate date) {
 		this.name = name;
 		this.value = value;
-		this.survey = survey;
+		this.surveys = new ArrayList<Survey>();
+		surveys.add(survey);
 		this.date = date;
 		this.answerChoices = new ArrayList<AnswerChoice>();
 	}
@@ -72,8 +77,8 @@ public class Question{
 		return value;
 	}
 
-	public Survey getSurvey() {
-		return survey;
+	public Collection <Survey> getSurveys() {
+		return surveys;
 			}
 	
 	public LocalDate getDate() {
@@ -81,11 +86,11 @@ public class Question{
 	}
 
 	public void addSurveyToQuestion(Survey survey) {
-		this.survey = survey;
+		surveys.add(survey);
 	}
 	
 	public boolean checkSurveyForQuestion(Survey survey) {
-		return this.survey.equals(survey);
+		return surveys.contains(survey);
 	}
 	
 	public List<AnswerChoice> getAnswerChoices() {

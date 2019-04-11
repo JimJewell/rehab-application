@@ -8,9 +8,6 @@ export default class AddSurvey extends Component {
   state = {
     questions: [],
     questionChoices: []
-  
-  
-  
   };
 
 
@@ -19,7 +16,10 @@ export default class AddSurvey extends Component {
   }
 
   addQuestionChoice = (id, name) => {
-    {this.state.questionChoices.push({id, name})}
+    this.setState({ questionChoices: [...this.state.questionChoices, {
+      id: id, 
+      name: name,
+    }]})
 
   }
   addSurveyButton = () => {
@@ -41,6 +41,7 @@ export default class AddSurvey extends Component {
 
           <div className="questionBox">          
           <QuestionList questions = {this.state.questions} addQuestionChoice = {this.addQuestionChoice}
+          questionChoices = {this.state.questionChoices}
           />
           <QuestionChoiceList questionChoices= {this.state.questionChoices} />
             
