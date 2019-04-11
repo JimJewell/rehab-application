@@ -37,6 +37,7 @@ class App extends Component {
 
   submitSurvey = (name, questions) => {
     axios.post('/surveys/submit', {name, questions})
+    .then(res => this.setState({ survey: res.data }))
   }
 
   updateCurrentLocation = (location) => (
@@ -48,7 +49,7 @@ class App extends Component {
       <div className="App">  
         <Header updateCurrentLocation = {this.updateCurrentLocation} />
 
-        {this.state.survey && <ProgressChart survey={this.state.survey}/>}
+        {this.state.survey && <ProgressChart sums={this.state.survey.sums}/>}
 
 
         {this.state.currentLocation === 'survey' && this.state.survey && <Survey survey={this.state.survey} submitSurvey={this.submitSurvey} />} 

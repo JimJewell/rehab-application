@@ -67,7 +67,7 @@ public class SurveyController {
 	}
 	
 	@PostMapping("/submit")
-	public void submitSurvey(@RequestBody String body) throws JSONException {
+	public Survey submitSurvey(@RequestBody String body) throws JSONException {
 		JSONObject json = new JSONObject(body);
 		String name = json.getString("name");
 		Survey survey = surveyRepo.findByName(name);
@@ -94,7 +94,7 @@ public class SurveyController {
 		survey.AddSumToSums(sum);
 		surveyRepo.save(survey);
 		
-		System.out.println(survey.getSums());
+		return survey;
 	}
 }
 
