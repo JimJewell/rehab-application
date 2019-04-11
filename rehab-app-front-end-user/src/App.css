@@ -31,7 +31,10 @@ body {
   float: right;
 }
 
+
+
 .nav {
+  margin-right: 50px;
   position: fixed;
   margin-bottom: 0px;
   display: inline-block;
@@ -114,7 +117,7 @@ body {
   max-width: 1000px;
 }
 
-.questionValue {
+.questionValue .questionListChoice {
   float: left;
   font-size: 12px;
   font-family: sans-serif;
@@ -139,14 +142,15 @@ body {
   background-size: 0.65em auto, 100%;
 }
 
+.questionListChoice,
 .questionValue::-ms-expand {
   display: none;
 }
-
+.questionListChoice,
 .questionValue:hover {
   border-color: #888;
 }
-
+.questionListChoice,
 .questionValue:focus {
   border-color: #aaa;
   box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
@@ -155,6 +159,7 @@ body {
   outline: none;
 }
 
+.questionListChoice,
 .questionValue option {
   font-weight: normal;
 }
@@ -232,3 +237,15 @@ body {
   color: white;
   width: 400px;
 }
+
+.homeLogoBack {
+  background: rgba(135, 139, 135, 0.3);
+  width: 450px;
+  height: 100%;
+}
+
+.pitch {
+  color: white;
+  padding-left: 10px;
+}
+
