@@ -49,8 +49,10 @@ export default class AddSurvey extends Component {
               <button
                 className="genericButton"
                 onClick={() => this.addSurveyButton()}
-              >Submit
+              >Submit Survey 
               </button>
+
+
             </div>
           </div>
         </div>
