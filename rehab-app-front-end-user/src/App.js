@@ -58,7 +58,7 @@ class App extends Component {
           setUserType={this.setUserType}
         />
         {this.state.userType === "none" && <Home />}
-        {this.state.userType !== "none" && (
+        {this.state.userType !== "none" && this.state.currentLocation !== "addSurvey" && (
           <SurveyList
             surveys={this.state.surveys}
             setSurveyById={this.setSurveyById}
