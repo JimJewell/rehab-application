@@ -1,35 +1,63 @@
 import React from "react";
+import image from './icons/rehabiticontransparent.png'
 
-export default ({ updateCurrentLocation }) => {
+
+export default ({ updateCurrentLocation, setUserType, userType }) => {
   return (
-    <div className="Header" style={headerStyle}>
-      <h1>iMyRehabr - Featuring FormFriend!</h1>
-      <nav className="nav">
-        <ul className="nav-list" style={navList}>
-          <li className="nav-list-item" style={navListItem}>
-            <a onClick={() => updateCurrentLocation("survey")}>Survey</a>
-          </li>
-          <li className="nav-list-item" style={navListItem}>
-            <a onClick={() => updateCurrentLocation("video")}>Videos</a>
-          </li>
-        </ul>
-      </nav>
+    <div>
+      <header className="header">
+          <div className="logo">
+          <img src={require("./icons/rehabiticontransparent.png")} />
+          </div>
+        <nav className="nav">
+          <ul className="nav-list">
+            {userType === "none" && (
+
+              <div className="dropdown">
+                <button className="dropbtn">Login</button>
+                <div className="dropdown-content">
+                  <li className="nav-list-item">
+                    <a onClick={() => setUserType("patient")}>Patients</a>
+                  </li>
+                  <li className="nav-list-item">
+                    <a onClick={() => setUserType("professional")}>
+                      Medical Professionals
+                    </a>
+                  </li>
+                </div>
+
+              </div>
+            )}
+            {userType === "patient" && (
+              <div className="dropDown">
+                <li className="nav-list-item">
+                  <a onClick={() => updateCurrentLocation("survey")}>Survey</a>
+                </li>
+                <li className="nav-list-item">
+                  <a onClick={() => updateCurrentLocation("video")}>Videos</a>
+                </li>
+              </div>
+            )}
+            {userType === "professional" && (
+              <div className="dropDown">
+                <li className="nav-list-item">
+                  <a onClick={() => updateCurrentLocation("survey")}>Reports</a>
+                </li>
+                <li className="nav-list-item">
+                  <a onClick={() => updateCurrentLocation("video")}>
+                    Send Surveys
+                  </a>
+                </li>
+
+              <li className="nav-list-item">
+              <a onClick={() => updateCurrentLocation("addSurvey")}>Add Survey
+              </a>
+              </li>
+              </div>
+            )}
+          </ul>
+        </nav>
+      </header>
     </div>
   );
-};
-
-const headerStyle = {
-  display: "flex",
-  justifyContent: "space-between",
-  padding: "5px"
-};
-
-const navList = {
-  listStyleType: "none",
-  display: "flex",
-  paddingLeft: "5px"
-};
-
-const navListItem = {
-  paddingLeft: "30px"
 };

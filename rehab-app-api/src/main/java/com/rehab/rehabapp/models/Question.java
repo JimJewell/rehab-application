@@ -1,11 +1,13 @@
 	package com.rehab.rehabapp.models;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -23,6 +25,9 @@ public class Question{
 	
 	private LocalDate date;
 	
+	@ManyToMany (mappedBy="questions")
+	private List<AnswerChoice> answerChoices;
+	
 	@ManyToOne
 	@JsonIgnore
 	private Survey survey;
@@ -32,16 +37,19 @@ public class Question{
 	
 	public Question(String name) {
 		this.name = name;
+		this.answerChoices = new ArrayList<AnswerChoice>();
 	}
 
 	public Question(String name, String value) {
 		this.name = name;
 		this.value = value;
+		this.answerChoices = new ArrayList<AnswerChoice>();
 	}
 	
 	public Question(String name, Survey survey) {
 		this.name = name;
 		this.survey = survey;
+		this.answerChoices = new ArrayList<AnswerChoice>();
 	}
 	
 	public Question(String name, String value, Survey survey, LocalDate date) {
@@ -49,6 +57,7 @@ public class Question{
 		this.value = value;
 		this.survey = survey;
 		this.date = date;
+		this.answerChoices = new ArrayList<AnswerChoice>();
 	}
 	
 	public Long getId() {
@@ -79,4 +88,7 @@ public class Question{
 		return this.survey.equals(survey);
 	}
 	
+	public List<AnswerChoice> getAnswerChoices() {
+		return answerChoices;
+	}
 }

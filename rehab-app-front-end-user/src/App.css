@@ -1,55 +1,246 @@
-.flex-row-right {
-    display: flex;
-    justify-content: center;
+body {
+  /* margin: 0;
+  padding: 0; */
+  background: #eaeaea;
+  height: 100%;
 }
 
-.cheeks {
-    padding-left: 10px;
-    animation: UpDown 0.369s infinite linear;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-@keyframes UpDown {
-    50% {
-        transform: translateY(-6.9px);
-    }
+.root {
+  margin-top: 0px;
 }
 
-.bang {
-    
-    text-align: right;
-    animation: Thrust 0.69s infinite linear;
-    transform: translateX(30px)
+.header {
+  /* display: flex;
+  justify-content: space-between; */
+  padding: 5px;
+  height: 45px;
+  position: fixed;
+  background-color: #33363b;
+  color: white;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+  text-align: left;
+
+}
+.logo {
+  margin-left: 20px;
+  padding-right: 40px;
+  padding-bottom: 10px;
+  height: 20px;
+  width: 20px;
+  
+  
 }
 
-@keyframes Thrust {
-    20% {
-        transform: translateX(25px);
-    }
+.nav {
+  
+  margin-right: 50px;
+  position: fixed;
+  margin-bottom: 0px;
+  display: inline-block;
+  width: 20%;
 }
 
-.hero {
-   animation: Fly 0.69s infinite linear; 
+.nav-list {
+  list-style-type: none;
+
+  padding-left: 0px;
 }
 
-@keyframes Fly {
-    0% {
-        opacity:0;
-    }
-    19% {
-        opacity:0;
-    }
-    20% {
-        opacity:1;
-        transform: translateX(35px);
-    }
-    40% {
-        transform: translateX(-5px);
-    }
-    99% {
-        transform: translateX(-5px);
-    }
-    100% {
-        opacity:0;
-        transform: translateX(-5px);
-    }
+.nav-list-item {
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 0;
+}
+
+.dropDown-btn {
+  padding: 10px 24px;
+  cursor: pointer;
+}
+
+.dropDown {
+  float: right;
+  overflow: hidden;
+  margin-right: 50px;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 18px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropdown-content {
+  display: none;
+
+  /* position: absolute; */
+  background-color: #33363b;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  margin-top: 0;
+}
+
+.dropbtn:hover {
+  background-color: #368cbf;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.logo {
+  float: left;
+  padding-bottom: 20px;
+  
+}
+
+.renderContainer {
+  margin-top: 60px;
+}
+
+.questionBox {
+  column-count: 1px;
+}
+
+.questionName {
+  float: left;
+  width: 100%;
+  position: relative;
+}
+
+.surveyTitle {
+  /* width: 100%; */
+  max-width: 1000px;
+}
+
+.questionValue {
+  float: left;
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: 0.6em 5em 0.5em 0.8em;
+  width: 100%;
+  max-width: 300px;
+  box-sizing: border-box;
+  margin: 0;
+  border: 1px solid #aaa;
+  box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  border-radius: 0.5em;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"),
+    linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right 0.7em top 50%, 0 0;
+  background-size: 0.65em auto, 100%;
+}
+.questionValue::-ms-expand {
+  display: none;
+}
+.questionValue:hover {
+  border-color: #888;
+}
+.questionValue:focus {
+  border-color: #aaa;
+  box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: #222;
+  outline: none;
+}
+.questionValue option {
+  font-weight: normal;
+}
+
+.videos {
+  float: left;
+}
+
+.genericButton {
+  background-color: #7ebc59;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 3px 1px;
+  cursor: pointer;
+  width: 100px;
+}
+
+.genericButton:hover {
+  background-color: #3a9662;
+  font-weight: bold;
+}
+
+.videoHeader {
+  display: inline-block;
+
+  width: 100%;
+}
+
+.btnContainer {
+  width: 100%;
+  display: inline-block;
+}
+
+.nav-list-item:hover {
+  background-color: #368cbf;
+  font-weight: bold;
+}
+
+.splashBacker {
+  background-image: url("./components/images/sportsPT.jpeg");
+
+  background-repeat: no-repeat;
+  background-color: white;
+  height: 800px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  top: 20px;
+  opacity: 0.8;
+}
+
+.login {
+  display: inline-block;
+  margin-top: 250px;
+}
+
+.homeTitle {
+  display: inline-block;
+  margin-top: 150px;
+  color: white;
+  opacity: 0.7;
+  background-image: url("./components/icons/rehabiticontransparent.png");
+}
+
+.tagLine {
+  color: white;
+}
+
+.homelogo {
+  display: inline-block;
+  margin-top: 250px;
+  color: white;
+
+  width: 400px;
 }
