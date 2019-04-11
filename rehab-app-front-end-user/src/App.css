@@ -162,8 +162,9 @@ body {
 .surveyTitle {
   max-width: 1000px;
 }
-
-.questionValue .questionListChoice {
+.surveySelect,
+.questionValue,
+.questionListChoice {
   float: left;
   font-size: 12px;
   font-family: sans-serif;
@@ -188,15 +189,17 @@ body {
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
 }
-
+.surveySelect,
 .questionListChoice,
 .questionValue::-ms-expand {
   display: none;
 }
+.surveySelect,
 .questionListChoice,
 .questionValue:hover {
   border-color: #888;
 }
+.surveySelect,
 .questionListChoice,
 .questionValue:focus {
   border-color: #aaa;
@@ -205,7 +208,7 @@ body {
   color: #222;
   outline: none;
 }
-
+.surveySelect,
 .questionListChoice,
 .questionValue option {
   font-weight: normal;
