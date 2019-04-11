@@ -29,17 +29,22 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
               </div>
             )}
             {userType === "patient" && (
-              <div className="dropDown">
+              <div className="dropdown">
+               <button className="dropbtn">Menu</button>
+               <div className="dropdown-content">
                 <li className="nav-list-item">
                   <a onClick={() => updateCurrentLocation("survey")}>Survey</a>
                 </li>
                 <li className="nav-list-item">
                   <a onClick={() => updateCurrentLocation("video")}>Videos</a>
                 </li>
+                </div>
               </div>
             )}
             {userType === "professional" && (
-              <div className="dropDown">
+              <div className="dropdown">
+              <button className="dropbtn">Menu</button>
+              <div className="dropdown-content">
                 <li className="nav-list-item">
                   <a onClick={() => updateCurrentLocation("survey")}>Reports</a>
                 </li>
@@ -53,6 +58,7 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
               <a onClick={() => updateCurrentLocation("addSurvey")}>Add Survey
               </a>
               </li>
+              </div>
               </div>
             )}
           </ul>
