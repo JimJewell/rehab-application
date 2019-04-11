@@ -62,10 +62,12 @@ public class SurveyController {
 		JSONObject jsonOne;
 		
 		for (int i = 0 ; i < questionChoices.length() ; i++ ) {
+		
 			 jsonOne = (JSONObject) questionChoices.get(i);
-			 long questionId = jsonOne.getLong("id");
+			 long questionId = jsonOne.getLong("id"); 	
 			 Question question = questionRepo.findById(questionId).get();
 			 question.addSurveyToQuestion(survey);
+			 questionRepo.save(question);
 		}	
 		
 		return (Collection<Survey>) surveyRepo.findAll();

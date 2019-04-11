@@ -5,11 +5,11 @@ export default class QuestionChoiceList extends Component {
 
   render() {
     return (
-      <div className="questionDiv">
+      <div className="questionChoice-Div">
       <p>Questions</p>
-        <ul>
-        {this.props.questionChoices.map((questionChoices) => {
-          return (<li>questionChoices.name</li>)
+        <ul className="questionChoices-list">
+        {this.props.questionChoices.map((questionChoice) => {
+          return (<li>{questionChoice.name}</li>)
         })}
         </ul>
       </div>
