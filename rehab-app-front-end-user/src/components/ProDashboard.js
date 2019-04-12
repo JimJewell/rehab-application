@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import AddSurvey from "./Survey/AddSurvey/AddSurvey";
 
 export default class ProDashboard extends Component {
   render() {
@@ -7,6 +8,7 @@ export default class ProDashboard extends Component {
         <div className="homeLogoBack">
           <div className="proTasks">
             <h1>Good Morning, Doctor Fry</h1>
+            <AddSurvey addSurvey={this.addSurvey} />
           </div>
         </div>
 
