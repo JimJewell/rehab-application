@@ -10,6 +10,7 @@ export default class QuestionChoiceList extends Component {
   render() {
     return (
       <div className="questionChoice-Div">
+      <div>
         <p>Questions</p>
         <ul className="questionChoices-list">
           {this.props.questionChoices.map((questionChoice) => {
@@ -18,6 +19,8 @@ export default class QuestionChoiceList extends Component {
             )
           })}
         </ul>
+      </div>
+      <div>
         {this.props.addQuestionChecker && <div><input className="addQuestion-name" type="text" placeholder="Question Text"></input>
           <div className="btnContainer">
             <button
@@ -27,8 +30,8 @@ export default class QuestionChoiceList extends Component {
               </button>
           </div>
         </div>}
-
-      </div>
+        </div>
+        </div>
     );
   }
 }
