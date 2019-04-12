@@ -15,11 +15,13 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
                 <button className="dropbtn">Login</button>
                 <div className="dropdown-content">
                   <li className="nav-list-item">
-                    <a onClick={() => setUserType("patient")}>Patients</a>
+                    <a onClick={() => setUserType("patient")}>
+                      <i class="fas fa-user-injured"> </i> Patients
+                    </a>
                   </li>
                   <li className="nav-list-item">
                     <a onClick={() => setUserType("professional")}>
-                      Medical Professionals
+                      <i class="fas fa-user-md"> </i> Medical Professionals
                     </a>
                   </li>
                 </div>
@@ -48,6 +50,11 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
                   <li className="nav-list-item">
                     <a onClick={() => updateCurrentLocation("video")}>
                       <i class="fas fa-film"> </i> Videos
+                    </a>
+                  </li>
+                  <li className="nav-list-item">
+                    <a onClick={() => setUserType("none")}>
+                      <i class="fas fa-sign-out-alt"> </i> Logout
                     </a>
                   </li>
                 </div>
@@ -82,6 +89,11 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
                   <li className="nav-list-item__pro">
                     <a onClick={() => updateCurrentLocation("addSurvey")}>
                       <i class="far fa-plus-square"> </i> Add Survey
+                    </a>
+                  </li>
+                  <li className="nav-list-item__pro">
+                    <a onClick={() => setUserType("none")}>
+                      <i class="fas fa-sign-out-alt"> </i> Logout
                     </a>
                   </li>
                 </div>

@@ -303,3 +303,27 @@ body {
   color: white;
   padding-left: 10px;
 }
+
+.patientMessage {
+  margin-bottom: 5px;
+}
+
+.proSplashBacker {
+  background-image: url("./components/images/doctor.jpeg");
+  background-repeat: no-repeat;
+  background-color: white;
+  height: 800px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  top: 20px;
+  opacity: 0.8;
+}
+
+.proTasks {
+  display: inline-block;
+  margin-top: 70px;
+  color: white;
+  width: 400px;
+  margin-left: 10px;
+}
