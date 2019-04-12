@@ -4,8 +4,13 @@ import Header from "./components/Header";
 import Survey from "./components/Survey/Survey";
 import SurveyList from "./components/Survey/SurveyList";
 import Videos from "./components/Videos";
+
 import AddSurvey from "./components/Survey/AddSurvey/AddSurvey"
 import ProgressChart from './components/ProgressChart'
+
+
+import ProDashboard from "./components/ProDashboard";
+
 
 import axios from "axios";
 import Home from "./components/home";
@@ -36,7 +41,7 @@ class App extends Component {
     axios
       .post("/surveys/addSurvey", { name, questionChoices })
       .then(res => this.setState({ surveys: res.data }));
-      this.setState({ currentLocation: 'survey'})
+    this.setState({ currentLocation: "survey" });
   };
 
   submitSurvey = (name, questions) => {
@@ -49,6 +54,7 @@ class App extends Component {
   setUserType = userType => {
     this.setState({ userType });
   };
+
   updateCurrentLocation = location =>
     this.setState({ currentLocation: location });
 
@@ -61,7 +67,8 @@ class App extends Component {
           setUserType={this.setUserType}
         />
         {this.state.userType === "none" && <Home />}
-        {this.state.userType !== "none" && this.state.currentLocation !== "addSurvey" && (
+        {this.state.userType === "professional" && <ProDashboard />}
+        {this.state.userType === "patient" && (
           <SurveyList
             surveys={this.state.surveys}
             setSurveyById={this.setSurveyById}
@@ -72,7 +79,7 @@ class App extends Component {
           <Survey survey={this.state.survey} submitSurvey={this.submitSurvey} />
         )}
 
-         {this.state.currentLocation === "addSurvey" && (
+        {this.state.currentLocation === "addSurvey" && (
           <AddSurvey addSurvey={this.addSurvey} />
         )}
 
@@ -82,8 +89,6 @@ class App extends Component {
         {this.state.survey && this.state.currentLocation === "video" && (
           <Videos name={this.state.survey.name} />
         )}
-
-
       </div>
     );
   }
