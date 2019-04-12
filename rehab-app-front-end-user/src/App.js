@@ -39,7 +39,9 @@ class App extends Component {
   };
 
   submitSurvey = (name, questions) => {
-    axios.post("/surveys/submit", { name, questions });
+    axios
+    .post("/surveys/submit", { name, questions })
+    .then(res => this.setState({ survey: res.data }))
     this.setState({ currentLocation: "video" });
   };
 
@@ -64,7 +66,7 @@ class App extends Component {
             setSurveyById={this.setSurveyById}
           />
         )}
-
+        {this.state.survey && <ProgressChart sums={this.state.survey.sums}/>}
         {this.state.currentLocation === "survey" && this.state.survey && (
           <Survey survey={this.state.survey} submitSurvey={this.submitSurvey} />
         )}

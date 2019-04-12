@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,8 +23,13 @@ public class Survey{
 	
 	private LocalDate date;
 	
-	@ManyToMany(mappedBy="surveys")
+	private ArrayList<Integer> sums;
+
+	@OneToMany(mappedBy="survey")
 	private Collection<Question> questions;
+	
+	@OneToMany(mappedBy="survey")
+	private Collection<SubmittedSurvey> surveys;
 
 	public Survey() {
 	}
@@ -32,20 +38,31 @@ public class Survey{
 		this.name = name;
 		this.questions = new ArrayList<Question>();
 		this.date = LocalDate.now();
+		this.sums = new ArrayList<Integer>();
 	}
 	
 	public Survey(String name, String date) {
 		this.name = name;
 		this.questions = new ArrayList<Question>();
 		this.date = LocalDate.now();
+		this.sums = new ArrayList<Integer>();
 	}
 	
 	public Survey(String name, Question...questions) {
 		this.name = name;
 		this.questions = Arrays.asList(questions);
 		this.date = LocalDate.now();
+		this.sums = new ArrayList<Integer>();
 	}
 	
+	public LocalDate getDate() {
+		return date;
+	}
+
+	public Collection<SubmittedSurvey> getSurveys() {
+		return surveys;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -53,11 +70,21 @@ public class Survey{
 	public String getName() {
 		return name;
 	}
+	public ArrayList<Integer> getSums() {
+		return sums;
+	}
+
+	public void setSums(ArrayList<Integer> sums) {
+		this.sums = sums;
+	}
 
 	public Collection<Question> getQuestions() {
 		return questions;
 	}
 
+	public void AddSumToSums(int sum) {
+		sums.add(sum);
+	}
 	
 	public void addQuestionToSubmission(Question question) {
 		questions.add(question);
