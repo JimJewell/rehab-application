@@ -54,7 +54,7 @@ export default class AddSurvey extends Component {
         this.setState({
         questionChoices: [...this.state.questionChoices, {
           id: newId,
-          name: name
+          name: name,
         }],
         addQuestionChecker: false
        })})

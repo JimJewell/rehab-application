@@ -4,8 +4,13 @@ import Header from "./components/Header";
 import Survey from "./components/Survey/Survey";
 import SurveyList from "./components/Survey/SurveyList";
 import Videos from "./components/Videos";
-import AddSurvey from "./components/Survey/AddSurvey/AddSurvey";
+
+import AddSurvey from "./components/Survey/AddSurvey/AddSurvey"
+import ProgressChart from './components/ProgressChart'
+
+
 import ProDashboard from "./components/ProDashboard";
+
 
 import axios from "axios";
 import Home from "./components/home";
@@ -40,8 +45,10 @@ class App extends Component {
   };
 
   submitSurvey = (name, questions) => {
-    axios.post("/surveys/submit", { name, questions });
-    this.setState({ currentLocation: "video" });
+    axios
+      .post("/surveys/submit", { name, questions })
+      .then(res => this.setState({ survey: res.data }))
+    this.setState({ currentLocation: "video" })
   };
 
   setUserType = userType => {
@@ -67,7 +74,7 @@ class App extends Component {
             setSurveyById={this.setSurveyById}
           />
         )}
-
+        {this.state.survey && <ProgressChart sums={this.state.survey.sums}/>}
         {this.state.currentLocation === "survey" && this.state.survey && (
           <Survey survey={this.state.survey} submitSurvey={this.submitSurvey} />
         )}
