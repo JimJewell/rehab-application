@@ -36,10 +36,10 @@ public class SubmittedSurvey{
 	public SubmittedSurvey() {
 	}
 
-	public SubmittedSurvey(String name, Survey survey) {
+	public SubmittedSurvey(String name, Survey survey, LocalDate date) {
 		this.name = name;
 		this.submittedQuestions = new ArrayList<SubmittedQuestion>();
-		this.date = LocalDate.now();
+		this.date = date;
 		this.survey = survey;
 	}
 	

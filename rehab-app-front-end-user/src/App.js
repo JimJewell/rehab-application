@@ -72,7 +72,7 @@ class App extends Component {
             {(this.state.currentLocation === "survey" || this.state.currentLocation === "video") && <ProDashboard surveys={this.state.surveys} setSurveyById={this.setSurveyById}/>}              
 
             {this.state.currentLocation === "surveyReport" && <div>
-              {this.state.survey && <ProgressChart sums={this.state.survey.sums} />}
+              {this.state.survey && <ProgressChart survey={this.state.survey} />}
               {!this.state.survey && <SurveyList
                 surveys={this.state.surveys}
                 setSurveyById={this.setSurveyById}
@@ -86,6 +86,7 @@ class App extends Component {
                 setSurveyById={this.setSurveyById}
               />
             )}
+
             {this.state.currentLocation === "addSurvey" && (
               <AddSurvey addSurvey={this.addSurvey} />
             )}
@@ -93,7 +94,7 @@ class App extends Component {
            
             {this.state.userType === "patient" && <div>
               {this.state.survey && (
-              <ProgressChart sums={this.state.survey.sums} />  
+              <ProgressChart survey={this.state.survey} />  
               )} 
               {this.state.currentLocation === "survey" && (
                  <Survey
