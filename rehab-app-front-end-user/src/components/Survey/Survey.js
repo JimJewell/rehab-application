@@ -20,7 +20,13 @@ export default class Survey extends Component {
   render() {
     return (
       <div className="renderContainer">
-        <div className="survey">
+        {!this.props.survey && <h2>No Surveys to Complete</h2>}
+        {this.props.survey && <div className="survey">
+        <p className="patientMessage">
+          Your Care Provider has assigned you a survey to complete. Please
+          complete it by the due date.
+        </p>
+        <br />
           <h1 className="surveyTitle">{this.props.survey.name}</h1>
           <div className="questionBox">
             {this.props.survey.questions.map(question => (
@@ -36,7 +42,8 @@ export default class Survey extends Component {
               </button>
             </div>
           </div>
-        </div>
+        </div>}
+        
       </div>
     );
   }
