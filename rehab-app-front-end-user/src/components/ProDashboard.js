@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import AddSurvey from "./Survey/AddSurvey/AddSurvey";
+import Videos from "./Videos";
 
 export default class ProDashboard extends Component {
   render() {

@@ -5,12 +5,10 @@ import Survey from "./components/Survey/Survey";
 import SurveyList from "./components/Survey/SurveyList";
 import Videos from "./components/Videos";
 
-import AddSurvey from "./components/Survey/AddSurvey/AddSurvey"
-import ProgressChart from './components/ProgressChart'
-
+import AddSurvey from "./components/Survey/AddSurvey/AddSurvey";
+import ProgressChart from "./components/ProgressChart";
 
 import ProDashboard from "./components/ProDashboard";
-
 
 import axios from "axios";
 import Home from "./components/home";
@@ -47,8 +45,8 @@ class App extends Component {
   submitSurvey = (name, questions) => {
     axios
       .post("/surveys/submit", { name, questions })
-      .then(res => this.setState({ survey: res.data }))
-    this.setState({ currentLocation: "video" })
+      .then(res => this.setState({ survey: res.data }));
+    this.setState({ currentLocation: "video" });
   };
 
   setUserType = userType => {
@@ -67,27 +65,36 @@ class App extends Component {
           setUserType={this.setUserType}
         />
         {this.state.userType === "none" && <Home />}
-        {this.state.userType === "professional" && <ProDashboard />}
-        {this.state.userType === "patient" && (
-          <SurveyList
-            surveys={this.state.surveys}
-            setSurveyById={this.setSurveyById}
-          />
-        )}
-        {this.state.survey && <ProgressChart sums={this.state.survey.sums}/>}
-        {this.state.currentLocation === "survey" && this.state.survey && (
-          <Survey survey={this.state.survey} submitSurvey={this.submitSurvey} />
-        )}
+        {this.state.userType !== "none" && (
+          <div>
+            {this.state.userType === "professional" && <ProDashboard />}
+            {this.state.userType === "patient" && (
+              <SurveyList
+                surveys={this.state.surveys}
+                setSurveyById={this.setSurveyById}
+              />
+            )}
+            {this.state.survey && (
+              <ProgressChart sums={this.state.survey.sums} />
+            )}
+            {this.state.currentLocation === "survey" && this.state.survey && (
+              <Survey
+                survey={this.state.survey}
+                submitSurvey={this.submitSurvey}
+              />
+            )}
 
-        {this.state.currentLocation === "addSurvey" && (
-          <AddSurvey addSurvey={this.addSurvey} />
-        )}
+            {this.state.currentLocation === "addSurvey" && (
+              <AddSurvey addSurvey={this.addSurvey} />
+            )}
 
-        {!this.state.survey && this.state.currentLocation === "video" && (
-          <Videos name="All" />
-        )}
-        {this.state.survey && this.state.currentLocation === "video" && (
-          <Videos name={this.state.survey.name} />
+            {!this.state.survey && this.state.currentLocation === "video" && (
+              <Videos name="All" />
+            )}
+            {this.state.survey && this.state.currentLocation === "video" && (
+              <Videos name={this.state.survey.name} />
+            )}
+          </div>
         )}
       </div>
     );
