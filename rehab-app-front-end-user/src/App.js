@@ -67,23 +67,33 @@ class App extends Component {
         {this.state.userType === "none" && <Home />}
         {this.state.userType !== "none" && (
           <div>
-            {this.state.userType === "professional" && <ProDashboard />}
-            {this.state.userType === "patient" && (
+            {this.state.userType === "professional" && <ProDashboard surveys={this.state.surveys} setSurveyById={this.setSurveyById} />}
+            {this.state.userType === "patient" && <div>
+              {this.state.survey &&
+                <Survey
+                  survey={this.state.survey}
+                  submitSurvey={this.submitSurvey}
+                />}
+              {!this.state.survey &&
+                <Videos name="All" />}
+            </div>
+
+            }
+            {this.state.survey && (
+              <ProgressChart sums={this.state.survey.sums} />
+            )}
+            {/* {this.state.currentLocation === "survey" && this.state.survey && (
+              <Survey
+                survey={this.state.survey}
+                submitSurvey={this.submitSurvey}
+              />
+            )} */}
+            {this.state.currentLocation === "surveyList" && (
               <SurveyList
                 surveys={this.state.surveys}
                 setSurveyById={this.setSurveyById}
               />
             )}
-            {this.state.survey && (
-              <ProgressChart sums={this.state.survey.sums} />
-            )}
-            {this.state.currentLocation === "survey" && this.state.survey && (
-              <Survey
-                survey={this.state.survey}
-                submitSurvey={this.submitSurvey}
-              />
-            )}
-
             {this.state.currentLocation === "addSurvey" && (
               <AddSurvey addSurvey={this.addSurvey} />
             )}

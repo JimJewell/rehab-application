@@ -15,7 +15,8 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
                 <button className="dropbtn">Login</button>
                 <div className="dropdown-content">
                   <li className="nav-list-item">
-                    <a onClick={() => setUserType("patient")}>
+                    <a onClick={() => (setUserType("patient"),
+                      updateCurrentLocation("survey"))}>
                       <i class="fas fa-user-injured"> </i> Patients
                     </a>
                   </li>
@@ -81,8 +82,8 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
                     </a>
                   </li>
                   <li className="nav-list-item__pro">
-                    <a onClick={() => updateCurrentLocation("video")}>
-                      <i class="fas fa-share-square" /> Send Surveys
+                    <a onClick={() => updateCurrentLocation("surveyList")}>
+                      <i class="fas fa-share-square" /> Assign Survey
                     </a>
                   </li>
 

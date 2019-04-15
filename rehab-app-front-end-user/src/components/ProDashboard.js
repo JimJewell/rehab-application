@@ -1,6 +1,5 @@
 import React, { Component } from "react";
-import AddSurvey from "./Survey/AddSurvey/AddSurvey";
-import Videos from "./Videos";
+import SurveyList from "../components/Survey/SurveyList"
 
 export default class ProDashboard extends Component {
   render() {
@@ -9,7 +8,10 @@ export default class ProDashboard extends Component {
         <div className="homeLogoBack">
           <div className="proTasks">
             <h1>Good Morning, Doctor Fry</h1>
-            <AddSurvey addSurvey={this.addSurvey} />
+            <SurveyList
+                surveys={this.props.surveys}
+                setSurveyById={this.props.setSurveyById}
+              />
           </div>
         </div>
 
