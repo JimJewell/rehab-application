@@ -10,9 +10,8 @@ export class SurveyList extends Component {
   render() {
     return (
       <div className="renderContainer">
-        <p className="patientMessage">
-          Your Care Provider has assigned you surveys to complete. Please
-          complete them by their due date.
+        <p className="professionalMessage">
+          Please choose a survey for your patient to complete.
         </p>
         <select className="surveySelect">
           <option>Select Survey</option>
