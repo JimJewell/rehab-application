@@ -87,10 +87,13 @@ export default class ProgressChart extends Component {
             }),
             datasets: [
                 {
+
+                    //#7ebc59; - green  #368cbf; blue #33363b; gray on the drop down menu
+
                     label: "My First dataset",
-                    fillColor: "green",
-                    strokeColor: "rgba(220,220,220,1)",
-                    pointColor: "rgba(220,220,220,1)",
+                    fillColor: "#7ebc59",
+                    strokeColor: "#368cbf",
+                    pointColor: "#33363b",
                     pointStrokeColor: "#fff",
                     pointHighlightFill: "#fff",
                     pointHighlightStroke: "rgba(220,220,220,1)",
