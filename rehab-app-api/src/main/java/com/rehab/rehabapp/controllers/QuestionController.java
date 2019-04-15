@@ -42,14 +42,14 @@ public class QuestionController {
 	@PostMapping("/addQuestion")
 	public Collection<Question> addQuestion(@RequestBody String newQuestion) throws JSONException{
 		JSONObject json = new JSONObject(newQuestion);
-		questionRepo.save(new Question(json.getString("name"), json.getString("value")));
+		questionRepo.save(new Question(json.getString("name")));
 		return (Collection<Question>) questionRepo.findAll();
 	}
 	
 	@PostMapping("/nameToId")
 	public Long convertNameToId(@RequestBody String questionName) throws JSONException {
 		JSONObject json = new JSONObject(questionName);
-		Long questionId = questionRepo.findByName(json.getString("questionName")).getId();
+		Long questionId = questionRepo.findByName(json.getString("name")).getId();
 		return questionId;
 	}
 }

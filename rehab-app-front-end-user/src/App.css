@@ -1,6 +1,4 @@
 body {
-  /* margin: 0;
-  padding: 0; */
   background: #eaeaea;
   height: 100%;
 }
@@ -15,8 +13,6 @@ body {
 }
 
 .header {
-  /* display: flex;
-  justify-content: space-between; */
   padding: 5px;
   height: 45px;
   position: fixed;
@@ -27,30 +23,53 @@ body {
   z-index: 10;
   box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
   text-align: left;
-
 }
+
+.header__professional {
+  padding: 5px;
+  height: 45px;
+  position: fixed;
+  background-color: #368cbf;
+  color: white;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+  text-align: left;
+}
+
+.header__patient {
+  padding: 5px;
+  height: 45px;
+  position: fixed;
+  background-color: #7ebc59;
+  color: white;
+  width: 100%;
+  top: 0;
+  z-index: 10;
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+  text-align: left;
+}
+
 .logo {
-  margin-left: 20px;
-  padding-right: 40px;
+  padding-right: 20px;
   padding-bottom: 10px;
-  height: 20px;
-  width: 20px;
-  
-  
+  float: right;
+  cursor: pointer;
 }
 
 .nav {
-  
   margin-right: 50px;
   position: fixed;
   margin-bottom: 0px;
   display: inline-block;
   width: 20%;
+  padding-left: 5px;
+  text-align: left;
 }
 
 .nav-list {
   list-style-type: none;
-
   padding-left: 0px;
 }
 
@@ -60,9 +79,16 @@ body {
   margin-top: 0;
 }
 
+.nav-list-item__pro {
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 0;
+}
+
 .dropDown-btn {
   padding: 10px 24px;
   cursor: pointer;
+  text-align: right;
 }
 
 .dropDown {
@@ -76,7 +102,18 @@ body {
   border: none;
   outline: none;
   color: white;
-  padding: 14px 18px;
+  padding: 14px 10px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.dropbtn__pro {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 10px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
@@ -84,8 +121,6 @@ body {
 
 .dropdown-content {
   display: none;
-
-  /* position: absolute; */
   background-color: #33363b;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
@@ -97,14 +132,17 @@ body {
   background-color: #368cbf;
 }
 
+.dropbtn__pro:hover {
+  background-color: #7ebc59;
+}
+
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
 .logo {
-  float: left;
+  float: right;
   padding-bottom: 20px;
-  
 }
 
 .renderContainer {
@@ -122,11 +160,11 @@ body {
 }
 
 .surveyTitle {
-  /* width: 100%; */
   max-width: 1000px;
 }
-
-.questionValue {
+.surveySelect,
+.questionValue,
+.questionListChoice {
   float: left;
   font-size: 12px;
   font-family: sans-serif;
@@ -151,12 +189,18 @@ body {
   background-position: right 0.7em top 50%, 0 0;
   background-size: 0.65em auto, 100%;
 }
+.surveySelect,
+.questionListChoice,
 .questionValue::-ms-expand {
   display: none;
 }
+.surveySelect,
+.questionListChoice,
 .questionValue:hover {
   border-color: #888;
 }
+.surveySelect,
+.questionListChoice,
 .questionValue:focus {
   border-color: #aaa;
   box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
@@ -164,6 +208,8 @@ body {
   color: #222;
   outline: none;
 }
+.surveySelect,
+.questionListChoice,
 .questionValue option {
   font-weight: normal;
 }
@@ -193,13 +239,17 @@ body {
 
 .videoHeader {
   display: inline-block;
-
   width: 100%;
 }
 
 .btnContainer {
   width: 100%;
   display: inline-block;
+}
+
+.nav-list-item__pro:hover {
+  background-color: #7ebc59;
+  font-weight: bold;
 }
 
 .nav-list-item:hover {
@@ -209,7 +259,6 @@ body {
 
 .splashBacker {
   background-image: url("./components/images/sportsPT.jpeg");
-
   background-repeat: no-repeat;
   background-color: white;
   height: 800px;
@@ -241,6 +290,40 @@ body {
   display: inline-block;
   margin-top: 250px;
   color: white;
-
   width: 400px;
+}
+
+.homeLogoBack {
+  background: rgba(135, 139, 135, 0.3);
+  width: 450px;
+  height: 100%;
+}
+
+.pitch {
+  color: white;
+  padding-left: 10px;
+}
+
+.patientMessage {
+  margin-bottom: 5px;
+}
+
+.proSplashBacker {
+  background-image: url("./components/images/doctor.jpeg");
+  background-repeat: no-repeat;
+  background-color: white;
+  height: 800px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  top: 20px;
+  opacity: 0.8;
+}
+
+.proTasks {
+  display: inline-block;
+  margin-top: 70px;
+  color: white;
+  width: 400px;
+  margin-left: 10px;
 }

@@ -62,10 +62,12 @@ public class SurveyController {
 		JSONObject jsonOne;
 		
 		for (int i = 0 ; i < questionChoices.length() ; i++ ) {
+		
 			 jsonOne = (JSONObject) questionChoices.get(i);
-			 long questionId = jsonOne.getLong("id");
+			 long questionId = jsonOne.getLong("id"); 	
 			 Question question = questionRepo.findById(questionId).get();
 			 question.addSurveyToQuestion(survey);
+			 questionRepo.save(question);
 		}	
 		
 		return (Collection<Survey>) surveyRepo.findAll();
@@ -80,25 +82,33 @@ public class SurveyController {
 	}
 	
 	@PostMapping("/submit")
-	public void submitSurvey(@RequestBody String body) throws JSONException {
+	public Survey submitSurvey(@RequestBody String body) throws JSONException {
 		JSONObject json = new JSONObject(body);
 		String name = json.getString("name");
 		Survey survey = surveyRepo.findByName(name);
-		SubmittedSurvey submittedSurvey = submitSurveyRepo.save(new SubmittedSurvey(survey.getName()));
+		SubmittedSurvey submittedSurvey = submitSurveyRepo.save(new SubmittedSurvey(survey.getName(), survey));
 		JSONArray questionCollections = json.getJSONArray("questions");
 		
 		JSONObject jsonOne;
 		
 		LocalDate date =  LocalDate.now();
 		
-		for (int i = 0 ; i < questionCollections.length() ; i++ ) {
+		int sum = 0;
+		
+		for (int i = 0 ; i < questionCollections.length() ; i++ ) {			
 			 jsonOne = (JSONObject) questionCollections.get(i);
 			 String nameToMake = jsonOne.getString("name");
 			 String value = jsonOne.getString("value");
-			 submitQuestionRepo.save(new SubmittedQuestion(nameToMake, value, submittedSurvey));
-			 
-	
+			 sum += Integer.parseInt(jsonOne.getString("value"));
+			 submitQuestionRepo.save(new SubmittedQuestion(nameToMake, value, submittedSurvey));			 
 		}		
+		submittedSurvey.addSumToSum(sum);
+		submitSurveyRepo.save(submittedSurvey);
+		
+		survey.AddSumToSums(sum);
+		surveyRepo.save(survey);
+		
+		return survey;
 	}
 }
 

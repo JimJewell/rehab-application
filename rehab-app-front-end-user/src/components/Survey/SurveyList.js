@@ -10,20 +10,23 @@ export class SurveyList extends Component {
   render() {
     return (
       <div className="renderContainer">
-        <p>
+        <p className="patientMessage">
           Your Care Provider has assigned you surveys to complete. Please
           complete them by their due date.
-        </p> 
-        <select className = "surveySelect">          
-            <SurveyListList surveys= {this.props.surveys} />
-            <option value='all'>No Survey</option>
+        </p>
+        <select className="surveySelect">
+          <option>Select Survey</option>
+          <SurveyListList surveys={this.props.surveys} />
+          <option value="all">No Survey</option>
         </select>
 
         <button
           className="genericButton"
           onClick={() => this.onSubmit()}
-          style={buttonStyle}>
-        submit</button>
+          style={buttonStyle}
+        >
+          submit
+        </button>
       </div>
     );
   }
