@@ -75,7 +75,7 @@ class App extends Component {
               />
             )}
             {this.state.survey && (
-              <ProgressChart sums={this.state.survey.sums} />
+              <ProgressChart survey={this.state.survey} />
             )}
             {this.state.currentLocation === "survey" && this.state.survey && (
               <Survey

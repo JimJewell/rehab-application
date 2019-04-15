@@ -86,12 +86,12 @@ public class SurveyController {
 		JSONObject json = new JSONObject(body);
 		String name = json.getString("name");
 		Survey survey = surveyRepo.findByName(name);
-		SubmittedSurvey submittedSurvey = submitSurveyRepo.save(new SubmittedSurvey(survey.getName(), survey));
+		LocalDate date =  LocalDate.now();
+		SubmittedSurvey submittedSurvey = submitSurveyRepo.save(new SubmittedSurvey(survey.getName(), survey, date));
 		JSONArray questionCollections = json.getJSONArray("questions");
 		
 		JSONObject jsonOne;
 		
-		LocalDate date =  LocalDate.now();
 		
 		int sum = 0;
 		
