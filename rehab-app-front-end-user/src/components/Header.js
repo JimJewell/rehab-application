@@ -16,11 +16,13 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
                   <li onClick={() => (setUserType("patient"),
                       updateCurrentLocation("survey"))} className="nav-list-item">
                     <p>
+
                       <i className="fas fa-user-injured"> </i> Patients
                     </p>
                   </li>
                   <li onClick={() => setUserType("professional")} className="nav-list-item">
                     <p>
+
                       <i className="fas fa-user-md"> </i> Medical Professionals
                     </p>
                   </li>
@@ -35,8 +37,10 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
           <p onClick={() => setUserType("none")}>
             <div className="logo">
               <img src={require("./icons/rehabiticontransparent.png")} alt="Rehab"/>
+              <img className="vrIcon" src={require("./icons/vrIcon2.png")} />
             </div>
           </p>
+
           <nav className="nav">
             <ul className="nav-list">
               <div className="dropdown">
@@ -44,16 +48,19 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
                 <div className="dropdown-content">
                   <li onClick={() => updateCurrentLocation("survey")} className="nav-list-item">
                     <p>
+
                       <i className="far fa-question-circle"> </i> Survey
                     </p>
                   </li>
                   <li onClick={() => updateCurrentLocation("video")} className="nav-list-item">
                     <p>
+
                       <i className="fas fa-film"> </i> Videos
                     </p>
                   </li>
                   <li onClick={() => (setUserType("none"), updateCurrentLocation("survey"))} className="nav-list-item">
                   <p>
+
                       <i className="fas fa-sign-out-alt"> </i> Logout
                     </p>
                   </li>
@@ -77,22 +84,26 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
                 <div className="dropdown-content">
                   <li onClick={() => updateCurrentLocation("surveyReport")} className="nav-list-item__pro">
                     <p>
+
                       <i className="far fa-chart-bar"> </i> Reports
                     </p>
                   </li>
                   <li onClick={() => updateCurrentLocation("survey")} className="nav-list-item__pro">
                     <p>
+
                       <i className="fas fa-share-square" /> Assign Survey
                     </p>
                   </li>
 
                   <li onClick={() => updateCurrentLocation("addSurvey")} className="nav-list-item__pro">
                     <p>
+
                       <i className="far fa-plus-square"> </i> Add Survey
                     </p>
                   </li>
                   <li  onClick={() => (setUserType("none"), updateCurrentLocation("survey"))} className="nav-list-item__pro">
                     <p>
+
                       <i className="fas fa-sign-out-alt"> </i> Logout
                     </p>
                   </li>
