@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import SurveyListList from "./SurveyListChoices";
+import ProgressChart from "../ProgressChart";
 
 export class SurveyList extends Component {
   onSubmit = () => {
@@ -22,10 +23,12 @@ export class SurveyList extends Component {
         <button
           className="genericButton"
           onClick={() => this.onSubmit()}
-          style={buttonStyle}
-        >
+          style={buttonStyle}>
           submit
         </button>
+
+        {this.props.survey && <ProgressChart survey={this.props.survey}/>} 
+
       </div>
     );
   }

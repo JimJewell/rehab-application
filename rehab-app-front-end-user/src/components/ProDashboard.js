@@ -10,12 +10,9 @@ export default class ProDashboard extends Component {
             <h1>Good Morning, Doctor Fry</h1>
             <SurveyList
                 surveys={this.props.surveys}
-                setSurveyById={this.props.setSurveyById}
-              />
+                setSurveyById={this.props.setSurveyById}/>
           </div>
         </div>
-
-        <div />
       </div>
     );
   }

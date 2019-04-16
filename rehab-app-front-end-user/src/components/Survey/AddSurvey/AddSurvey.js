@@ -44,7 +44,9 @@ export default class AddSurvey extends Component {
   }
 
   addQuestionChoice = (id, name) => {
-    this.setState({ questionChoices: [...this.state.questionChoices, {
+    { id === "add" && this.setState({ addQuestionChecker: true }) }
+    { id !== "add" && (this.setState({
+      questionChoices: [...this.state.questionChoices, {
         id: id,
         name: name,
       }]
@@ -95,7 +97,6 @@ export default class AddSurvey extends Component {
             >Submit Survey
               </button>
           </div>
-
         </div>
       </div>
     );
