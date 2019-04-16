@@ -50,7 +50,7 @@ export default class AddSurvey extends Component {
         id: id,
         name: name,
       }]
-    })
+    }))}
   }
 
   removeQuestionChoice = (specificQuestionName) => {
