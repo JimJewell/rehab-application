@@ -81,7 +81,7 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
                       <i className="far fa-chart-bar"> </i> Reports
                     </a>
                   </li>
-                  <li onClick={() => updateCurrentLocation("surveyList")} className="nav-list-item__pro">
+                  <li onClick={() => updateCurrentLocation("survey")} className="nav-list-item__pro">
                     <a >
                       <i className="fas fa-share-square" /> Assign Survey
                     </a>

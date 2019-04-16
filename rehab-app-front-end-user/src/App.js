@@ -83,12 +83,13 @@ class App extends Component {
                     {this.state.survey && (
                       <ProgressChart survey={this.state.survey} />
                     )}
-                    {!this.state.survey && (
+                    {
                       <SurveyList
+                        survey={this.props.survey}
                         surveys={this.state.surveys}
                         setSurveyById={this.setSurveyById}
                       />
-                    )}
+                    }
                   </div>
                 )}
 
