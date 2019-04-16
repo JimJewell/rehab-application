@@ -24,8 +24,7 @@ export default class AddSurvey extends Component {
 
   addQuestionChoice = (id, name) => {
     { id === "add" && this.setState({ addQuestionChecker: true }) }
-    {
-    id !== "add" && (this.setState({
+    { id !== "add" && (this.setState({
       questionChoices: [...this.state.questionChoices, {
         id: id,
         name: name,
@@ -62,8 +61,6 @@ export default class AddSurvey extends Component {
 
   addSurveyButton = () => {
     let name = document.querySelector(".surveyName-input").value
-
-
     this.props.addSurvey(name, this.state.questionChoices);
   };
 
@@ -98,7 +95,6 @@ export default class AddSurvey extends Component {
             >Submit Survey
               </button>
           </div>
-
         </div>
       </div>
     );

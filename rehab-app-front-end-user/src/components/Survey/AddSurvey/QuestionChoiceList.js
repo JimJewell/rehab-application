@@ -29,6 +29,7 @@ export default class QuestionChoiceList extends Component {
             })}
           </ul>
         </div>
+        
         {/* <div className="addQuestion-div">
           <input
             className="addQuestion-name"

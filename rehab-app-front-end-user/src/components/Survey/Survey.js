@@ -23,8 +23,8 @@ export default class Survey extends Component {
         {!this.props.survey && <h2>No Surveys to Complete</h2>}
         {this.props.survey && <div className="survey">
         <p className="patientMessage">
-          Your Care Provider has assigned you a survey to complete. Please
-          complete it by the due date.
+          Your Care Provider has assigned you a survey to complete. 
+          Please complete it by the due date.
         </p>
         <br />
           <h1 className="surveyTitle">{this.props.survey.name}</h1>
@@ -43,7 +43,6 @@ export default class Survey extends Component {
             </div>
           </div>
         </div>}
-        
       </div>
     );
   }

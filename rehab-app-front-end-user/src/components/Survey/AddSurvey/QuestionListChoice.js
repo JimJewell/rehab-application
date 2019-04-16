@@ -5,7 +5,6 @@ export class QuestionListChoice extends Component {
     return this.props.questions.map((question) => (
            <option value={question.id}>{question.name}</option>
         ))
-
   }
 }
 
