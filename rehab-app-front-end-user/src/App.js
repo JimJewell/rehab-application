@@ -47,7 +47,7 @@ class App extends Component {
     axios
       .post("/surveys/submit", { name, questions })
       .then(res => this.setState({ survey: res.data }));
-    this.setState({ currentLocation: "video"});
+    this.setState({ currentLocation: "video" });
   };
 
   setUserType = userType => {
@@ -68,49 +68,65 @@ class App extends Component {
         {this.state.userType === "none" && <Home />}
         {this.state.userType !== "none" && (
           <div>
-            {this.state.userType === "professional" && <div>
-            {(this.state.currentLocation === "survey" || this.state.currentLocation === "video") && <ProDashboard surveys={this.state.surveys} setSurveyById={this.setSurveyById}/>}              
+            {this.state.userType === "professional" && (
+              <div>
+                {(this.state.currentLocation === "survey" ||
+                  this.state.currentLocation === "video") && (
+                  <ProDashboard
+                    surveys={this.state.surveys}
+                    setSurveyById={this.setSurveyById}
+                  />
+                )}
 
-            {this.state.currentLocation === "surveyReport" && <div>
-              {this.state.survey && <ProgressChart survey={this.state.survey} />}
-              {!this.state.survey && <SurveyList
-                surveys={this.state.surveys}
-                setSurveyById={this.setSurveyById}
-              />}
+                {this.state.currentLocation === "surveyReport" && (
+                  <div>
+                    {this.state.survey && (
+                      <ProgressChart survey={this.state.survey} />
+                    )}
+                    {<SurveyList
+                        survey={this.props.survey}
+                        surveys={this.state.surveys}
+                        setSurveyById={this.setSurveyById}
+                      />}
+                  </div>
+                )}
+
+                {this.state.currentLocation === "surveyList" && (
+                  <SurveyList
+                    surveys={this.state.surveys}
+                    setSurveyById={this.setSurveyById}
+                  />
+                )}
+
+                {this.state.currentLocation === "addSurvey" && (
+                  <AddSurvey addSurvey={this.addSurvey} />
+                )}
               </div>
-            }
-
-            {this.state.currentLocation === "surveyList" && (
-              <SurveyList
-                surveys={this.state.surveys}
-                setSurveyById={this.setSurveyById}
-              />
             )}
 
-            {this.state.currentLocation === "addSurvey" && (
-              <AddSurvey addSurvey={this.addSurvey} />
+            {this.state.userType === "patient" && (
+              <div>
+                {this.state.survey && (
+                  <div className="chart">
+                    <ProgressChart survey={this.state.survey} />
+                  </div>
+                )}
+                {this.state.currentLocation === "survey" && (
+                  <Survey
+                    survey={this.state.survey}
+                    submitSurvey={this.submitSurvey}
+                  />
+                )}
+                {!this.state.survey &&
+                  this.state.currentLocation === "video" && (
+                    <Videos name="All" />
+                  )}
+                {this.state.survey &&
+                  this.state.currentLocation === "video" && (
+                    <Videos name={this.state.survey.name} />
+                  )}
+              </div>
             )}
-              </div>}
-           
-            {this.state.userType === "patient" && <div>
-              {this.state.survey && (
-              <ProgressChart survey={this.state.survey} />  
-              )} 
-              {this.state.currentLocation === "survey" && (
-                 <Survey
-                 survey={this.state.survey}
-                 submitSurvey={this.submitSurvey}
-               />
-              )}
-              {!this.state.survey && this.state.currentLocation === "video" && (
-              <Videos name="All" />
-              )}
-              {this.state.survey && this.state.currentLocation === "video" && (
-                <Videos name={this.state.survey.name} />
-              )}
-           
-            </div>
-            } 
           </div>
         )}
       </div>
