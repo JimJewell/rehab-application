@@ -14,13 +14,20 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
               <div className="dropdown">
                 <button className="dropbtn">Login</button>
                 <div className="dropdown-content">
-                  <li onClick={() => (setUserType("patient"),
-                      updateCurrentLocation("survey"))} className="nav-list-item">
+                  <li
+                    onClick={() => (
+                      setUserType("patient"), updateCurrentLocation("survey")
+                    )}
+                    className="nav-list-item"
+                  >
                     <a>
                       <i className="fas fa-user-injured"> </i> Patients
                     </a>
                   </li>
-                  <li onClick={() => setUserType("professional")} className="nav-list-item">
+                  <li
+                    onClick={() => setUserType("professional")}
+                    className="nav-list-item"
+                  >
                     <a>
                       <i className="fas fa-user-md"> </i> Medical Professionals
                     </a>
@@ -38,23 +45,39 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
               <img src={require("./icons/rehabiticontransparent.png")} />
             </div>
           </a>
+          <a onClick={() => setUserType("none")}>
+            <div className="logo">
+              <img className="vrIcon" src={require("./icons/vrIcon2.png")} />
+            </div>
+          </a>
           <nav className="nav">
             <ul className="nav-list">
               <div className="dropdown">
                 <button className="dropbtn">Menu</button>
                 <div className="dropdown-content">
-                  <li onClick={() => updateCurrentLocation("survey")} className="nav-list-item">
+                  <li
+                    onClick={() => updateCurrentLocation("survey")}
+                    className="nav-list-item"
+                  >
                     <a>
                       <i className="far fa-question-circle"> </i> Survey
                     </a>
                   </li>
-                  <li onClick={() => updateCurrentLocation("video")} className="nav-list-item">
+                  <li
+                    onClick={() => updateCurrentLocation("video")}
+                    className="nav-list-item"
+                  >
                     <a>
                       <i className="fas fa-film"> </i> Videos
                     </a>
                   </li>
-                  <li onClick={() => (setUserType("none"), updateCurrentLocation("survey"))} className="nav-list-item">
-                  <a>
+                  <li
+                    onClick={() => (
+                      setUserType("none"), updateCurrentLocation("survey")
+                    )}
+                    className="nav-list-item"
+                  >
+                    <a>
                       <i className="fas fa-sign-out-alt"> </i> Logout
                     </a>
                   </li>
@@ -76,23 +99,37 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
               <div className="dropdown">
                 <button className="dropbtn__pro">Menu</button>
                 <div className="dropdown-content">
-                  <li onClick={() => updateCurrentLocation("surveyReport")} className="nav-list-item__pro">
+                  <li
+                    onClick={() => updateCurrentLocation("surveyReport")}
+                    className="nav-list-item__pro"
+                  >
                     <a>
                       <i className="far fa-chart-bar"> </i> Reports
                     </a>
                   </li>
-                  <li onClick={() => updateCurrentLocation("survey")} className="nav-list-item__pro">
+                  <li
+                    onClick={() => updateCurrentLocation("survey")}
+                    className="nav-list-item__pro"
+                  >
                     <a>
                       <i className="fas fa-share-square" /> Assign Survey
                     </a>
                   </li>
 
-                  <li onClick={() => updateCurrentLocation("addSurvey")} className="nav-list-item__pro">
+                  <li
+                    onClick={() => updateCurrentLocation("addSurvey")}
+                    className="nav-list-item__pro"
+                  >
                     <a>
                       <i className="far fa-plus-square"> </i> Add Survey
                     </a>
                   </li>
-                  <li  onClick={() => (setUserType("none"), updateCurrentLocation("survey"))} className="nav-list-item__pro">
+                  <li
+                    onClick={() => (
+                      setUserType("none"), updateCurrentLocation("survey")
+                    )}
+                    className="nav-list-item__pro"
+                  >
                     <a>
                       <i className="fas fa-sign-out-alt"> </i> Logout
                     </a>
