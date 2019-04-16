@@ -4,22 +4,43 @@ import QuestionChoiceList from './QuestionChoiceList'
 import axios from "axios"
 
 export default class AddSurvey extends Component {
-
-  state = {
-    questions: [],
-    questionChoices: [],
-    addQuestionChecker: false
-  };
+  constructor(props) {
+    super(props);
+    this.updateQuestionOptions = this.updateQuestionOptions.bind(this);
+    this.setState = this.setState.bind(this);
+    this.state = {
+      questions: [],
+      questionOptions: [],
+      questionChoices: [],
+      addQuestionChecker: false
+    };
+  
+  }
 
   componentDidMount() {
-    axios.get("/questions").then(res => this.setState({ questions: res.data }));
+    axios.get("/questions").then(res => this.setState({ questions: res.data }))
+    .then(() => this.setQuestionOptions())
+  }
+
+  setQuestionOptions = () => {
+    this.setState({questionOptions: [...this.state.questions.map(question => {
+      return {id : question.id, name : question.name};
+    })]})
+  }
+
+  updateQuestionOptions = (specificQuestionName) => {
+    this.setState({
+      questionOptions: [...this.state.questionOptions.filter(questionOption => questionOption.name !== specificQuestionName)]
+    })
   }
 
   addQuestionChoiceButton = () => {
     let selectBox = document.querySelector(".questionListChoice")
     let questionId = selectBox.options[selectBox.selectedIndex].value;
     let questionName = selectBox.options[selectBox.selectedIndex].textContent;
-    this.addQuestionChoice(questionId, questionName)
+    Promise.all([this.addQuestionChoice(questionId, questionName)
+      ])
+      .then(this.updateQuestionOptions(questionName))
   }
 
   addQuestionChoice = (id, name) => {
@@ -29,34 +50,13 @@ export default class AddSurvey extends Component {
         id: id,
         name: name,
       }]
-    }))
-    }
-
+    })
   }
 
   removeQuestionChoice = (specificQuestionName) => {
     this.setState({
       questionChoices: [...this.state.questionChoices.filter(questionChoice => questionChoice.name !== specificQuestionName)]
     })
-  }
-
-  addQuestion = name => {
-    let newId
-    axios
-      .post("/questions/addQuestion", { name})
-      .then(res => this.setState({ questions: res.data }))
-      .then(() => {axios
-      .post("/questions/nameToId", { name})
-        .then(res => {newId = res.data })})
-      .then(() => {
-        console.log(newId)
-        this.setState({
-        questionChoices: [...this.state.questionChoices, {
-          id: newId,
-          name: name,
-        }],
-        addQuestionChecker: false
-       })})
   }
 
   addSurveyButton = () => {
@@ -75,13 +75,15 @@ export default class AddSurvey extends Component {
           </div>
 
           <div className="questionBox">
-            <QuestionList questions={this.state.questions} addQuestionChoice={this.addQuestionChoice}
-              questionChoices={this.state.questionChoices}
+          {console.log("choiceId " + this.state.questionChoiceIds)}
+          {console.log("choice " + this.state.questionChoices)}
+          {console.log("options " + this.state.questionOptions)}
+            <QuestionList questions={this.state.questionOptions} addQuestionChoice={this.addQuestionChoice}
             />
             <div className="btnContainer">
               <button
                 className="genericButton"
-                onClick={() => this.addQuestionChoiceButton()}
+                onClick={() => (this.addQuestionChoiceButton())}
               >Add Question Choice
               </button>
             </div>
