@@ -12,6 +12,10 @@ body {
   margin-top: 0px;
 }
 
+.survey {
+  padding-left: 20px;
+}
+
 .header {
   padding: 5px;
   height: 45px;
@@ -326,4 +330,13 @@ body {
   color: white;
   width: 400px;
   margin-left: 10px;
+}
+
+.chart {
+  margin-top: 20px;
+}
+
+canvas {
+  margin-top: 70px;
+  margin-left: 20px;
 }
