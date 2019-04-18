@@ -6,7 +6,10 @@ import axios from "axios"
 export default class AddSurvey extends Component {
   constructor(props) {
     super(props);
-    this.updateQuestionOptions = this.updateQuestionOptions.bind(this);
+    this.removeQuestionOption = this.removeQuestionOption.bind(this);
+    this.addQuestionOption = this.addQuestionOption.bind(this);
+    this.addQuestionChoice = this.addQuestionChoice.bind(this);
+    this.removeQuestionChoice = this.removeQuestionChoice.bind(this);
     this.setState = this.setState.bind(this);
     this.state = {
       questions: [],
@@ -23,40 +26,42 @@ export default class AddSurvey extends Component {
   }
 
   setQuestionOptions = () => {
-    this.setState({questionOptions: [...this.state.questions.map(question => {
-      return {id : question.id, name : question.name};
-    })]})
+    this.setState({questionOptions: [...this.state.questions]})
   }
 
-  updateQuestionOptions = (specificQuestionName) => {
+  removeQuestionOption = (specificQuestionName) => {
     this.setState({
       questionOptions: [...this.state.questionOptions.filter(questionOption => questionOption.name !== specificQuestionName)]
     })
   }
 
-  addQuestionChoiceButton = () => {
-    let selectBox = document.querySelector(".questionListChoice")
-    let questionId = selectBox.options[selectBox.selectedIndex].value;
-    let questionName = selectBox.options[selectBox.selectedIndex].textContent;
-    Promise.all([this.addQuestionChoice(questionId, questionName)
-      ])
-      .then(this.updateQuestionOptions(questionName))
+  addQuestionOption = (specificQuestionName) => {
+    this.setState({
+      questionOptions: [...this.state.questionOptions, this.state.questions.filter(question => question.name == specificQuestionName)[0]]
+    })
   }
 
-  addQuestionChoice = (id, name) => {
-    { id === "add" && this.setState({ addQuestionChecker: true }) }
-    { id !== "add" && this.setState({
-      questionChoices: [...this.state.questionChoices, {
-        id: id,
-        name: name,
-      }]
-    })}
+  addQuestionChoiceButton = () => {
+    let selectBox = document.querySelector(".questionListChoice")
+    let questionName = selectBox.options[selectBox.selectedIndex].textContent;
+    Promise.all([this.addQuestionChoice(questionName)
+      ])
+      .then(this.removeQuestionOption(questionName))
+  }
+
+  addQuestionChoice = (specificQuestionName) => {
+    this.setState({
+      questionChoices: [...this.state.questionChoices, 
+        this.state.questions.filter(question => question.name == specificQuestionName)[0]]
+    })
   }
 
   removeQuestionChoice = (specificQuestionName) => {
-    this.setState({
+    Promise.all([this.setState({
       questionChoices: [...this.state.questionChoices.filter(questionChoice => questionChoice.name !== specificQuestionName)]
-    })
+    })])
+    .then(this.addQuestionOption(specificQuestionName))
+    
   }
 
   addSurveyButton = () => {
@@ -75,9 +80,6 @@ export default class AddSurvey extends Component {
           </div>
 
           <div className="questionBox">
-          {console.log("choiceId " + this.state.questionChoiceIds)}
-          {console.log("choice " + this.state.questionChoices)}
-          {console.log("options " + this.state.questionOptions)}
             <QuestionList questions={this.state.questionOptions} addQuestionChoice={this.addQuestionChoice}
             />
             <div className="btnContainer">
@@ -88,7 +90,7 @@ export default class AddSurvey extends Component {
               </button>
             </div>
           </div>
-          <QuestionChoiceList questionChoices={this.state.questionChoices} removeQuestionChoice={this.removeQuestionChoice} addQuestionChecker={this.state.addQuestionChecker} addQuestion = {this.addQuestion} />
+          <QuestionChoiceList questionChoices={this.state.questionChoices} removeQuestionChoice={this.removeQuestionChoice} addQuestionChecker={this.state.addQuestionChecker}/>
 
           <div className="btnContainer">
             <button
