@@ -5,7 +5,7 @@ export default class QuestionList extends Component {
   render() {
     return (
       <div className="questionDiv">
-        <p>Questions</p>
+        <p>Question Selection:</p>
         <select className="questionListChoice">
           <QuestionListChoice questions={this.props.questions} />
           {/* <option value="add">Add Question</option> */}

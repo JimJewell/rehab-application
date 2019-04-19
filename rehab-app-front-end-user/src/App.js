@@ -10,7 +10,8 @@ import AddSurvey from "./components/Survey/AddSurvey/AddSurvey";
 import ProgressChart from "./components/ProgressChart";
 
 import ProDashboard from "./components/ProDashboard";
-
+import Login from "./components/login";
+import PatientLogin from "./components/patientLogin";
 import axios from "axios";
 import Home from "./components/home";
 
@@ -20,12 +21,19 @@ class App extends Component {
     survey: undefined,
     currentLocation: "survey",
     userType: "none",
-    firstChecker: true
+    firstChecker: true,
+    showModal: false
   };
 
   componentDidMount() {
     axios.get("/surveys").then(res => this.setState({ surveys: res.data }));
   }
+
+  toggleModal = () => {
+    this.setState({
+      showModal: !this.state.showModal
+    });
+  };
 
   setSurveyById = id => {
     if (id === "all") {
@@ -65,8 +73,23 @@ class App extends Component {
           updateCurrentLocation={this.updateCurrentLocation}
           userType={this.state.userType}
           setUserType={this.setUserType}
+          toggleModal={this.toggleModal}
         />
         {this.state.userType === "none" && <Home />}
+        {this.state.userType === "prologin" && (
+          <Login
+            updateCurrentLocation={this.updateCurrentLocation}
+            userType={this.state.userType}
+            setUserType={this.setUserType}
+          />
+        )}
+        {this.state.userType === "patlogin" && (
+          <PatientLogin
+            updateCurrentLocation={this.updateCurrentLocation}
+            userType={this.state.userType}
+            setUserType={this.setUserType}
+          />
+        )}
         {this.state.userType !== "none" && (
           <div>
             {this.state.userType === "professional" && (
@@ -84,11 +107,13 @@ class App extends Component {
                     {this.state.survey && (
                       <ProgressChart survey={this.state.survey} />
                     )}
-                    {<SurveyList
+                    {
+                      <SurveyList
                         survey={this.props.survey}
                         surveys={this.state.surveys}
                         setSurveyById={this.setSurveyById}
-                      />}
+                      />
+                    }
                   </div>
                 )}
 
