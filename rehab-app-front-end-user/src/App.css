@@ -436,3 +436,13 @@ canvas {
   color: white;
   text-align: center;
 }
+
+.a-scene{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+.visible__text{
+  visibility: hidden;
+}
