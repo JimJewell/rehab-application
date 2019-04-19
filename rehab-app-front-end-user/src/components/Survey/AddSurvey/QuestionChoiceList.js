@@ -10,7 +10,7 @@ export default class QuestionChoiceList extends Component {
     return (
       <div className="questionChoice-Div">
         <div>
-          <p>Questions</p>
+          <p>Question(s) Selected</p>
           <ul className="questionChoices-list">
             {this.props.questionChoices.map(questionChoice => {
               return (

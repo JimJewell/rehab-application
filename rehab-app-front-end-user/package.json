@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@types/chartjs": "0.0.31",
+    "aframe": "^0.9.1",
     "axios": "^0.18.0",
     "chart.js": "^1.1.1",
     "react": "^16.8.6",
