@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Survey from "./components/Survey/Survey";
 import SurveyList from "./components/Survey/SurveyList";
 import Videos from "./components/Videos";
+import Scene from "./components/Scene"
 
 import AddSurvey from "./components/Survey/AddSurvey/AddSurvey";
 import ProgressChart from "./components/ProgressChart";
@@ -106,7 +107,7 @@ class App extends Component {
 
             {this.state.userType === "patient" && (
               <div>
-                {this.state.survey && (
+                {this.state.survey && this.state.currentLocation !== "scene" && (
                   <div className="chart">
                     <ProgressChart survey={this.state.survey} />
                   </div>
@@ -125,6 +126,8 @@ class App extends Component {
                   this.state.currentLocation === "video" && (
                     <Videos name={this.state.survey.name} />
                   )}
+                {this.state.currentLocation === "scene" && <Scene />}
+
               </div>
             )}
           </div>
