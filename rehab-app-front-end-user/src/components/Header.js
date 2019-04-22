@@ -42,7 +42,7 @@ export default ({ updateCurrentLocation, setUserType, userType }) => {
         <header className="header__patient">
             <div className="logo">
               <img className="vrIcon" onClick={() => updateCurrentLocation("scene")} src={require("./icons/vrIcon2.png")} />
-              <img src={require("./icons/rehabiticontransparent.png")} alt="Rehab"/>
+              <img onClick={() => setUserType("none")} src={require("./icons/rehabiticontransparent.png")} alt="Rehab"/>
 
             </div>
 

@@ -6,15 +6,23 @@ export default class Survey extends Component {
     const name = this.props.survey.name;
     let questions = [];
 
+    let emptyChoice = true;
     const questionDivs = document.querySelectorAll(".questionDiv");
-
     for (const questionDiv of questionDivs) {
       questions.push({
         name: questionDiv.querySelector(".questionName").textContent,
         value: questionDiv.querySelector(".questionValue").value
       });
+      if (questionDiv.querySelector(".questionValue").value === "") {
+        emptyChoice = false;
+      }
     }
-    this.props.submitSurvey(name, questions);
+
+    if (emptyChoice == false) {
+      alert("Please answer all questions");
+    } else {
+      this.props.submitSurvey(name, questions);
+    }
   };
 
   render() {

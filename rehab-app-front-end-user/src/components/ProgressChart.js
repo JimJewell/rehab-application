@@ -21,6 +21,6 @@ export default class ProgressChart extends Component {
         }
       ]
     };
-    return <Line data={data} margin-top="70" redraw width="600" height="250" />;
+    return <Line data={data} margin-top="70" redraw width="600" height="200" />;
   }
 }

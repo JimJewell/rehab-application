@@ -24,8 +24,9 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
+import com.rehab.rehabapp.controllers.QuestionController;
 import com.rehab.rehabapp.controllers.SurveyController;
-import com.rehab.rehabapp.models.Survey;
+import com.rehab.rehabapp.models.Question;
 import com.rehab.rehabapp.repositories.QuestionRepository;
 import com.rehab.rehabapp.repositories.SubmittedQuestionRepository;
 import com.rehab.rehabapp.repositories.SubmittedSurveyRepository;
@@ -33,7 +34,7 @@ import com.rehab.rehabapp.repositories.SurveyRepository;
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(SurveyController.class)
-public class SurveyControllerTest {
+public class QuestionControllerTest {
 	
 	@Autowired
 	private WebApplicationContext context;
@@ -50,20 +51,20 @@ public class SurveyControllerTest {
 	SurveyRepository surveyRepo;
 
     @InjectMocks
-    private SurveyController surveyController;
+    private QuestionController QuesrionController;
     
     public void setup() {
     	this.mvc = MockMvcBuilders.webAppContextSetup(context).build();
     }
     
     @Test
-    public void givenCauses_whenGetCauses_theReturnJsonArray() throws Exception {
-    	Survey survey = new Survey("surveyName", "");
-    	List<Survey> allSurveys = Arrays.asList(survey);
-    	given(surveyRepo.findAll()).willReturn(allSurveys);
-    	mvc.perform(get("/surveys/").contentType(MediaType.APPLICATION_JSON))
+    public void givenQuestion_whenGetQuestions_theReturnJsonArray() throws Exception {
+    	Question question = new Question("question", "");
+    	List<Question> allQuestions = Arrays.asList(question);
+    	given(questionRepo.findAll()).willReturn(allQuestions);
+    	mvc.perform(get("/questions").contentType(MediaType.APPLICATION_JSON))
     	.andExpect(status().isOk())
     	.andExpect(jsonPath("$", hasSize(1)))
-    	.andExpect(jsonPath("$[0].name", is(survey.getName())));
+    	.andExpect(jsonPath("$[0].name", is(question.getName())));
     }
 }

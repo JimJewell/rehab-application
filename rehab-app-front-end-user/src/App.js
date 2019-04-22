@@ -6,6 +6,7 @@ import SurveyList from "./components/Survey/SurveyList";
 import Videos from "./components/Videos";
 import Scene from "./components/Scene"
 
+
 import AddSurvey from "./components/Survey/AddSurvey/AddSurvey";
 import ProgressChart from "./components/ProgressChart";
 
@@ -44,6 +45,12 @@ class App extends Component {
         .then(res => this.setState({ survey: res.data }));
     }
   };
+
+  foo = () => {
+    this.el.addEventListener("click", (e)=>{
+      console.log('click')
+    })
+    };
 
   addSurvey = (name, questionChoices) => {
     axios
@@ -97,8 +104,11 @@ class App extends Component {
                 {(this.state.currentLocation === "survey" ||
                   this.state.currentLocation === "video") && (
                   <ProDashboard
+                    location = {this.state.currentLocation}
                     surveys={this.state.surveys}
                     setSurveyById={this.setSurveyById}
+                    assignChecker={true}
+                    updateCurrentLocation={this.updateCurrentLocation}
                   />
                 )}
 
@@ -109,9 +119,11 @@ class App extends Component {
                     )}
                     {
                       <SurveyList
-                        survey={this.props.survey}
+                        location = {this.state.currentLocation}
                         surveys={this.state.surveys}
                         setSurveyById={this.setSurveyById}
+                        assignChecker={false}
+                        updateCurrentLocation={this.updateCurrentLocation}
                       />
                     }
                   </div>
@@ -119,14 +131,18 @@ class App extends Component {
 
                 {this.state.currentLocation === "surveyList" && (
                   <SurveyList
+                    location = {this.state.currentLocation}
                     surveys={this.state.surveys}
                     setSurveyById={this.setSurveyById}
+                    assignChecker={true}
+                    updateCurrentLocation={this.updateCurrentLocation}
                   />
                 )}
 
                 {this.state.currentLocation === "addSurvey" && (
                   <AddSurvey addSurvey={this.addSurvey} />
                 )}
+              
               </div>
             )}
 

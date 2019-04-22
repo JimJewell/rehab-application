@@ -5,15 +5,19 @@ import ProgressChart from "../ProgressChart";
 export class SurveyList extends Component {
   onSubmit = () => {
     const id = document.querySelector(".surveySelect").value;
-    this.props.setSurveyById(id);
+    this.props.setSurveyById(id)
+    this.props.updateCurrentLocation("surveyReport")
   };
 
   render() {
     return (
       <div className="renderContainer">
-        <p className="professionalMessage">
+        {(this.props.location === "survey" ||
+          this.props.location === "video" ||
+          this.props.location === "surveyList") && <p className="professionalMessage">
           Please choose a survey for your patient to complete.
-        </p>
+        </p>}
+        
         <select className="surveySelect">
           <option>Select Survey</option>
           <SurveyListList surveys={this.props.surveys} />
@@ -24,7 +28,7 @@ export class SurveyList extends Component {
           className="genericButton"
           onClick={() => this.onSubmit()}
           style={buttonStyle}>
-          submit
+          Submit
         </button>
 
         {this.props.survey && <ProgressChart survey={this.props.survey}/>} 
