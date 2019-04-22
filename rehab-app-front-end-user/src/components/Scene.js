@@ -1,13 +1,16 @@
 import 'aframe'
 import React, {Component} from 'react'
 
+  
+
 class Scene extends Component {
   render () {
     return (
       <div id="a-scene" className="a-scene">
-        <a-scene cursor="rayOrigin: mouse">
+        <a-scene >
+      
+//         <a-scene cursor="rayOrigin: mouse"> //Replace line 10 with this to use mouse instead of controllers.
 
-        <a-entity raycaster="objects: [data-raycastable]" cursor></a-entity>
 
 
         <a-entity laser-controls="hand: left"></a-entity>
