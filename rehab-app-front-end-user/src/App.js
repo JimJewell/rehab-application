@@ -6,6 +6,7 @@ import SurveyList from "./components/Survey/SurveyList";
 import Videos from "./components/Videos";
 import Scene from "./components/Scene"
 
+
 import AddSurvey from "./components/Survey/AddSurvey/AddSurvey";
 import ProgressChart from "./components/ProgressChart";
 
@@ -44,6 +45,12 @@ class App extends Component {
         .then(res => this.setState({ survey: res.data }));
     }
   };
+
+  foo = () => {
+    this.el.addEventListener("click", (e)=>{
+      console.log('click')
+    })
+    };
 
   addSurvey = (name, questionChoices) => {
     axios
