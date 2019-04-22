@@ -344,3 +344,9 @@ canvas {
   margin-top: 70px;
   margin-left: 20px;
 }
+
+.a-scene{
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
