@@ -97,8 +97,11 @@ class App extends Component {
                 {(this.state.currentLocation === "survey" ||
                   this.state.currentLocation === "video") && (
                   <ProDashboard
+                    location = {this.state.currentLocation}
                     surveys={this.state.surveys}
                     setSurveyById={this.setSurveyById}
+                    assignChecker={true}
+                    updateCurrentLocation={this.updateCurrentLocation}
                   />
                 )}
 
@@ -109,9 +112,11 @@ class App extends Component {
                     )}
                     {
                       <SurveyList
-                        survey={this.props.survey}
+                        location = {this.state.currentLocation}
                         surveys={this.state.surveys}
                         setSurveyById={this.setSurveyById}
+                        assignChecker={false}
+                        updateCurrentLocation={this.updateCurrentLocation}
                       />
                     }
                   </div>
@@ -119,14 +124,18 @@ class App extends Component {
 
                 {this.state.currentLocation === "surveyList" && (
                   <SurveyList
+                    location = {this.state.currentLocation}
                     surveys={this.state.surveys}
                     setSurveyById={this.setSurveyById}
+                    assignChecker={true}
+                    updateCurrentLocation={this.updateCurrentLocation}
                   />
                 )}
 
                 {this.state.currentLocation === "addSurvey" && (
                   <AddSurvey addSurvey={this.addSurvey} />
                 )}
+              
               </div>
             )}
 
