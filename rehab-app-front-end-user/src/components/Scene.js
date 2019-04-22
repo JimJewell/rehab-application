@@ -9,7 +9,7 @@ class Scene extends Component {
       <div id="a-scene" className="a-scene">
         <a-scene >
       
-//         <a-scene cursor="rayOrigin: mouse"> //Replace line 10 with this to use mouse instead of controllers.
+         {/* <a-scene cursor="rayOrigin: mouse"> //Replace line 10 with this to use mouse instead of controllers. */}
 
 
 
