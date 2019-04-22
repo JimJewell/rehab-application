@@ -8,6 +8,10 @@ class Scene extends Component {
     return (
       <div id="a-scene" className="a-scene">
         <a-scene >
+      
+//         <a-scene cursor="rayOrigin: mouse"> //Replace line 10 with this to use mouse instead of controllers.
+
+
 
         <a-entity laser-controls="hand: left"></a-entity>
         <a-entity laser-controls="hand: right"></a-entity>

@@ -269,8 +269,8 @@ body {
   background-image: url("./components/images/sportsPT.jpeg");
   background-repeat: no-repeat;
   background-color: white;
-  height: 800px;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   background-position: center;
   background-size: cover;
   top: 20px;
@@ -320,8 +320,8 @@ body {
   background-image: url("./components/images/doctor.jpeg");
   background-repeat: no-repeat;
   background-color: white;
-  height: 800px;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   background-position: center;
   background-size: cover;
   top: 20px;
@@ -343,6 +343,98 @@ body {
 canvas {
   margin-top: 70px;
   margin-left: 20px;
+}
+
+.login {
+  background: rgba(13, 14, 13, 0.9);
+  /* margin-left: 200px; */
+  width: 100%;
+  max-width: 420px;
+  height: 160px;
+  box-shadow: 0px 2px 7px 0px rgba(0, 0, 0, 0.75);
+  margin-bottom: 250px;
+  /* bring your own prefixes */
+}
+
+.userName {
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+}
+
+.passWord {
+  color: white;
+  text-align: center;
+}
+
+.close {
+  width: 100%;
+
+  float: right;
+  color: white;
+  cursor: pointer;
+}
+
+.loginsplashBacker {
+  background-image: url("./components/images/sportsPT.jpeg");
+  background-repeat: no-repeat;
+  background-color: white;
+  height: 100vh;
+  width: 100vw;
+  background-position: center;
+  background-size: cover;
+  top: 20px;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginLable {
+  padding-right: 10px;
+}
+
+.loginStuff {
+  text-align: center;
+}
+
+.pass {
+  background-color: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  border-top: transparent;
+  font-size: 14px;
+  padding-bottom: 5px;
+  border-bottom: #368cbf;
+  color: white;
+  outline: none;
+}
+
+.user {
+  background-color: transparent;
+  border: none;
+  font-size: 14px;
+  outline: none;
+  color: white;
+}
+
+.forgotPass {
+  float: right;
+  bottom: 0;
+  color: white;
+  font-size: 10px;
+}
+
+.register {
+  float: left;
+  bottom: 0;
+  color: white;
+  font-size: 10px;
+}
+
+.loginHeader {
+  color: white;
+  text-align: center;
 }
 
 .a-scene{
