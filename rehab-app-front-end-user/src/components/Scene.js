@@ -1,31 +1,17 @@
 import 'aframe'
 import React, {Component} from 'react'
 
-  // AFRAME.registerComponent("foo", {
-  // init: function() {
-  // this.el.addEventListener("click", (e)=>{
-  //  console.log('click')
-  // })
-  // }
-  // })
-  
-
 class Scene extends Component {
   render () {
     return (
       <div id="a-scene" className="a-scene">
         <a-scene cursor="rayOrigin: mouse">
 
-
-        {/* <a-camera position="0 1 0">
-          <a-cursor scale="0.5 0.5" color="black"></a-cursor>
-        </a-camera> */}
-
         <a-entity raycaster="objects: [data-raycastable]" cursor></a-entity>
 
 
-        {/* <a-entity windows-motion-controls="hand: left"></a-entity>
-        <a-entity windows-motion-controls="hand: right"></a-entity> */}
+        <a-entity laser-controls="hand: left"></a-entity>
+        <a-entity laser-controls="hand: right"></a-entity>
 
         <a-entity>
         <a-gltf-model 
@@ -115,6 +101,7 @@ class Scene extends Component {
     );
   }
 }
+
 
 
 export default Scene;
