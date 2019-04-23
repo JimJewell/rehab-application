@@ -82,19 +82,19 @@ class Scene extends Component {
           </a-plane>
 
         <a-entity id="skeleton__text1"
-        text="value: Hello World"
+        text="value: 3D model of uninjured ACL"
         position="2 -10 -4"
         scale="10 10 1"
         ></a-entity>
 
         <a-entity id="skeleton__text2"
-        text="value: Hello World"
+        text="value: 3D model of ACL after injury"
         position="4 -10 -4"
         scale="10 10 1"
         ></a-entity>
 
         <a-entity id="skeleton__text3"
-        text="value: Hello World"
+        text="value: 3D model of ACL after surgery"
         position="6 -10 -4"
         scale="10 10 1"
         ></a-entity>
