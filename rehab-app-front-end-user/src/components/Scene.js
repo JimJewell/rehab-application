@@ -1,15 +1,12 @@
 import 'aframe'
 import React, {Component} from 'react'
-
-  
-
 class Scene extends Component {
   render () {
     return (
       <div id="a-scene" className="a-scene">
-        <a-scene >
+        {/* <a-scene > */}
       
-         {/* <a-scene cursor="rayOrigin: mouse"> //Replace line 10 with this to use mouse instead of controllers. */}
+         <a-scene cursor="rayOrigin: mouse"> 
 
 
 
@@ -25,10 +22,10 @@ class Scene extends Component {
         onclick="{
           let textBox1 = document.querySelector('#skeleton__text1')
           if(textBox1.getAttribute('position').y == -10){
-            textBox1.setAttribute('position', {x:2,  y:3,  z:-4})
+            textBox1.setAttribute('position', {x:-1,  y:3,  z:-4})
 
           } else {
-            textBox1.setAttribute('position', {x:2,  y:-10,  z:-4})
+            textBox1.setAttribute('position', {x:-1,  y:-10,  z:-4})
 
           }
       }">
@@ -44,10 +41,10 @@ class Scene extends Component {
         onclick="{
           let textBox1 = document.querySelector('#skeleton__text2')
           if(textBox1.getAttribute('position').y == -10){
-            textBox1.setAttribute('position', {x:4,  y:4,  z:-4})
+            textBox1.setAttribute('position', {x:2,  y:4,  z:-4})
 
           } else {
-            textBox1.setAttribute('position', {x:4,  y:-10,  z:-4})
+            textBox1.setAttribute('position', {x:2,  y:-10,  z:-4})
 
           }
       }">
@@ -63,10 +60,10 @@ class Scene extends Component {
         onclick="{
           let textBox1 = document.querySelector('#skeleton__text3')
           if(textBox1.getAttribute('position').y == -10){
-            textBox1.setAttribute('position', {x:6,  y:3,  z:-4})
+            textBox1.setAttribute('position', {x:5,  y:3,  z:-4})
 
           } else {
-            textBox1.setAttribute('position', {x:6,  y:-10,  z:-4})
+            textBox1.setAttribute('position', {x:5,  y:-10,  z:-4})
 
           }
       }">
@@ -82,20 +79,20 @@ class Scene extends Component {
           </a-plane>
 
         <a-entity id="skeleton__text1"
-        text="value: Hello World"
-        position="2 -10 -4"
+        text="value: 3D model of uninjured ACL"
+        position="-1 -10 -4"
         scale="10 10 1"
         ></a-entity>
 
         <a-entity id="skeleton__text2"
-        text="value: Hello World"
-        position="4 -10 -4"
+        text="value: 3D model of ACL after injury"
+        position="2 -10 -4"
         scale="10 10 1"
         ></a-entity>
 
         <a-entity id="skeleton__text3"
-        text="value: Hello World"
-        position="6 -10 -4"
+        text="value: 3D model of ACL after surgery"
+        position="5 -10 -4"
         scale="10 10 1"
         ></a-entity>
         
